@@ -1,0 +1,144 @@
+
+
+
+.title {
+  text-align: center;
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title h1 {
+  font-size: 15rem;
+  font-weight: 600;
+  letter-spacing: 30px;
+  /* margin-bottom: 40px; */
+  background: linear-gradient(to bottom, #ffffff, #7c7c7c); /* white to gray */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 1; /* default faded state */
+  transition: opacity 0.6s ease-out; /* smooth fade */
+  font-family: "Roboto Serif", serif;
+  /* padding: 0px; */
+  
+}
+.title p{
+  max-width: 700px;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+.home {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  padding-top: 60px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1.2s ease-in-out;
+  overflow: hidden; 
+}
+
+
+
+/* overlay layer */
+.home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3); /* ← 20% black layer */
+  z-index: 0;
+}
+
+/* make sure all text & content stay above the overlay */
+.home > * {
+  position: relative;
+  z-index: 1;
+}
+
+.bar1{
+  transform: translateY(0);
+  background-color: #ffffff;
+  width: 120px;
+  height: 6px;
+  border-radius: 50px;
+  transition: transform 0.1s ease;
+}
+.bar2{
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 120px;
+  height: 6px;
+  border-radius: 50px;
+}
+.loader-bar{
+  display: flex;
+  gap: 40px;
+}
+.home-btn {
+  font-family: "Nova Cut", sans-serif;
+  font-size: 22px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin-bottom: 40px;
+  border-left: #ffffff 1px solid;
+  border-right: #ffffff 1px solid;
+  text-decoration: none;
+}
+
+.home-btn span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+.home-btn svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.home-btn:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.home-btn:hover svg {
+  transform: translateX(2.5em) rotate(45deg) scale(1.1);
+}
+
+.home-btn:hover span {
+  transform: translateX(10em);
+}
+
+.home-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+

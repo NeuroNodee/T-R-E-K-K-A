@@ -1,0 +1,142 @@
+.notification-container{
+    width: 35px;
+    height: 35px;
+    background-color: rgb(246, 245, 245);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.notification-container .notify-btn{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.notifyDiv svg{
+    color: #000;
+    width: 100%;
+    height: 100%;
+}
+.notifyDiv{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.notification-container {
+  position: relative;
+  display: inline-block;
+}
+
+.notification-container .notify-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  padding: 6px;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.notification-container:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip BELOW */
+.notification-container .notify-btn::after {
+  content: "Notifications";
+  position: absolute;
+  top: 140%; /* 👈 places tooltip below */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000000;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  font-family: 'Poppins', sans-serif;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 50;
+}
+
+/* Tooltip arrow (optional) */
+.notification-container .notify-btn::before {
+  content: "";
+  position: absolute;
+  top: 110%; /* 👈 arrow just above tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #222 transparent;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Show on hover */
+.notification-container .notify-btn:hover::after,
+.notification-container .notify-btn:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(2px);
+}
+.overlay-notify{
+  position:absolute;
+  right: -140px;
+  width: 20vw;
+  height: 60vh;
+  background-color: #ffffff;
+  top: 50px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 20px;
+}
+.switch-btn {
+  position: relative;
+  display: flex;
+  gap: 5px;
+  width: 45%;
+  transition: height 0.3s ease; 
+}
+
+.switch-btn:hover{
+  height: 50px;
+}
+.notify2{
+  display: none;
+}
+.switch-btn:hover .notify2{
+  display: block;
+}
+.switch-btn:hover img{
+  opacity: 0;
+}
+.switch-btn:hover .notify2{
+  color: #898989;
+}
+.switch-btn .notify-shade button{
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+}
+.notify-shade{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.notify1:hover,
+.notify2:hover{
+  border-left: #000 2px solid;
+
+  padding-left: 5px;
+}
+.notify1,
+.notify2 {
+  transition: padding-left 0.3s ease, color 0.3s ease;
+}
+
+
