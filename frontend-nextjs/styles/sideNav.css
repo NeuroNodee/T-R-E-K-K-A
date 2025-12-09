@@ -93,6 +93,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    color: #ffffff;
 }
 .nav-icon svg{
     width: 100%;
@@ -122,4 +123,7 @@
 }
 .column-nav:hover .text-content ul li .nav-div span{
     opacity: 1;
+}
+.nav-div:hover span{
+    color: black;
 }
