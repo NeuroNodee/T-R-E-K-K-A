@@ -63,7 +63,14 @@ const TravelKit = () => {
                         </div>
                     </div>
                     <div className="travelKit-content-lower">
-                        
+                        <h2>Saved travel items set</h2>
+                        <ul className="saved-items">
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
