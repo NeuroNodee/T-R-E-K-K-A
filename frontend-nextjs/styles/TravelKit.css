@@ -90,7 +90,7 @@
     background-color: #cdcbcb;
     width: 100%;
     border-radius: 10px;
-    padding: 15px;
+    padding: 20px;
     /* margin-bottom: 5px; */
 }
 .saved-items li:nth-child(even){
@@ -101,5 +101,8 @@
     margin-bottom: 10px;
 }
 .travelKit-content .selective-content{
-    height: 100vh !important;
+    min-height: 100vh !important;
+}
+.travelKit-content-middle:hover{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

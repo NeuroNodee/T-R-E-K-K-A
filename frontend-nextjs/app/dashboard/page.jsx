@@ -7,46 +7,37 @@ import ProfileBtn from '@/components/ProfileBtn';
 import Notify from '@/components/Notify';
 import Overview from '../overview/page';
 import TravelKit from '../travelKit/page';
+import Community from '../community/page';
 const Dashboard = () => {
-  const backgrounds = [
-    "/side1.png",
-    "/side2.png",
-    "/side3.png",
-  ];
-  const texts = [
-    "TEMPLES",
-    "HILLS",
-    "PEAKS",
-  ];
-  const [currentBg, setCurrentBg] = useState(0);
-  const [currentTitle, setCurrentTitle] = useState(0);
 
   //the following usesate are used solely for section navigation
   const [showOverview, setShowOverview] = useState(true);
   const [showTravelKit, setShowTravelKit] = useState(false);
+  const [showCommunity, setShowCommunity] = useState(false);
   const handleOverview = () => {
     setShowOverview(true);
     setShowTravelKit(false);
+    setShowCommunity(false);
   }
   const handleTravelKit = () => {
     setShowOverview(false);
     setShowTravelKit(true);
+    setShowCommunity(false);
+  }
+  const handleCommunity = () => {
+    setShowOverview(false);
+    setShowTravelKit(false);
+    setShowCommunity(true);
   }
 
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentBg((prev) => (prev + 1) % backgrounds.length);
-      setCurrentTitle((prev) => (prev + 1) % texts.length);
-    }, 4000); // every 3 seconds
 
-    return () => clearInterval(interval);
-  }, []);
   return (
     <div className='dashboard-content'>
-        <SideNav handleOverview={handleOverview} handleTravelKit={handleTravelKit}></SideNav>
+        <SideNav handleOverview={handleOverview} handleTravelKit={handleTravelKit} handleCommunity={handleCommunity}></SideNav>
         {showOverview && <Overview></Overview>}
         {showTravelKit && <TravelKit></TravelKit>}
+        {showCommunity && <Community></Community>}
       </div>
     
   )
