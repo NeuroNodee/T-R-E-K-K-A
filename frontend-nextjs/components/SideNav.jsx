@@ -98,7 +98,7 @@ const SideNav = ({ handleOverview, handleTravelKit, handleCommunity }) => {
             </ul>
             <ul className='nav-flex1'>
                 <li>
-                    <Link href="">
+                    <Link href="/aboutus">
                         <div className='nav-div'>
                             <div className="nav-icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
