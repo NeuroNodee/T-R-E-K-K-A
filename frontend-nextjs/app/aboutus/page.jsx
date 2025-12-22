@@ -2,6 +2,36 @@
 import Navbar1 from "@/components/Navbar1";
 import { useState } from "react";
 const AboutUs = () => {
+    const [sec1, setSec1] = useState(0);
+    const [sec2, setSec2] = useState(0);
+    const [sec3, setSec3] = useState(0);
+    const handelSec1 = () => {
+        if (sec1>3){
+            setSec1(0);
+            console.log("sec1",sec1);
+        }
+        else{
+            setSec1(sec1 + 1);
+            console.log("sec1n",sec1);
+        }
+
+    }
+    const handelSec2 = () => {
+        if (sec2>2){
+            setSec2(0);
+        }
+        else{
+            setSec2(sec2 + 1);
+        }   
+    }
+    const handelSec3 = () => {
+        if (sec3>1){
+            setSec3(0);
+        }
+        else{
+            setSec3(sec3 + 1);
+        }
+    }
     const text1 = [
         "Discover destinations based on your preferences",
         "Local Expertise",
@@ -21,22 +51,22 @@ const AboutUs = () => {
         "Send a connect request to plan trips"
     ];
     const img1 = [
-        "",
-        "",
-        "",
-        "",
-        ""
+        "/img11.svg",
+        "/img12.svg",
+        "/img13.svg",
+        "/img14.svg",
+        "/img15.svg"
     ]
     const img2 = [
-        "",
-        "",
-        "",
-        ""
+        "/img21.svg",
+        "/img22.svg",
+        "/img23.svg",
+        "/img24.svg"
     ]
     const img3 = [
-        "",
-        "",
-        ""
+        "/img31.svg",
+        "/img32.svg",
+        "/img33.svg"
     ]
     const [animationText1, setAnimationText1] = useState(text1[0]);
     const [animationText2, setAnimationText2] = useState(text2[0]);
@@ -64,9 +94,9 @@ const AboutUs = () => {
                                     <p>{animationText1}</p>
                                 </div>
                                 <div className="animation-img">
-                                    <img src="#" alt="" />
+                                    <img src={animationImg1} alt="" />
                                 </div>
-                                <button className="arrow">
+                                <button className="arrow" onClick={() => {handelSec1(); setAnimationText1(text1[sec1]); setAnimationImg1(img1[sec1])}}>
                                     <img src="/arrow.svg" alt="" />
                                 </button>
                             </div>
@@ -80,9 +110,9 @@ const AboutUs = () => {
                                     <p>{animationText2}</p>
                                 </div>
                                 <div className="animation-img">
-                                    <img src="#" alt="" />
+                                    <img src={animationImg2} alt="" />
                                 </div>
-                                <button className="arrow">
+                                <button className="arrow" onClick={() => {handelSec2(); setAnimationText2(text2[sec2]); setAnimationImg2(img2[sec2])}}>
                                     <img src="/arrow.svg" alt="" />
                                 </button>
                             </div>
@@ -96,9 +126,9 @@ const AboutUs = () => {
                                     <p>{animationText3}</p>
                                 </div>
                                 <div className="animation-img">
-                                    <img src="#" alt="" />
+                                    <img src={animationImg3} alt="" />
                                 </div>
-                                <button className="arrow">
+                                <button className="arrow" onClick={() => {handelSec3(); setAnimationText3(text3[sec3]); setAnimationImg3(img3[sec3])}}>
                                     <img src="/arrow.svg" alt="" />
                                 </button>
                             </div>

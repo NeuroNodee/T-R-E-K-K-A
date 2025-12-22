@@ -5,6 +5,9 @@
     background-size: cover;
     overflow-x: clip;
 }
+.aboutus-content .navigation-bar{
+    backdrop-filter: blur(10px);
+}
 .aboutus-content .content{
     padding: 150px 50px 50px 50px;
 }
