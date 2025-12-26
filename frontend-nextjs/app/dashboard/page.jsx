@@ -2,6 +2,7 @@
 import PageTransition from '@/components/PageTransition'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation';
 import SideNav from "./../../components/SideNav";
 import ProfileBtn from '@/components/ProfileBtn';
 import Notify from '@/components/Notify';
@@ -10,7 +11,7 @@ import TravelKit from '../travelKit/page';
 import Community from '../community/page';
 const Dashboard = () => {
 
-  //the following usesate are used solely for section navigation
+  //the following usestate are used solely for section navigation
   const [showOverview, setShowOverview] = useState(true);
   const [showTravelKit, setShowTravelKit] = useState(false);
   const [showCommunity, setShowCommunity] = useState(false);
@@ -19,6 +20,7 @@ const Dashboard = () => {
     setShowTravelKit(false);
     setShowCommunity(false);
   }
+  
   const handleTravelKit = () => {
     setShowOverview(false);
     setShowTravelKit(true);
@@ -30,6 +32,28 @@ const Dashboard = () => {
     setShowCommunity(true);
   }
 
+  // Authentication check
+  useEffect(() => {
+    const checkAuth = async () => {
+      // Check if user is authenticated
+      if (!isAuthenticated()) {
+        router.push('/login');
+        return;
+      }
+
+      // Fetch user data
+      try {
+        const userData = await getCurrentUser();
+        setUser(userData);
+        console.log('User data:', userData);
+      } catch (error) {
+        console.error('Failed to get user:', error);
+        // If token is invalid, redirect to login
+        router.push('/login');
+      } finally {
+        setLoading(false);
+      }
+    };
 
 
   return (
@@ -43,4 +67,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Dashboard;
