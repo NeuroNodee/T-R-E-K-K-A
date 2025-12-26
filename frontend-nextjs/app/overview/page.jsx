@@ -30,7 +30,7 @@ const Overview = () => {
                 <h2>Location is turned off</h2>
                 <p>View the guide through maps, your stay and different location along the journey.</p>
               </div>
-              <div className="Weather-card">
+              <div className="Weather-card">{/*the live weather api must be within this div */}
                 <h1>WEATHER UPDATE</h1>
                 <div className="weather_default">
                   <img src="/weather_default.svg" alt="" />
