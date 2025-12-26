@@ -2,8 +2,7 @@ import React from 'react'
 import PageTransition from "./PageTransition";
 import Link from 'next/link'
 
-
-const SideNav = ({ handleOverview, handleTravelKit }) => {
+const SideNav = ({ handleOverview, handleTravelKit, handleCommunity }) => {
   return (
     <div className="column-nav">
         <div className="logo">
@@ -84,7 +83,7 @@ const SideNav = ({ handleOverview, handleTravelKit }) => {
                         </div>
                     </Link>
                 </li>
-                <li>
+                <li onClick={handleCommunity}>
                     <Link href="">
                         <div className='nav-div'>
                             <div className="nav-icon">
@@ -99,7 +98,7 @@ const SideNav = ({ handleOverview, handleTravelKit }) => {
             </ul>
             <ul className='nav-flex1'>
                 <li>
-                    <Link href="">
+                    <Link href="/aboutus">
                         <div className='nav-div'>
                             <div className="nav-icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

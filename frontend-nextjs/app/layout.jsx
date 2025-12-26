@@ -8,6 +8,8 @@ import "./../styles/dashboard.css";
 import "./../styles/profileBtn.css";
 import "./../styles/notify.css";
 import "./../styles/TravelKit.css";
+import "./../styles/community.css";
+import "./../styles/aboutus.css";
 import PageTransition from "@/components/PageTransition";
 
 const geistSans = Geist({

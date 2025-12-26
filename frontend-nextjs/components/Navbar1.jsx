@@ -17,7 +17,7 @@ const Navbar1 = () => {
           <ul>
             <li><Link href="#">Discover Nepal</Link></li>
             <li><Link href="#">AI Explore</Link></li>
-            <li><Link href="#">About Us</Link></li>
+            <li><Link href="/aboutus">About Us</Link></li>
             <li><Link href="#">Blog</Link></li>
           </ul>
         </div>

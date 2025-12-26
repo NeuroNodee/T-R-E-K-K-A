@@ -1,6 +1,11 @@
+
 .travelKit-content-inner {
-    padding: 150px 80px 20px 80px;
-    width: 95vw;
+    padding: 50px 80px 20px 80px;
+    width: 100%;
+    max-width: 100%;
+}
+.travelKit-content{
+    width: 100%;
 }
 .travelKit-content-upper{
     display: flex;
@@ -77,4 +82,32 @@
 .travelKit-content-middle h2{
     font-size: 20px;
     margin-bottom: 10px;
+    
+}
+.travelKit-content-lower {
+    border-radius: 20px;
+    border: 1px solid #000000;
+    padding: 20px;
+    width: 100%;
+
+}
+.saved-items li{
+    background-color: #cdcbcb;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    /* margin-bottom: 5px; */
+}
+.saved-items li:nth-child(even){
+    background-color: #a1a0a0;
+}
+.travelKit-content-lower h2{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.travelKit-content .selective-content{
+    min-height: 100vh !important;
+}
+.travelKit-content-middle:hover{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

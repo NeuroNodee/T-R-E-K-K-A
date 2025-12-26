@@ -4,9 +4,17 @@ Project: Trekya
 
 Founder: Kunjan Bhatt
 
+Co-Founders:
+
+Ashok Koirala (Lead Co-Founder)
+
+Sonu Jaiswal (Co-Founder)
+
+Bishnu Upadhyaya (Co-Founder)
+
 **1. Assignment of Rights**
 
-All contributions ( design, documentation, ideas) are assigned to the Founder, Kunjan Bhatt.
+All contributions ( design, documentation, ideas) are assigned to the Founder, Kunjan Bhatt and Co-Founders.
 Contributors do not retain rights to their contributions.
 
 **2. No Automatic Equity or Ownership**

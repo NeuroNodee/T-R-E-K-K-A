@@ -3,6 +3,8 @@
 **Project Name: Trekya
 Company: Neuronode
 Primary Founder: Kunjan Bhatt
+
+Co-Founders: Ashok Koirala (Lead Co-Founder), Sonu Jaiswal (Co-Founder), Bishnu Upadhyaya (Co-Founder)
 Year: 2025**
 
 **1. Project and Company Relationship**

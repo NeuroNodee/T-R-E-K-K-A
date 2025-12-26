@@ -4,6 +4,8 @@ Project: Trekya
 
 Founder and Majority Owner: **Kunjan Bhatt**
 
+Co-Founders: Ashok Koirala (Lead Co-Founder), Sonu Jaiswal (Co-Founder), Bishnu Upadhyaya (Co-Founder)
+
 Trekya was created and started solely by Kunjan Bhatt.
 All intellectual property, concept, vision, and architecture belong to him.
 Teammates may contribute but do not have shared ownership at default.
