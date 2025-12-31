@@ -1,6 +1,6 @@
 // lib/api.js
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/auth';
+export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/auth';
 
 // Helper function to get tokens from storage
 const getTokens = () => {

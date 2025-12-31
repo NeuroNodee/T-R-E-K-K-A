@@ -1,4 +1,5 @@
 from rest_framework import status, generics
+from django.core.mail import send_mail
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -11,6 +12,11 @@ from .serializers import (
     UserSerializer,
     ChangePasswordSerializer
 )
+# views.py
+from rest_framework.decorators import api_view, permission_classes
+import random
+from django.conf import settings
+
 
 User = get_user_model()
 
@@ -144,3 +150,45 @@ class ChangePasswordView(APIView):
                 'message': 'Password changed successfully'
             }, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+otp_store = {}
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def send_otp(request):
+    email = request.data.get('email')
+    if not email:
+        return Response({"success": False, "message": "Email is required"}, status=400)
+
+    otp = str(random.randint(100000, 999999))
+    otp_store[email] = otp
+
+    # Send OTP via email
+    send_mail(
+        subject='Your OTP for Trekya',
+        message=f'Your OTP is: {otp}',
+        from_email=settings.EMAIL_HOST_USER,  # your Gmail
+        recipient_list=[email],
+        fail_silently=False,
+    )
+
+
+    return Response({"success": True, "message": "OTP sent successfully"})
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def verify_otp(request):
+    email = request.data.get('email')
+    otp = request.data.get('otp')
+
+    if not email or not otp:
+        return Response({"success": False, "message": "Email and OTP are required"}, status=400)
+
+    # Verify OTP
+    if email in otp_store and otp_store[email] == otp:
+        del otp_store[email]  # remove OTP after verification
+        return Response({"success": True, "message": "OTP verified"})
+    else:
+        return Response({"success": False, "message": "Invalid or expired OTP"}, status=400)

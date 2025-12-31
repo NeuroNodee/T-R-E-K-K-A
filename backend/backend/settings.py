@@ -162,7 +162,14 @@ SIMPLE_JWT = {
 SITE_ID = 1
 
 # Email backend (for development, prints to console)
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'bhattakunjan10@gmail.com'
+EMAIL_HOST_PASSWORD = 'regz jxzv egyh ykiy'  # Gmail app password if 2FA enabled
+
 
 # Modern allauth configuration (replaces deprecated settings)
 ACCOUNT_LOGIN_METHODS = {'email'}  # Replaces ACCOUNT_AUTHENTICATION_METHOD

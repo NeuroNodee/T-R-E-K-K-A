@@ -10,6 +10,7 @@ import "./../styles/notify.css";
 import "./../styles/TravelKit.css";
 import "./../styles/community.css";
 import "./../styles/aboutus.css";
+import "./../styles/Loading.css";
 import PageTransition from "@/components/PageTransition";
 
 const geistSans = Geist({
