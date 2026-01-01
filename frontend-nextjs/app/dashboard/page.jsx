@@ -9,6 +9,7 @@ import Notify from '@/components/Notify';
 import Overview from '../overview/page';
 import TravelKit from '../travelKit/page';
 import Community from '../community/page';
+import Loading from '@/components/Loading';
 import { getCurrentUser, isAuthenticated } from '@/lib/api';
 
 const Dashboard = () => {
@@ -64,7 +65,7 @@ const Dashboard = () => {
   }, [router]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div><Loading /></div>;
   }
 
   return (

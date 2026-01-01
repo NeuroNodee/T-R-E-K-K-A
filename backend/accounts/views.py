@@ -1,3 +1,5 @@
+import json
+from django.http import JsonResponse
 from rest_framework import status, generics
 from django.core.mail import send_mail
 from rest_framework.response import Response
@@ -10,12 +12,13 @@ from .serializers import (
     RegisterSerializer,
     LoginSerializer,
     UserSerializer,
-    ChangePasswordSerializer
+    ResetPasswordSerializer
 )
 # views.py
 from rest_framework.decorators import api_view, permission_classes
 import random
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 
 
 User = get_user_model()
@@ -100,7 +103,7 @@ class LogoutView(APIView):
     API endpoint for user logout
     POST /api/auth/logout/
     """
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     def post(self, request):
         try:
@@ -133,23 +136,45 @@ class UserDetailView(generics.RetrieveUpdateAPIView):
         return self.request.user
 
 
-class ChangePasswordView(APIView):
-    """
-    API endpoint for changing password
-    POST /api/auth/change-password/
-    """
-    permission_classes = (IsAuthenticated,)
 
-    def post(self, request):
-        serializer = ChangePasswordSerializer(data=request.data, context={'request': request})
-        if serializer.is_valid():
-            user = request.user
-            user.set_password(serializer.validated_data['new_password'])
+
+User = get_user_model()
+@csrf_exempt
+def reset_password(request):
+    """
+    Reset password after OTP verification.
+    Expects POST JSON:
+    {
+        "email": "user@example.com",
+        "new_password": "newsecurepassword"
+    }
+    """
+    if request.method != "POST":
+        return JsonResponse({"error": "Invalid request method"}, status=405)
+
+    try:
+        data = json.loads(request.body)
+        email = data.get("email")
+        new_password = data.get("new_password")
+
+        if not email or not new_password:
+            return JsonResponse({"error": "Email and new password are required"}, status=400)
+
+        try:
+            user = User.objects.get(email=email)
+            user.set_password(new_password)
             user.save()
-            return Response({
-                'message': 'Password changed successfully'
-            }, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except User.DoesNotExist:
+            # For security: don't reveal if user exists
+            pass
+
+        return JsonResponse({"message": "Password reset successfully"})
+
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON"}, status=400)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
 
 
 otp_store = {}
@@ -182,6 +207,29 @@ def send_otp(request):
 
     return Response({"success": True, "message": "OTP sent successfully"})
 
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def send_otpV2(request):#for forget password
+    email = request.data.get('email')
+    if not email:
+        return Response({"success": False, "message": "Email is required"}, status=400)
+
+    otp = str(random.randint(100000, 999999))
+    otp_store[email] = otp
+
+
+
+    # Send OTP via email
+    send_mail(
+        subject='Your OTP for Trekya',
+        message=f'Your OTP is: {otp}',
+        from_email=settings.EMAIL_HOST_USER,  # your Gmail
+        recipient_list=[email],
+        fail_silently=False,
+    )
+
+
+    return Response({"success": True, "message": "OTP sent successfully"})
 
 @api_view(['POST'])
 @permission_classes([AllowAny])

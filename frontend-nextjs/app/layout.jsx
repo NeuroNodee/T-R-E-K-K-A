@@ -11,6 +11,9 @@ import "./../styles/TravelKit.css";
 import "./../styles/community.css";
 import "./../styles/aboutus.css";
 import "./../styles/Loading.css";
+import "./../styles/Error404.css";
+import "./../styles/ForgetPassword.css";
+
 import PageTransition from "@/components/PageTransition";
 
 const geistSans = Geist({
