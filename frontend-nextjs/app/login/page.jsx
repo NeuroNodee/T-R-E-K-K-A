@@ -107,9 +107,13 @@ const Login = () => {
           formData.password,
           formData.rememberMe
         );
-        console.log('Login successful:', response);
-        router.push('/dashboard');
-        return;
+        if (response.success) {
+          console.log('Login successful:', response);
+          router.push('/dashboard');
+          return;
+        } else {
+          setError(response.error || 'Login failed');
+        }
       } else {
         // Signup
         const res = await fetch(`${API_URL}/send-otp/`, {
@@ -301,7 +305,7 @@ const Login = () => {
 
                 {/* Submit Button */}
                 <button
-                  type="submit"
+                  type={isLogin ? "submit" : "button"}
                   className={`${isLogin ? "button-submit" : "hide"}`}
                   disabled={loading}
                 >
@@ -309,7 +313,7 @@ const Login = () => {
                 </button>
 
                 <button
-                  type="submit"
+                  type={isLogin ? "button" : "submit"}
                   className={`${isLogin ? "hide" : "button-submit"}`}
                   disabled={loading}
                 >
