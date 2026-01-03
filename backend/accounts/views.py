@@ -157,7 +157,7 @@ def reset_password(request):
     try:
         data = json.loads(request.body)
         # email = data.get("email")
-        reset_token = data.get("reset_token")
+        reset_token = data.get("resetToken")
         new_password = data.get("new_password")
 
         if not reset_token or not new_password:
