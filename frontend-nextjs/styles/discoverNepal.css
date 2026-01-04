@@ -1,0 +1,85 @@
+.mapAnimation {
+  width: 100%;
+  height: 100vh;
+  background: #f0f4f8;
+  overflow: hidden;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  max-height: 90vh;
+  box-sizing: border-box;
+}
+
+/* Base province styles */
+.province {
+  transition: fill 0.3s ease;
+  cursor: pointer;
+}
+
+.koshi { fill: #0B1F3A; }
+.koshi:hover { fill: #1C3D73; }
+
+.madheshi { fill: #0F2A4F; }
+.madheshi:hover { fill: #245A9A; }
+
+.bagmati { fill: #163A6B; }
+.bagmati:hover { fill: #2F6DB3; }
+
+.gandaki { fill: #1E4A87; }
+.gandaki:hover { fill: #4A86C8; }
+
+.lumbini { fill: #2A63A8; }
+.lumbini:hover { fill: #6FA0D9; }
+
+.karnali { fill: #3C7BC3; }
+.karnali:hover { fill: #8FB6E8; }
+
+.sudurpaschim { fill: #5A96D6; }
+.sudurpaschim:hover { fill: #B3D1F2; }
+
+.custom-tooltip {
+  background: rgba(15, 23, 42, 0.95);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  animation: fadeInMap 0.3s ease;
+}
+
+/* Arrow below the tooltip */
+.custom-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border: 8px solid transparent;
+  border-top-color: rgba(15, 23, 42, 0.95);
+}
+
+@keyframes fadeInMap {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -90%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+}
+.mapAnimation h1 {
+  font-size: 1.5rem;
+  /* font-weight: 600; */
+  /* margin-bottom: 20px; */
+  text-align: center;
+}

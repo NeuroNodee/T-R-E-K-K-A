@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { logout } from "@/lib/api";
 import { useRouter } from "next/navigation";
 
-const SideNav = ({ handleOverview, handleTravelKit, handleCommunity }) => {
+const SideNav = ({ handleOverview, handleTravelKit, handleCommunity, handleDiscoverNepal}) => {
     const router = useRouter();
 
     const handleLogout = async () => {
@@ -79,7 +79,7 @@ const SideNav = ({ handleOverview, handleTravelKit, handleCommunity }) => {
                         </div>
                     </Link>
                 </li>
-                <li>
+                <li onClick={handleDiscoverNepal}>
                     <Link href="">
                         <div className='nav-div'>
                             <div className="nav-icon">

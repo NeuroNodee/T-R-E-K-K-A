@@ -12,6 +12,7 @@ import "./../styles/community.css";
 import "./../styles/aboutus.css";
 import "./../styles/Loading.css";
 import "./../styles/ForgetPassword.css";
+import "./../styles/discoverNepal.css";
 
 import PageTransition from "@/components/PageTransition";
 

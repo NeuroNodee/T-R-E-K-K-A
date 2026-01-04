@@ -10,6 +10,7 @@ import Overview from '../overview/page';
 import TravelKit from '../travelKit/page';
 import Community from '../community/page';
 import Loading from '@/components/Loading';
+import DiscoverNepal from '../discoverNepal/page';
 import { getCurrentUser, isAuthenticated } from '@/lib/api';
 
 const Dashboard = () => {
@@ -18,6 +19,7 @@ const Dashboard = () => {
   const [showOverview, setShowOverview] = useState(true);
   const [showTravelKit, setShowTravelKit] = useState(false);
   const [showCommunity, setShowCommunity] = useState(false);
+  const [showDiscoverNepal, setShowDiscoverNepal] = useState(false);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -25,18 +27,28 @@ const Dashboard = () => {
     setShowOverview(true);
     setShowTravelKit(false);
     setShowCommunity(false);
+    setShowDiscoverNepal(false);
   }
 
   const handleTravelKit = () => {
     setShowOverview(false);
     setShowTravelKit(true);
     setShowCommunity(false);
+    setShowDiscoverNepal(false);
   }
 
   const handleCommunity = () => {
     setShowOverview(false);
     setShowTravelKit(false);
     setShowCommunity(true);
+    setShowDiscoverNepal(false);
+  }
+
+  const handleDiscoverNepal = () => {
+    setShowOverview(false);
+    setShowTravelKit(false);
+    setShowCommunity(false);
+    setShowDiscoverNepal(true);
   }
 
   useEffect(() => {
@@ -70,10 +82,11 @@ const Dashboard = () => {
 
   return (
     <div className='dashboard-content'>
-      <SideNav handleOverview={handleOverview} handleTravelKit={handleTravelKit} handleCommunity={handleCommunity}></SideNav>
+      <SideNav handleOverview={handleOverview} handleTravelKit={handleTravelKit} handleCommunity={handleCommunity} handleDiscoverNepal={handleDiscoverNepal}></SideNav>
       {showOverview && <Overview user_id={user.id}></Overview>}
       {showTravelKit && <TravelKit user_id={user.id}></TravelKit>}
       {showCommunity && <Community user_id={user.id}></Community>}
+      {showDiscoverNepal && <DiscoverNepal user_id={user.id}></DiscoverNepal>}
     </div>
   )
 }
