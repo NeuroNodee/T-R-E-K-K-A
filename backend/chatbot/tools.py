@@ -13,7 +13,7 @@ load_dotenv()
 
 OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
-
+Tavily_API_KEY = os.getenv("Tavily_API_KEY")
 
 
 
@@ -25,7 +25,7 @@ def wikipedia_tool(query: str):
     
 
 
-tavily = TavilyClient(api_key="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")
+tavily = TavilyClient(api_key=Tavily_API_KEY)
 
 def tavily_search(query: str, max_results: int = 3):
     """
