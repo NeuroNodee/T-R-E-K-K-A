@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chatbot',
+    'sherpa',
     
     # Third party apps
     'rest_framework',
@@ -41,19 +42,15 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',  # CORS must be before CommonMiddleware
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',  # Required for allauth
-    'corsheaders.middleware.CorsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
-
+CORS_ALLOW_CREDENTIALS = True
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
@@ -131,10 +128,12 @@ CORS_ALLOW_CREDENTIALS = True
 # ]
 
 # REST Framework Settings
+# settings.py
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
+
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
@@ -172,8 +171,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'bhattakunjan10@gmail.com'
-EMAIL_HOST_PASSWORD = 'regz jxzv egyh ykiy'
+EMAIL_HOST_USER = 'neuronodeai@gmail.com'
+EMAIL_HOST_PASSWORD = 'pdxw anxh iria zucx'
 
 
 # Modern allauth configuration (replaces deprecated settings)
@@ -189,7 +188,7 @@ ACCOUNT_USER_MODEL_EMAIL_FIELD = 'email'
 # Social account settings
 SOCIALACCOUNT_AUTO_SIGNUP = True
 SOCIALACCOUNT_EMAIL_REQUIRED = True
-SOCIALACCOUNT_QUERY_EMAIL = True
+SOCIALACCOUNT_QUERY_EMAIL = True 
 
 # Social Authentication Providers
 SOCIALACCOUNT_PROVIDERS = {
@@ -241,6 +240,9 @@ REST_AUTH = {
     'JWT_AUTH_HTTPONLY': False,
     'REGISTER_SERIALIZER': 'accounts.serializers.CustomRegisterSerializer',
 }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 import warnings
 
