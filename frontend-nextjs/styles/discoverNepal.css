@@ -6,13 +6,15 @@
   background-color: rgba(0, 0, 0, 1);
   background-size: cover;
   background-position: center;
-  
+
   overflow: hidden;
 }
+
 .mapAnimation .dasNav {
   background-color: transparent;
   backdrop-filter: blur(4px);
 }
+
 .mapAnimation .dasNav h1 {
   color: white;
 }
@@ -27,89 +29,150 @@
 
 /* Base province styles */
 .province {
-  
+
   cursor: pointer;
   transition: all 1s ease;
 }
 
-.koshi { fill: #0f2a4d; opacity: 0.7; }
-.koshi:hover { fill: #1C3D73; opacity: 1; }
+.koshi {
+  fill: #0f2a4d;
+  opacity: 0.7;
+}
 
-.madheshi { fill: #0F2A4F; opacity: 0.7; }
-.madheshi:hover { fill: #245A9A; opacity: 1; }
+.koshi:hover {
+  fill: #1C3D73;
+}
 
-.bagmati { fill: #163A6B; opacity: 0.7; }
-.bagmati:hover { fill: #2F6DB3; opacity: 1; }
+.madheshi {
+  fill: #0F2A4F;
+  opacity: 0.7;
+}
 
-.gandaki { fill: #1E4A87; opacity: 0.7; }
-.gandaki:hover { fill: #4A86C8; opacity: 1; }
+.madheshi:hover {
+  fill: #245A9A;
+}
 
-.lumbini { fill: #2A63A8; opacity: 0.7; }
-.lumbini:hover { fill: #6FA0D9; opacity: 1; }
+.bagmati {
+  fill: #163A6B;
+  opacity: 0.7;
+}
 
-.karnali { fill: #3C7BC3; opacity: 0.7; }
-.karnali:hover { fill: #8FB6E8; opacity: 1; }
+.bagmati:hover {
+  fill: #2F6DB3;
+}
 
-.sudurpaschim { fill: #5A96D6; opacity: 0.7; }
-.sudurpaschim:hover { fill: #B3D1F2; opacity: 1; }
-/* Base province styles - UPDATED WITH BORDERS */
+.gandaki {
+  fill: #1E4A87;
+  opacity: 0.7;
+}
+
+.gandaki:hover {
+  fill: #4A86C8;
+}
+
+.lumbini {
+  fill: #2A63A8;
+  opacity: 0.7;
+}
+
+.lumbini:hover {
+  fill: #6FA0D9;
+}
+
+.karnali {
+  fill: #3C7BC3;
+  opacity: 0.7;
+}
+
+.karnali:hover {
+  fill: #8FB6E8;
+}
+
+.sudurpaschim {
+  fill: #5A96D6;
+  opacity: 0.7;
+}
+
+.sudurpaschim:hover {
+  fill: #B3D1F2;
+}
+
 .province {
   transition: all 0.3s ease;
   cursor: pointer;
-  stroke: #ffffff;          
-  stroke-width: 1;           
-  stroke-linejoin: round;    
-  fill-rule: evenodd;        
+  stroke: #ffffff;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  fill-rule: evenodd;
 }
 
 .province.gandaki.active {
   /* transition: fill 0.3s ease; */
   fill: #1C3D73;
-  transform-box: fill-box;   
-  transform-origin: center;  /* scale from center */
-  transform: scale(2); 
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
+  transform: scale(2);
 }
+
 .province.sudurpaschim.active {
   /* transition: fill 0.3s ease; */
+  opacity: 1;
   fill: #1C3D73;
-  transform-box: fill-box;   
-  transform-origin: center;  /* scale from center */
-  transform: scale(2.2) translateX(300px) translateY(100px); 
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
+  transform: scale(2.2) translateX(300px) translateY(100px);
 }
+
 .province.lumbini.active {
   fill: #1C3D73;
-  transform-box: fill-box;   
-  transform-origin: center;  /* scale from center */
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
   transform: scale(2.5) translateX(100px) translateY(-20px);
-  
+
 }
+
 .province.karnali.active {
   fill: #1C3D73;
-  transform-box: fill-box;   
-  transform-origin: center;  /* scale from center */
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
   transform: scale(1.8) translateX(150px) translateY(120px);
-  
+
 }
+
 .province.bagmati.active {
   fill: #1C3D73;
-  transform-box: fill-box;   
-  transform-origin: center;  /* scale from center */
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
   transform: scale(2.5) translateX(-150px) translateY(-60px);
-  
+
 }
+
 .province.madheshi.active {
   fill: #1C3D73;
-  transform-box: fill-box;   
-  transform-origin: center;  /* scale from center */
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
   transform: scale(3) translateX(-150px) translateY(-140px);
-  
+
 }
+
 .province.koshi.active {
   fill: #1C3D73;
-  transform-box: fill-box;   
-  transform-origin: center;  /* scale from center */
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
   transform: scale(2.3) translateX(-380px) translateY(-130px);
-  
 }
 
 .province.inactive {
@@ -142,52 +205,55 @@
   border: 8px solid transparent;
   border-top-color: rgba(15, 23, 42, 0.95);
 }
+
 .back-btn {
- position: absolute;
- bottom: 20px;
- right: 20px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
+
 .back-btn button {
- display: flex;
- height: 3em;
- width: 100px;
- align-items: center;
- justify-content: center;
- background-color: #eeeeee4b;
- border-radius: 3px;
- letter-spacing: 1px;
- transition: all 0.2s linear;
- cursor: pointer;
- border: none;
- background: transparent;
- backdrop-filter: blur(10px);
- color: white;
- border: 1px solid #fff;
- border-radius: 10px;
+  display: flex;
+  height: 3em;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee4b;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  color: white;
+  border: 1px solid #fff;
+  border-radius: 10px;
 }
 
-.back-btn button > svg {
- margin-right: 5px;
- margin-left: 5px;
- font-size: 20px;
- transition: all 0.4s ease-in;
+.back-btn button>svg {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  transition: all 0.4s ease-in;
 }
 
-.back-btn button:hover > svg {
- font-size: 1.2em;
- transform: translateX(-5px);
+.back-btn button:hover>svg {
+  font-size: 1.2em;
+  transform: translateX(-5px);
 }
-.back-btn button> svg path{
-fill: #fff;
+
+.back-btn button>svg path {
+  fill: #fff;
 }
 
 .back-btn button:hover {
- background-color: transparent;
- border: none;
- border-bottom: 1px solid #fff;
- border-radius: 0px;
- color: #fff;
- transform: translateY(-2px);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  border-radius: 0px;
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 @keyframes fadeInMap {
@@ -195,14 +261,99 @@ fill: #fff;
     opacity: 0;
     transform: translate(-50%, -90%);
   }
+
   to {
     opacity: 1;
     transform: translate(-50%, -100%);
   }
 }
+
 .mapAnimation h1 {
   font-size: 1.5rem;
   /* font-weight: 600; */
   /* margin-bottom: 20px; */
   text-align: center;
 }
+
+.places-menu {
+  position: absolute;
+  display: none;
+  gap: 6px;
+  padding: 10px;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.places-menu button {
+  background: #1d4ed8;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.places-menu button:hover {
+  background: #2563eb;
+}
+
+.koshi-btn {
+  position: absolute;
+  top: 160px;
+  left: 180px;
+  display: flex;
+  gap: 8px;
+}
+.koshi-place-group {
+  cursor: pointer;
+  z-index: 100000;
+}
+
+.koshi-place-group circle {
+  fill: #ff6b35;
+}
+
+.koshi-place-group:hover circle {
+  fill: #ff9f1c;
+}
+.koshi-place-group.p1 {
+  transform: translate(-300px, -350px);
+}
+
+.koshi-place-group.p2 {
+  transform: translate(80px, -40px);
+}
+
+.koshi-place-group.p3 {
+  transform: translate(-60px, 50px);
+}
+
+.koshi-place-group.p4 {
+  transform: translate(40px, 90px);
+}
+.koshi-place-group circle {
+  cx: 820;
+  cy: 480;
+  r: 14;
+
+  fill: #ff6b35;
+}
+.koshi-place-group image {
+  width: 36px;
+  height: 36px;
+  x: 800;
+  y: 450;
+
+  pointer-events: none;
+}
+.koshi-place-group .place-text {
+
+  fill: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+
+  pointer-events: none;
+}
+

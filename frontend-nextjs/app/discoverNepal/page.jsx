@@ -3,6 +3,7 @@ import { useState } from "react";
 import ProfileBtn from "@/components/ProfileBtn";
 import Notify from "@/components/Notify";
 const DiscoverNepal = () => {
+
     const [province, setProvince] = useState('');
     const [tooltip, setTooltip] = useState({ show: false, x: 0, y: 0, name: '' });
 
@@ -158,6 +159,54 @@ const DiscoverNepal = () => {
                 c3.313-2.11,3.833-4.244,2.202-7.5c-3.287-6.559-4.859-11.848-2.33-20.578c3.388-11.691,11.561-20.04,15.435-30.953
                 c1.466-4.13,4.344-7.852,4.318-12.506c-0.016-2.871,0.515-5.477,1.99-7.917c3.865-6.394,9.613-12.254,5.717-20.834
                 c-0.322-0.709,0.04-2.115,0.591-2.772C1865.543,684.296,1861.545,681.561,1856.507,678.228z"/>
+                            <g className={province === 'koshi' ? "koshi-place-group p1" : "hide"}>
+                                <circle />
+                                <image
+                                    href="/bg-map.png"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Everest Region
+                                </text>
+
+                            </g>
+                            <g className={province === 'koshi' ? "koshi-place-group p2" : "hide"}>
+                                <circle />
+                                <image
+                                    href="/bg-map.png"  
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Ilam
+                                </text>
+
+                            </g>
+                            <g className={province === 'koshi' ? "koshi-place-group p3" : "hide"}>
+                                <circle />
+                                <image
+                                    href="/bg-map.png"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Koshi Tappu
+                                </text>
+
+                            </g>
+                            <g className={province === 'koshi' ? "koshi-place-group p4" : "hide"}>
+                                <circle />
+                                <image
+                                    href="/bg-map.png"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Dharan
+                                </text>
+
+                            </g>
                             <path
                                 className={province === 'gandaki' ? "province gandaki active" : (province === '' ? "province gandaki" : "province gandaki inactive")}
                                 onClick={() => setProvince('gandaki')}
@@ -432,6 +481,14 @@ const DiscoverNepal = () => {
                     </g>
                 </svg>
             </div>
+            {/* {province === "koshi" && (
+                <div className="koshi-btn">
+                    <button>Dharan</button>
+                    <button>Itahari</button>
+                    <button>Biratnagar</button>
+                    <button>Ilam</button>
+                </div>
+            )} */}
             {/* Custom Modern Tooltip */}
             {tooltip.show && (
                 <div
