@@ -20,15 +20,16 @@
 .map-container {
   width: 100%;
   height: 100%;
-  padding: 50px;
+  padding: 30px;
   max-height: 90vh;
   box-sizing: border-box;
 }
 
 /* Base province styles */
 .province {
-  transition: fill 0.3s ease;
+  
   cursor: pointer;
+  transition: all 1s ease;
 }
 
 .koshi { fill: #0f2a4d; opacity: 0.7; }
@@ -53,17 +54,64 @@
 .sudurpaschim:hover { fill: #B3D1F2; opacity: 1; }
 /* Base province styles - UPDATED WITH BORDERS */
 .province {
-  transition: fill 0.4s ease, opacity 0.4s ease, stroke-width 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
-  stroke: #ffffff;           /* White border - stands out on any green */
-  stroke-width: 1;           /* Thickness of the border */
-  stroke-linejoin: round;    /* Smooth corners at province junctions */
-  fill-rule: evenodd;        /* Helps with complex paths */
+  stroke: #ffffff;          
+  stroke-width: 1;           
+  stroke-linejoin: round;    
+  fill-rule: evenodd;        
 }
 
-.province.active {
+.province.gandaki.active {
+  /* transition: fill 0.3s ease; */
   fill: #1C3D73;
+  transform-box: fill-box;   
+  transform-origin: center;  /* scale from center */
+  transform: scale(2); 
 }
+.province.sudurpaschim.active {
+  /* transition: fill 0.3s ease; */
+  fill: #1C3D73;
+  transform-box: fill-box;   
+  transform-origin: center;  /* scale from center */
+  transform: scale(2.2) translateX(300px) translateY(100px); 
+}
+.province.lumbini.active {
+  fill: #1C3D73;
+  transform-box: fill-box;   
+  transform-origin: center;  /* scale from center */
+  transform: scale(2.5) translateX(100px) translateY(-20px);
+  
+}
+.province.karnali.active {
+  fill: #1C3D73;
+  transform-box: fill-box;   
+  transform-origin: center;  /* scale from center */
+  transform: scale(1.8) translateX(150px) translateY(120px);
+  
+}
+.province.bagmati.active {
+  fill: #1C3D73;
+  transform-box: fill-box;   
+  transform-origin: center;  /* scale from center */
+  transform: scale(2.5) translateX(-150px) translateY(-60px);
+  
+}
+.province.madheshi.active {
+  fill: #1C3D73;
+  transform-box: fill-box;   
+  transform-origin: center;  /* scale from center */
+  transform: scale(3) translateX(-150px) translateY(-140px);
+  
+}
+.province.koshi.active {
+  fill: #1C3D73;
+  transform-box: fill-box;   
+  transform-origin: center;  /* scale from center */
+  transform: scale(2.3) translateX(-380px) translateY(-130px);
+  
+}
+
 .province.inactive {
   display: none;
 }
