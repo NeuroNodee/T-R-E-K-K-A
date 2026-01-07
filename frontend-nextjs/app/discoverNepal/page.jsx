@@ -36,6 +36,7 @@ const DiscoverNepal = () => {
                 </div>
 
             </div>
+            <h1 className="title">Explore Through the Animated Map</h1>
             <div className="map-container">
                 <svg
                     id="Layer_1"
