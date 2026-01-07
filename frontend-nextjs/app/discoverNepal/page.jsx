@@ -112,6 +112,33 @@ const DiscoverNepal = () => {
                 c-0.114,10.751,1.249,21.678-0.284,32.2c-1.092,7.495-0.67,15.947-8.866,22.029c-5.478,4.065-11.074,2.62-16.297,4.744
                 c-2.625,1.068-5.467,1.378-6.351,4.49c-0.782,2.751,0.519,4.914,2.673,6.574c5.264,4.056,5.144,9.14,1.725,13.889
                 c-2.039,2.832-0.851,3.284,1.296,4.115c0,0,0.001,0,0.001,0C337.68,133.705,345.812,133.855,351.775,138.89z"/>
+                            <g className={province === 'karnali' ? "karnali-place-group p1" : "hide"}>
+                                <image
+                                    href="/tree.svg"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Shey Phoksundo National Park
+                                </text>
+                            </g>
+                            <g className={province === 'karnali' ? "karnali-place-group p2" : "hide"}>
+                                <image
+                                    href="/lake.svg"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Shey Phoksundo Lake
+                                </text>
+                            </g>
+                            <g className={province === 'karnali' ? "karnali-place-group p3" : "hide"}>
+                                <image
+                                    href="/tree.svg"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Rara National Park
+                                </text>
+                            </g>
                             <path
                                 className={province === 'koshi' ? "province koshi active" : (province === '' ? "province koshi" : "province koshi inactive")}
                                 onClick={() => setProvince('koshi')}
@@ -252,6 +279,63 @@ const DiscoverNepal = () => {
                 c1.962,1.73,0.301,2.529-0.668,4.107c-2.9,4.728,0.505,14.094,5.603,16.738c-0.001,0-0.001,0.001-0.002,0.001
                 c0.001,0,0.001,0,0.002,0c0.949-0.596,1.898-1.191,2.846-1.787c0,0,0,0,0.001,0C919.927,783.95,923.086,780.441,920.986,775.732z"
                             />
+                            <g className={province === 'gandaki' ? "gandaki-place-group p1" : "hide"}>
+                                <image
+                                    href="/village.svg"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Ghandruk Village
+                                </text>
+                            </g>
+                            <g className={province === 'gandaki' ? "gandaki-place-group p2" : "hide"}>
+                                <image
+                                    href="/trek-b.svg"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    <tspan x="820" dy="0">Ghorepani</tspan>
+                                    <tspan x="820" dy="1.2em">(Poon Hill Trek)</tspan>
+                                </text>
+                            </g>
+                            <g className={province === 'gandaki' ? "gandaki-place-group p3" : "hide"}>
+                                <image
+                                    href="/city.svg"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Pokhara
+                                </text>
+                            </g>
+                            <g className={province === 'gandaki' ? "gandaki-place-group p4" : "hide"}>
+                                <image
+                                    href="/mountain.svg"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Machhapuchhre
+                                </text>
+                            </g>
+                            <g className={province === 'gandaki' ? "gandaki-place-group p5" : "hide"}>
+                                <image
+                                    href="/trek-b.svg"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    <tspan x="820" dy="0">Annapurna Range</tspan>
+                                    <tspan x="820" dy="1.2em">(Trek )</tspan>
+                                </text>
+                            </g>
+                            <g className={province === 'gandaki' ? "gandaki-place-group p6" : "hide"}>
+                                <image
+                                    href="/trek-b.svg"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    <tspan x="820" dy="0">Dhaulagiri</tspan>
+                                    <tspan x="820" dy="1.2em">(Trek destination)</tspan>
+                                </text>
+                            </g>
                             <path className={province === 'sudurpaschim' ? "province sudurpaschim active" : (province === '' ? "province sudurpaschim" : "province sudurpaschim inactive")}
                                 onClick={() => setProvince('sudurpaschim')}
                                 onMouseMove={(e) => handleMouseMove(e, "Sudurpaschim Province")}
@@ -292,6 +376,24 @@ const DiscoverNepal = () => {
                 c6.31-0.92,8.45,3.42,6.86,7.46c-2.5,6.37,0.83,16.47-10.22,18.25c-1.73,0.27-2.47,2.41-2.74,4.23
                 c-1.34,9.01-6.22,16.94-8.09,25.69c-1.95,9.09,2.67,22.6,16.61,20.79c3.99-0.52,5.48,1.58,6.39,4.72
                 c1.35,4.62,0.25,9.13-1.61,13.24C444.219,266.018,443.9,269.668,446.719,274.178z"/>
+                            <g className={province === 'sudurpaschim' ? "sudurpaschim-place-group p1" : "hide"}>
+                                <image
+                                    href="/tree.svg"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Khaptad National Park    
+                                </text>
+                            </g>
+                            <g className={province === 'sudurpaschim' ? "sudurpaschim-place-group p2" : "hide"}>
+                                <image
+                                    href="/mountain.svg"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Api Himal
+                                </text>
+                            </g>
                             <path
                                 className={province === 'bagmati' ? "province bagmati active" : (province === '' ? "province bagmati" : "province bagmati inactive")}
                                 onClick={() => setProvince('bagmati')}
@@ -394,7 +496,7 @@ const DiscoverNepal = () => {
                                     Gaurishankar Mountain
                                 </text>
                             </g>
-                            
+
                             <path className="st4" d="M962.312,753.651c-3.344,2.036-7.179,3.927-10.672,5.379C955.952,758.662,959.323,756.572,962.312,753.651z"
                             />
                             <path
@@ -453,6 +555,24 @@ const DiscoverNepal = () => {
                 c11.328,0.409,22.651,1.001,33.971,1.609c1.468,0.079,3.06,0.427,4.334,1.124c15.906,8.707,32.495,16.162,47.778,26.012
                 c2.037,1.313,3.837,3.933,6.632,2.391c2.919-1.61,2.322-4.749,2.299-7.492c-0.036-4.383-1.489-9.211,3.845-11.846
                 C909.137,787.262,905.688,782.781,906.309,777.259z"/>
+                            <g className={province === 'lumbini' ? "lumbini-place-group p1" : "hide"}>
+                                <image
+                                    href="/village.svg"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Lumbini
+                                </text>
+                            </g>
+                            <g className={province === 'lumbini' ? "lumbini-place-group p2" : "hide"}>
+                                <image
+                                    href="/tree.svg"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                                <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    Bardia National Park
+                                </text>
+                            </g>
                             <path className="st4" d="M876.278,774.561c0.012-0.006,0.022-0.012,0.034-0.018c-0.003-0.008-0.007-0.015-0.01-0.022
                 C876.294,774.534,876.287,774.547,876.278,774.561z"/>
                             <path
