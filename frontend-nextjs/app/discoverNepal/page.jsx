@@ -6,6 +6,13 @@ import Illam from "@/components/Illam";
 import Dharan from "@/components/Dharan";
 import EverestRegion from "@/components/EverestRegion";
 import KoshiTappu from "@/components/KoshiTappu";
+import Janaki from "@/components/Janaki";
+import Bhaktapur from "@/components/Bhaktapur";
+import Gaurishankar from "@/components/Gaurishankar";
+import GosaikundaLake from "@/components/GosaikundaLake";
+import Kathmandu from "@/components/Kathmandu";
+import Lalitpur from "@/components/Lalitpur";
+import LangtangNationalPark from "@/components/LangtangNationalPark";
 
 const DiscoverNepal = () => {
 
@@ -15,6 +22,13 @@ const DiscoverNepal = () => {
     const [dharan, setDharan] = useState(false);
     const [everestRegion, setEverestRegion] = useState(false);
     const [koshiTappu, setKoshiTappu] = useState(false);
+    const [janaki, setJanaki] = useState(false);
+    const [bhaktapur, setBhaktapur] = useState(false);
+    const [gaurishankar, setGaurishankar] = useState(false);
+    const [gosaikundaLake, setGosaikundaLake] = useState(false);
+    const [kathmandu, setKathmandu] = useState(false);
+    const [lalitpur, setLalitpur] = useState(false);
+    const [langtangNationalPark, setLangtangNationalPark] = useState(false);
 
     const handleMouseMove = (e, name) => {
         setTooltip({
@@ -40,6 +54,27 @@ const DiscoverNepal = () => {
     };
     const handleKoshiTappuState = () => {
         setKoshiTappu(false);
+    };
+    const handleJanakiState = () => {
+        setJanaki(false);
+    };
+    const handleBhaktapurState = () => {
+        setBhaktapur(false);
+    };
+    const handleGaurishankarState = () => {
+        setGaurishankar(false);
+    };
+    const handleGosaikundaLakeState = () => {
+        setGosaikundaLake(false);
+    };
+    const handleKathmanduState = () => {
+        setKathmandu(false);
+    };
+    const handleLalitpurState = () => {
+        setLalitpur(false);
+    };
+    const handleLangtangNationalParkState = () => {
+        setLangtangNationalPark(false);
     };
     return (
         <>
@@ -473,7 +508,7 @@ const DiscoverNepal = () => {
                 c2.467,7.899,13.686,6.317,15.78,14.821c0.542,2.202,3.818,3.043,5.876,1.801c7.049-4.257,8.107,2.197,8.169,5.565
                 c0.104,5.675,3.195,7.322,7.408,8.604c13.128,3.995,27.079,3.395,40.253,7.161c0,0,0,0,0,0
                 C1038.625,807.047,1037.731,802.409,1041.74,801.222z"/>
-                                <g className={province === 'bagmati' ? "bagmati-place-group p1" : "hide"}>
+                                <g className={province === 'bagmati' ? "bagmati-place-group p1" : "hide"} onClick={() => setKathmandu(true)}>
                                     <image
                                         href="/city.svg"
                                         preserveAspectRatio="xMidYMid meet"
@@ -482,7 +517,7 @@ const DiscoverNepal = () => {
                                         Kathmandu
                                     </text>
                                 </g>
-                                <g className={province === 'bagmati' ? "bagmati-place-group p2" : "hide"}>
+                                <g className={province === 'bagmati' ? "bagmati-place-group p2" : "hide"} onClick={() => setLangtangNationalPark(true)}>
                                     <image
                                         href="/tree.svg"
                                         preserveAspectRatio="xMidYMid meet"
@@ -491,7 +526,7 @@ const DiscoverNepal = () => {
                                         Langtang National Park
                                     </text>
                                 </g>
-                                <g className={province === 'bagmati' ? "bagmati-place-group p3" : "hide"}>
+                                <g className={province === 'bagmati' ? "bagmati-place-group p3" : "hide"} onClick={() => setGosaikundaLake(true)}>
                                     <image
                                         href="/lake.svg"
                                         preserveAspectRatio="xMidYMid meet"
@@ -500,7 +535,7 @@ const DiscoverNepal = () => {
                                         Gosaikunda Lake
                                     </text>
                                 </g>
-                                <g className={province === 'bagmati' ? "bagmati-place-group p4" : "hide"}>
+                                <g className={province === 'bagmati' ? "bagmati-place-group p4" : "hide"} onClick={() => setBhaktapur(true)}>
                                     <image
                                         href="/city.svg"
                                         preserveAspectRatio="xMidYMid meet"
@@ -509,7 +544,7 @@ const DiscoverNepal = () => {
                                         Bhaktapur
                                     </text>
                                 </g>
-                                <g className={province === 'bagmati' ? "bagmati-place-group p5" : "hide"}>
+                                <g className={province === 'bagmati' ? "bagmati-place-group p5" : "hide"} onClick={() => setLalitpur(true)}>
                                     <image
                                         href="/city.svg"
                                         preserveAspectRatio="xMidYMid meet"
@@ -518,12 +553,12 @@ const DiscoverNepal = () => {
                                         Lalitpur
                                     </text>
                                 </g>
-                                <g className={province === 'bagmati' ? "bagmati-place-group p6" : "hide"}>
+                                <g className={province === 'bagmati' ? "bagmati-place-group p6" : "hide"} onClick={() => setGaurishankar(true)}>
                                     <image
                                         href="/mountain.svg"
                                         preserveAspectRatio="xMidYMid meet"
                                     />
-                                    <text x="820" y="520" textAnchor="middle" className="place-text">
+                                    <text x="820" y="520" textAnchor="middle" className="place-text" >
                                         Gaurishankar Mountain
                                     </text>
                                 </g>
@@ -642,7 +677,7 @@ const DiscoverNepal = () => {
                 c0.097,0.328,0.855,0.457,1.303,0.682c10.749,5.385,21.601,10.579,32.2,16.245c4.679,2.501,8.493,3.398,11.474-1.935
                 c1.228-2.198,3.413-3.046,5.059-1.944c6.951,4.651,11.826-0.039,17.733-2.657c6.144-2.723,8.247-8.183,11.84-12.713
                 C1577.522,1017.077,1578.791,1011.219,1586.969,1008.333z"/>
-                                <g className={province === 'madheshi' ? "madheshi-place-group p1" : "hide"}>
+                                <g className={province === 'madheshi' ? "madheshi-place-group p1" : "hide"} onClick={() => setJanaki(true)}>
                                     <image
                                         href="/temple.svg"
                                         preserveAspectRatio="xMidYMid meet"
@@ -688,6 +723,13 @@ const DiscoverNepal = () => {
                     {dharan && <Dharan handleDharanState={handleDharanState}></Dharan>}
                     {everestRegion && <EverestRegion handleEverestRegionState={handleEverestRegionState}></EverestRegion>}
                     {koshiTappu && <KoshiTappu handleKoshiTappuState={handleKoshiTappuState}></KoshiTappu>}
+                    {janaki && <Janaki handleJanakiState={handleJanakiState}></Janaki>}
+                    {bhaktapur && <Bhaktapur handleBhaktapurState={handleBhaktapurState}></Bhaktapur>}
+                    {gaurishankar && <Gaurishankar handleGaurishankarState={handleGaurishankarState}></Gaurishankar>}
+                    {gosaikundaLake && <GosaikundaLake handleGosaikundaLakeState={handleGosaikundaLakeState}></GosaikundaLake>}
+                    {kathmandu && <Kathmandu handleKathmanduState={handleKathmanduState}></Kathmandu>}
+                    {lalitpur && <Lalitpur handleLalitpurState={handleLalitpurState}></Lalitpur>}
+                    {langtangNationalPark && <LangtangNationalPark handleLangtangNationalParkState={handleLangtangNationalParkState}></LangtangNationalPark>}
                 </div>
                 {tooltip.show && (
                     <div

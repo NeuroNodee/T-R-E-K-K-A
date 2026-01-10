@@ -16,7 +16,14 @@ import "./../styles/discoverNepal.css";
 import "./../styles/illam.css";
 import "./../styles/everestRegion.css";
 import "./../styles/koshiTappu.css";
+import "./../styles/janaki.css";
 import "./../styles/dharan.css";
+import "./../styles/lalitpur.css";
+import "./../styles/kathmandu.css";
+import "./../styles/bhaktapur.css";
+import "./../styles/langtangNationalPark.css";
+import "./../styles/gosaikunda.css";
+import "./../styles/gaurishankar.css";
 
 import PageTransition from "@/components/PageTransition";
 

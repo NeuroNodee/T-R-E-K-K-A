@@ -153,7 +153,6 @@
 }
 
 .province.bagmati.active {
-  fill: #1C3D73;
   opacity: 1;
   transform-box: fill-box;
   transform-origin: center;
@@ -163,7 +162,6 @@
 }
 
 .province.madheshi.active {
-  fill: #1C3D73;
   opacity: 1;
   transform-box: fill-box;
   transform-origin: center;
@@ -173,7 +171,6 @@
 }
 
 .province.koshi.active {
-  fill: #1C3D73;
   opacity: 1;
   transform-box: fill-box;
   transform-origin: center;
