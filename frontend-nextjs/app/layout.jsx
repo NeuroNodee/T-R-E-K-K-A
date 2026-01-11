@@ -30,6 +30,11 @@ import "./../styles/dhaulagiri.css"
 import "./../styles/ghandruk.css"
 import "./../styles/ghorepani.css"
 import "./../styles/machhapuchhre.css"
+import "./../styles/bardia.css"
+import "./../styles/lumbini.css"
+import "./../styles/sheyLake.css"
+import "./../styles/shey.css"
+import "./../styles/rara.css"
 
 import PageTransition from "@/components/PageTransition";
 

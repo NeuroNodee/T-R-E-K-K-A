@@ -19,6 +19,11 @@ import Dhaulagiri from "@/components/Dhaulagiri";
 import Machhapuchhre from "@/components/Machhapuchhre";
 import Ghandruk from "@/components/Ghandruk";
 import Ghorepani from "@/components/Ghorepani";
+import Bardia from "@/components/Bardia";
+import Lumbini from "@/components/Lumbini";
+import Rara from "@/components/Rara";
+import Shey from "@/components/Shey";
+import SheyLake from "@/components/SheyLake";
 
 
 
@@ -44,6 +49,11 @@ const DiscoverNepal = () => {
     const [machhapuchhre, setMachhapuchhre] = useState(false);
     const [ghandruk, setGhandruk] = useState(false);
     const [ghorepani, setGhorepani] = useState(false);
+    const [bardia, setBardia] = useState(false);
+    const [lumbini, setLumbini] = useState(false);
+    const [rara, setRara] = useState(false);
+    const [shey, setShey] = useState(false);
+    const [sheyLake, setSheyLake] = useState(false);
 
     const handleMouseMove = (e, name) => {
         setTooltip({
@@ -108,6 +118,21 @@ const DiscoverNepal = () => {
     };
     const handleGhorepaniState = () => {
         setGhorepani(false);
+    };
+    const handleBardiaState = () => {
+        setBardia(false);
+    };
+    const handleLumbiniState = () => {
+        setLumbini(false);
+    };
+    const handleRaraState = () => {
+        setRara(false);
+    };
+    const handleSheyState = () => {
+        setShey(false);
+    };
+    const handleSheyLakeState = () => {
+        setSheyLake(false);
     };
     return (
         <>
@@ -204,7 +229,7 @@ const DiscoverNepal = () => {
                 c-0.114,10.751,1.249,21.678-0.284,32.2c-1.092,7.495-0.67,15.947-8.866,22.029c-5.478,4.065-11.074,2.62-16.297,4.744
                 c-2.625,1.068-5.467,1.378-6.351,4.49c-0.782,2.751,0.519,4.914,2.673,6.574c5.264,4.056,5.144,9.14,1.725,13.889
                 c-2.039,2.832-0.851,3.284,1.296,4.115c0,0,0.001,0,0.001,0C337.68,133.705,345.812,133.855,351.775,138.89z"/>
-                                <g className={province === 'karnali' ? "karnali-place-group p1" : "hide"}>
+                                <g className={province === 'karnali' ? "karnali-place-group p1" : "hide"} onClick={() => setShey(true)}>
                                     <image
                                         href="/tree.svg"
                                         preserveAspectRatio="xMidYMid meet"
@@ -213,7 +238,7 @@ const DiscoverNepal = () => {
                                         Shey Phoksundo National Park
                                     </text>
                                 </g>
-                                <g className={province === 'karnali' ? "karnali-place-group p2" : "hide"}>
+                                <g className={province === 'karnali' ? "karnali-place-group p2" : "hide"} onClick={() => setSheyLake(true)}>
                                     <image
                                         href="/lake.svg"
                                         preserveAspectRatio="xMidYMid meet"
@@ -222,7 +247,7 @@ const DiscoverNepal = () => {
                                         Shey Phoksundo Lake
                                     </text>
                                 </g>
-                                <g className={province === 'karnali' ? "karnali-place-group p3" : "hide"}>
+                                <g className={province === 'karnali' ? "karnali-place-group p3" : "hide"} onClick={() => setRara(true)}>
                                     <image
                                         href="/tree.svg"
                                         preserveAspectRatio="xMidYMid meet"
@@ -654,7 +679,7 @@ const DiscoverNepal = () => {
                 c11.328,0.409,22.651,1.001,33.971,1.609c1.468,0.079,3.06,0.427,4.334,1.124c15.906,8.707,32.495,16.162,47.778,26.012
                 c2.037,1.313,3.837,3.933,6.632,2.391c2.919-1.61,2.322-4.749,2.299-7.492c-0.036-4.383-1.489-9.211,3.845-11.846
                 C909.137,787.262,905.688,782.781,906.309,777.259z"/>
-                                <g className={province === 'lumbini' ? "lumbini-place-group p1" : "hide"}>
+                                <g className={province === 'lumbini' ? "lumbini-place-group p1" : "hide"} onClick={() => setLumbini(true)}>
                                     <image
                                         href="/village.svg"
                                         preserveAspectRatio="xMidYMid meet"
@@ -663,7 +688,7 @@ const DiscoverNepal = () => {
                                         Lumbini
                                     </text>
                                 </g>
-                                <g className={province === 'lumbini' ? "lumbini-place-group p2" : "hide"}>
+                                <g className={province === 'lumbini' ? "lumbini-place-group p2" : "hide"} onClick={() => setBardia(true)}>
                                     <image
                                         href="/tree.svg"
                                         preserveAspectRatio="xMidYMid meet"
@@ -769,6 +794,11 @@ const DiscoverNepal = () => {
                     {dhaulagiri && <Dhaulagiri handleDhaulagiriState={handleDhaulagiriState}></Dhaulagiri>}
                     {ghorepani && <Ghorepani handleGhorepaniState={handleGhorepaniState}></Ghorepani>}
                     {ghandruk && <Ghandruk handleGhandrukState={handleGhandrukState}></Ghandruk>}
+                    {bardia && <Bardia handleBardiaState={handleBardiaState}></Bardia>}
+                    {lumbini && <Lumbini handleLumbiniState={handleLumbiniState}></Lumbini>}
+                    {shey && <Shey handleSheyState={handleSheyState}></Shey>}
+                    {sheyLake && <SheyLake handleSheyLakeState={handleSheyLakeState}></SheyLake>}
+                    {rara && <Rara handleRaraState={handleRaraState}></Rara>}
                 </div>
                 {tooltip.show && (
                     <div
