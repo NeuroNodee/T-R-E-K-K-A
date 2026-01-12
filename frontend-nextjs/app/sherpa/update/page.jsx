@@ -2,19 +2,19 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function SherpaUpdate() {
+export default function SherpaUpdate({handleUpdate}) {
   const [form, setForm] = useState({
-        experience_years: "",
-        languages: "",
-        region: "",
-        daily_rate: "",
-        phone: "",
-        is_available: false,
-        photo: null,
-        nid_document: null,
-        current_photo: null,
-        current_nid: null,
-    });
+    experience_years: "",
+    languages: "",
+    region: "",
+    daily_rate: "",
+    phone: "",
+    is_available: false,
+    photo: null,
+    nid_document: null,
+    current_photo: null,
+    current_nid: null,
+  });
 
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
@@ -101,7 +101,7 @@ export default function SherpaUpdate() {
 
       if (res.ok) {
         alert("Profile updated successfully");
-        router.push("/sherpa");
+        router.push("/dashboard");
       } else {
         setErrors(data);
       }
@@ -114,116 +114,119 @@ export default function SherpaUpdate() {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 bg-white rounded-xl shadow my-6">
-      <h1 className="text-2xl font-semibold mb-6 text-center">
-        Update Your Info
-      </h1>
+    <div className="update-tab-sherpa flex items-center justify-center bg-gray-100">
+      <div className="bg-white shadow-xl rounded-xl w-full max-w-xl p-8 relative">
+        <div className="close-btn" onClick={handleUpdate}>×</div>
+        <h1 className="text-2xl font-semibold mb-6 text-center">
+          Update Your Info
+        </h1>
 
-      {errors && (
-        <div className="bg-red-100 p-3 rounded mb-4">
-          {Object.entries(errors).map(([k, v]) => (
-            <div key={k}>
-              <strong>{k}:</strong>{" "}
-              {Array.isArray(v) ? v.join(", ") : String(v)}
-            </div>
-          ))}
-        </div>
-      )}
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="number"
-          placeholder="Experience (years)"
-          value={form.experience_years}
-          onChange={e => handleChange("experience_years", e.target.value)}
-          className="input"
-          required
-        />
-
-        <input
-          placeholder="Languages"
-          value={form.languages}
-          onChange={e => handleChange("languages", e.target.value)}
-          className="input"
-          required
-        />
-
-        <input
-          placeholder="Region"
-          value={form.region}
-          onChange={e => handleChange("region", e.target.value)}
-          className="input"
-          required
-        />
-
-        <input
-          type="number"
-          placeholder="Daily Rate"
-          value={form.daily_rate}
-          onChange={e => handleChange("daily_rate", e.target.value)}
-          className="input"
-          required
-        />
-
-        <input
-          placeholder="Phone"
-          value={form.phone}
-          onChange={e => handleChange("phone", e.target.value)}
-          className="input"
-          required
-        />
-
-        {form.current_photo && (
-          <div>
-            <p className="text-sm">Current Photo:</p>
-            <img
-              src={form.current_photo}
-              className="w-24 h-24 rounded-full"
-            />
+        {errors && (
+          <div className="bg-red-100 p-3 rounded mb-4">
+            {Object.entries(errors).map(([k, v]) => (
+              <div key={k}>
+                <strong>{k}:</strong>{" "}
+                {Array.isArray(v) ? v.join(", ") : String(v)}
+              </div>
+            ))}
           </div>
         )}
 
-        <input
-          type="file"
-          onChange={e => handleChange("photo", e.target.files[0])}
-          className="input"
-        />
-
-        {form.current_nid && (
-          <div>
-            <p className="text-sm">Current NID:</p>
-            <a
-              href={form.current_nid}
-              target="_blank"
-              className="text-blue-600 underline"
-            >
-              View NID
-            </a>
-          </div>
-        )}
-
-        <input
-          type="file"
-          onChange={e => handleChange("nid_document", e.target.files[0])}
-          className="input"
-        />
-
-        <label className="flex items-center gap-2">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <input
-            type="checkbox"
-            checked={form.is_available}
-            onChange={e => handleChange("is_available", e.target.checked)}
+            type="number"
+            placeholder="Experience (years)"
+            value={form.experience_years}
+            onChange={e => handleChange("experience_years", e.target.value)}
+            className="input"
+            required
           />
-          Available
-        </label>
 
-        <button
-          disabled={loading}
-          className="w-full py-2 bg-blue-600 text-white rounded-lg"
-        >
-          {loading ? "Updating..." : "Update"}
-        </button>
-      </form>
+          <input
+            placeholder="Languages"
+            value={form.languages}
+            onChange={e => handleChange("languages", e.target.value)}
+            className="input"
+            required
+          />
+
+          <input
+            placeholder="Region"
+            value={form.region}
+            onChange={e => handleChange("region", e.target.value)}
+            className="input"
+            required
+          />
+
+          <input
+            type="number"
+            placeholder="Daily Rate"
+            value={form.daily_rate}
+            onChange={e => handleChange("daily_rate", e.target.value)}
+            className="input"
+            required
+          />
+
+          <input
+            placeholder="Phone"
+            value={form.phone}
+            onChange={e => handleChange("phone", e.target.value)}
+            className="input"
+            required
+          />
+
+          {form.current_photo && (
+            <div>
+              <p className="text-sm">Current Photo:</p>
+              <img
+                src={form.current_photo}
+                className="w-24 h-24 rounded-full"
+              />
+            </div>
+          )}
+
+          <input
+            type="file"
+            onChange={e => handleChange("photo", e.target.files[0])}
+            className="input"
+          />
+
+          {form.current_nid && (
+            <div>
+              <p className="text-sm">Current NID:</p>
+              <a
+                href={form.current_nid}
+                target="_blank"
+                className="text-blue-600 underline"
+              >
+                View NID
+              </a>
+            </div>
+          )}
+
+          <input
+            type="file"
+            onChange={e => handleChange("nid_document", e.target.files[0])}
+            className="input"
+          />
+
+          <label className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              checked={form.is_available}
+              onChange={e => handleChange("is_available", e.target.checked)}
+            />
+            Available
+          </label>
+
+          <button
+            disabled={loading}
+            className="w-full py-2 bg-blue-600 text-white rounded-lg"
+          >
+            {loading ? "Updating..." : "Update"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

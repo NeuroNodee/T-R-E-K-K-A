@@ -37,6 +37,7 @@ import "./../styles/shey.css"
 import "./../styles/rara.css"
 import "./../styles/khaptad.css"
 import "./../styles/api.css"
+import "./../styles/sherpa.css"
 
 import PageTransition from "@/components/PageTransition";
 

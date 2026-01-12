@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function SherpaRegister() {
+export default function SherpaRegister({handleRegister}) {
   const [form, setForm] = useState({});
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
@@ -26,6 +26,7 @@ export default function SherpaRegister() {
       setLoading(false);
       return;
     }
+    console.log(token);
 
     const fd = new FormData();
     Object.entries(form).forEach(([k, v]) => fd.append(k, v));
@@ -43,7 +44,7 @@ export default function SherpaRegister() {
 
       if (res.ok) {
         alert("Registered successfully! Pending verification.");
-        router.push("/sherpa");
+        router.push("/dashboard");
       } else {
         setErrors(data);
       }
@@ -56,8 +57,10 @@ export default function SherpaRegister() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white shadow-xl rounded-xl w-full max-w-xl p-8">
+    <div className="register-tab-sherpa flex items-center justify-center bg-gray-100">
+      <div className="bg-white shadow-xl rounded-xl w-full max-w-xl p-8 relative">
+        <div className="close-btn" onClick={handleRegister}>×</div>
+
         <h1 className="text-2xl font-semibold mb-6 text-center">
           Register as Guide
         </h1>

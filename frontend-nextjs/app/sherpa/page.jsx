@@ -1,10 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import SherpaRegister from "./register/page";
+import SherpaUpdate from "./update/page";
 
 export default function SherpaDashboard() {
   const [sherpas, setSherpas] = useState([]);
   const [status, setStatus] = useState(null);
+  const [register, setRegister] = useState(false);
+  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     const token =
@@ -17,6 +21,7 @@ export default function SherpaDashboard() {
       .then(data => Array.isArray(data) && setSherpas(data));
 
     // Fetch logged-in user sherpa status
+    console.log(token);
     if (token) {
       fetch("http://127.0.0.1:8000/sherpa/me/", {
         headers: {
@@ -27,16 +32,25 @@ export default function SherpaDashboard() {
         .then(setStatus);
     }
   }, []);
+  const handleRegister = () => {
+    setRegister(false);
+  };
+  const handleUpdate = () => {
+    setUpdate(false);
+  };
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+
+    <div className="sherpa">
+      {register && <SherpaRegister handleRegister={handleRegister}/>}
+      {update && <SherpaUpdate handleUpdate={handleUpdate}/>}
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-semibold">Guide Profiles</h1>
 
         <div className="flex items-center gap-4">
           {/* Register button */}
           {!status?.is_sherpa && (
-            <Link href="/sherpa/register">
+            <Link href="" onClick={() => setRegister(true)}>
               <button className="px-4 py-2 bg-black text-white rounded-lg">
                 Register as Guide
               </button>
@@ -52,7 +66,7 @@ export default function SherpaDashboard() {
 
           {/* Update button if verified */}
           {status?.is_sherpa && status?.is_verified && (
-            <Link href="/sherpa/update">
+            <Link href="" onClick={() => setUpdate(true)}>
               <button className="px-4 py-2 bg-blue-600 text-white rounded-lg">
                 Update Info
               </button>
