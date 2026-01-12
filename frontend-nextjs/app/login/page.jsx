@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { login, signup } from '@/lib/api';
 import { API_URL } from '@/lib/api';
+import ForgotPassword from '@/components/ForgotPassword';
 
 const Login = () => {
   const router = useRouter();
@@ -22,6 +23,8 @@ const Login = () => {
   const [step, setStep] = useState("signup"); // 'signup' | 'verify-otp'
   const [otp, setOtp] = useState("");
   const [emailForOtp, setEmailForOtp] = useState(""); // store email for verification
+
+  const [showForgot, setShowForgot] = useState(false);
 
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
@@ -50,43 +53,43 @@ const Login = () => {
     try {
       const res = await fetch(`${API_URL}/verify-otp/`, {
         method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: emailForOtp, otp }),
-    });
-    const data = await res.json();
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: emailForOtp, otp, purpose: "register" }),
+      });
+      const data = await res.json();
 
-    if (data.success) {
-      // OTP verified → now create account
-      const response = await signup(
-        emailForOtp,
-        formData.password,
-        formData.full_name,
-        formData.is_from_nepal
-      );
-      console.log("Signup complete:", response);
-      setIsLogin(true);
-      setStep("signup");
-      router.push("/login");
-    } else {
-      setError("Invalid or expired OTP");
+      if (data.success) {
+        // OTP verified → now create account
+        const response = await signup(
+          emailForOtp,
+          formData.password,
+          formData.full_name,
+          formData.is_from_nepal
+        );
+        console.log("Signup complete:", response);
+        setIsLogin(true);
+        setStep("signup");
+        router.push("/login");
+      } else {
+        setError("Invalid or expired OTP");
+      }
+    } catch (err) {
+      setError(err.message || "OTP verification failed");
+    } finally {
+      setLoading(false);
     }
-  } catch (err) {
-    setError(err.message || "OTP verification failed");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    
+
     let firstName = '';
     let lastName = '';
 
     // --- VALIDATION FIRST ---
-    
+
 
     setLoading(true);
 
@@ -104,9 +107,13 @@ const Login = () => {
           formData.password,
           formData.rememberMe
         );
-        console.log('Login successful:', response);
-        router.push('/dashboard');
-        return;
+        if (response.success) {
+          console.log('Login successful:', response);
+          router.push('/dashboard');
+          return;
+        } else {
+          setError(response.error || 'Login failed');
+        }
       } else {
         // Signup
         const res = await fetch(`${API_URL}/send-otp/`, {
@@ -278,7 +285,8 @@ const Login = () => {
                     />
                     <label htmlFor="rememberMe">Remember me </label>
                   </div>
-                  <span className={`${isLogin ? "span" : "hide"}`}>Forgot password?</span>
+                  <span className={`${isLogin ? "span" : "hide"}`} onClick={() => setShowForgot(true)}>Forgot password?</span>
+                  {showForgot && <ForgotPassword onClose={() => setShowForgot(false)} />}
                 </div>
 
                 {/* I am from Nepal checkbox (only for signup) */}
@@ -297,7 +305,7 @@ const Login = () => {
 
                 {/* Submit Button */}
                 <button
-                  type="submit"
+                  type={isLogin ? "submit" : "button"}
                   className={`${isLogin ? "button-submit" : "hide"}`}
                   disabled={loading}
                 >
@@ -305,7 +313,7 @@ const Login = () => {
                 </button>
 
                 <button
-                  type="submit"
+                  type={isLogin ? "button" : "submit"}
                   className={`${isLogin ? "hide" : "button-submit"}`}
                   disabled={loading}
                 >

@@ -1,0 +1,540 @@
+.mapAnimation {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/bg-map.jpg');
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 1);
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+}
+.mapAnimation .title {
+  color: white;
+  font-size: 1.8rem;
+  text-align: center;
+  font-family: 'Nova Cut', sans-serif;
+  padding: 10px;
+
+}
+
+.mapAnimation .dasNav {
+  background-color: transparent;
+  backdrop-filter: blur(4px);
+}
+
+.mapAnimation .dasNav h1 {
+  color: white;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  /* padding: 30px; */
+  max-height: 80vh;
+  box-sizing: border-box;
+}
+
+/* Base province styles */
+
+
+.koshi {
+  fill: #0f2a4d;
+  opacity: 0.7;
+}
+
+.koshi:hover {
+  fill: #1C3D73;
+}
+
+.madheshi {
+  fill: #0F2A4F;
+  opacity: 0.7;
+}
+
+.madheshi:hover {
+  fill: #245A9A;
+}
+
+.bagmati {
+  fill: #163A6B;
+  opacity: 0.7;
+}
+
+.bagmati:hover {
+  fill: #2F6DB3;
+}
+
+.gandaki {
+  fill: #1E4A87;
+  opacity: 0.7;
+}
+
+.gandaki:hover {
+  fill: #4A86C8;
+}
+
+.lumbini {
+  fill: #2A63A8;
+  opacity: 0.7;
+}
+
+.lumbini:hover {
+  fill: #6FA0D9;
+}
+
+.karnali {
+  fill: #3C7BC3;
+  opacity: 0.7;
+}
+
+.karnali:hover {
+  fill: #8FB6E8;
+}
+
+.sudurpaschim {
+  fill: #5A96D6;
+  opacity: 0.7;
+}
+
+.sudurpaschim:hover {
+  fill: #B3D1F2;
+}
+
+.province {
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+  stroke: #ffffff;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  fill-rule: evenodd;
+  pointer-events: visiblePainted;
+}
+
+.province.gandaki.active {
+  /* transition: fill 0.3s ease; */
+  fill: #1C3D73;
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
+  transform: scale(2);
+}
+
+.province.sudurpaschim.active {
+  /* transition: fill 0.3s ease; */
+  opacity: 1;
+  fill: #1C3D73;
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
+  transform: scale(2.2) translateX(300px) translateY(100px);
+}
+
+.province.lumbini.active {
+  fill: #1C3D73;
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
+  transform: scale(2.5) translateX(100px) translateY(-20px);
+
+}
+
+.province.karnali.active {
+  fill: #1C3D73;
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
+  transform: scale(1.8) translateX(150px) translateY(120px);
+
+}
+
+.province.bagmati.active {
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
+  transform: scale(2.5) translateX(-150px) translateY(-60px);
+
+}
+
+.province.madheshi.active {
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
+  transform: scale(3) translateX(-150px) translateY(-140px);
+
+}
+
+.province.koshi.active {
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  /* scale from center */
+  transform: scale(2.3) translateX(-380px) translateY(-130px);
+}
+
+.province.inactive {
+  display: none;
+}
+
+.custom-tooltip {
+  background: rgba(15, 23, 42, 0.95);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  animation: fadeInMap 0.3s ease;
+}
+
+/* Arrow below the tooltip */
+.custom-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border: 8px solid transparent;
+  border-top-color: rgba(15, 23, 42, 0.95);
+}
+
+.back-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.back-btn button {
+  display: flex;
+  height: 3em;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee4b;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  color: white;
+  border: 1px solid #fff;
+  border-radius: 10px;
+}
+
+.back-btn button>svg {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  transition: all 1s ease-in;
+}
+
+.back-btn button:hover>svg {
+  font-size: 1.2em;
+  transform: translateX(-5px);
+}
+
+.back-btn button>svg path {
+  fill: #fff;
+}
+
+.back-btn button:hover {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  border-radius: 0px;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeInMap {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -90%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+}
+
+.mapAnimation h1 {
+  font-size: 1.5rem;
+  /* font-weight: 600; */
+  /* margin-bottom: 20px; */
+  text-align: center;
+}
+
+
+
+
+
+.koshi-place-group.p1 {
+  transform: translate(-300px, -350px);
+}
+
+.koshi-place-group.p1:hover {
+  transform: translate(-300px, -350px) scale(1.2);
+}
+
+.koshi-place-group.p2 {
+  transform: translate(330px, 250px);
+}
+
+.koshi-place-group.p2:hover {
+  transform: translate(330px, 250px) scale(1.2);
+}
+
+.koshi-place-group.p3 {
+  transform: translate(-100px, 400px);
+}
+
+.koshi-place-group.p3:hover {
+  transform: translate(-100px, 400px) scale(1.2);
+}
+
+.koshi-place-group.p4 {
+  transform: translate(10px, 200px);
+}
+
+.koshi-place-group.p4:hover {
+  transform: translate(10px, 200px) scale(1.2);
+}
+
+.madheshi-place-group.p1 {
+  transform: translate(150px, 160px);
+}
+
+.madheshi-place-group.p1:hover {
+  transform: translate(150px, 160px) scale(1.2);
+}
+
+.bagmati-place-group.p1 {
+  transform: translate(10px, 30px);
+}
+
+.bagmati-place-group.p1:hover {
+  transform: translate(10px, 30px) scale(1.2);
+}
+.bagmati-place-group.p2 {
+  transform: translate(50px, -150px);
+}
+
+.bagmati-place-group.p2:hover {
+  transform: translate(50px, -150px) scale(1.2);
+}
+.bagmati-place-group.p3 {
+  transform: translate(-100px, -100px);
+}
+
+.bagmati-place-group.p3:hover {
+  transform: translate(-100px, -100px) scale(1.2);
+}
+.bagmati-place-group.p4 {
+  transform: translate(120px, 40px);
+}
+
+.bagmati-place-group.p4:hover {
+  transform: translate(120px, 40px) scale(1.2);
+}
+.bagmati-place-group.p5 {
+  transform: translate(10px, 120px);
+}
+
+.bagmati-place-group.p5:hover {
+  transform: translate(10px, 120px) scale(1.2);
+}
+.bagmati-place-group.p6 {
+  transform: translate(600px, -70px);
+}
+
+.bagmati-place-group.p6:hover {
+  transform: translate(600px, -70px) scale(1.2);
+}
+
+.gandaki-place-group.p1 {
+  transform: translate(80px, 10px);
+}
+
+.gandaki-place-group.p1:hover {
+  transform: translate(80px, 10px) scale(1.2);
+}
+
+.gandaki-place-group.p2 {
+  transform: translate(-30px, 30px);
+}
+
+.gandaki-place-group.p2:hover {
+  transform: translate(-30px, 30px) scale(1.2);
+}
+
+.gandaki-place-group.p3 {
+  transform: translate(120px, 90px);
+}
+
+.gandaki-place-group.p3:hover {
+  transform: translate(120px, 80px) scale(1.2);
+}
+
+.gandaki-place-group.p4 {
+  transform: translate(150px, -90px);
+}
+
+.gandaki-place-group.p4:hover {
+  transform: translate(150px, -90px) scale(1.2);
+}
+
+.gandaki-place-group.p5 {
+  transform: translate(30px, -70px);
+}
+
+.gandaki-place-group.p5:hover {
+  transform: translate(30px, -70px) scale(1.2);
+}
+
+.gandaki-place-group.p6 {
+  transform: translate(-100px, -120px);
+}
+
+.gandaki-place-group.p6:hover {
+  transform: translate(-100px, -120px) scale(1.2);
+}
+
+.lumbini-place-group.p1 {
+  transform: translate(30px, 0px);
+}
+
+.lumbini-place-group.p1:hover {
+  transform: translate(30px, 0px) scale(1.2);
+}
+.lumbini-place-group.p2 {
+  transform: translate(-600px, -180px);
+}
+
+.lumbini-place-group.p2:hover {
+  transform: translate(-600px, -180px) scale(1.2);
+}
+.karnali-place-group.p1 {
+  transform: translate(250px, 10px);
+}
+.karnali-place-group.p1:hover {
+  transform: translate(250px, 10px) scale(1.2);
+}
+.karnali-place-group.p2 {
+  transform: translate(400px, 150px);
+}
+.karnali-place-group.p2:hover {
+  transform: translate(400px, 150px) scale(1.2);
+}
+.karnali-place-group.p3 {
+  transform: translate(-100px, -100px);
+}
+.karnali-place-group.p3:hover {
+  transform: translate(-100px, -100px) scale(1.2);
+}
+.sudurpaschim-place-group.p1 {
+  transform: translate(110px, 100px);
+}
+.sudurpaschim-place-group.p1:hover {
+  transform: translate(110px, 100px) scale(1.2);
+}
+.sudurpaschim-place-group.p2 {
+  transform: translate(80px, -270px);
+}
+.sudurpaschim-place-group.p2:hover {
+  transform: translate(80px, -270px) scale(1.2);
+}
+.koshi-place-group image,
+.madheshi-place-group image,
+.bagmati-place-group image,
+.gandaki-place-group image,
+.lumbini-place-group image,
+.karnali-place-group image,
+.sudurpaschim-place-group image {
+  width: 50px;
+  height: 50px;
+  x: 800;
+  y: 450;
+
+  /* pointer-events: none; */
+}
+
+.koshi-place-group .place-text,
+.madheshi-place-group .place-text,
+.bagmati-place-group .place-text,
+.gandaki-place-group .place-text,
+.lumbini-place-group .place-text,
+.karnali-place-group .place-text,
+.sudurpaschim-place-group .place-text {
+
+  fill: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+
+  /* pointer-events: none; */
+}
+
+.koshi-place-group,
+.madheshi-place-group,
+.bagmati-place-group,
+.gandaki-place-group,
+.lumbini-place-group,
+.karnali-place-group,
+.sudurpaschim-place-group {
+  transition: all 0.5s ease;
+  cursor: pointer;
+  z-index: 100000;
+  transform-box: fill-box;
+  /* Reference box for transforms */
+  transform-origin: center;
+}
+.koshi-place-group:hover .place-text,
+.madheshi-place-group:hover .place-text,
+.bagmati-place-group:hover .place-text,
+.gandaki-place-group:hover .place-text,
+.lumbini-place-group:hover .place-text,
+.karnali-place-group:hover .place-text,
+.sudurpaschim-place-group:hover .place-text {
+  fill: #7bcc73;
+}
+
+.province.koshi.active {
+  fill: #0A2540; 
+}
+
+.province.madheshi.active {
+  fill: #8B5E34; 
+}
+
+.province.bagmati.active {
+  fill: #1C7347; 
+}
+
+.province.gandaki.active {
+  fill: #2E8BC0; 
+}
+
+.province.lumbini.active {
+  fill: #5A2D82; 
+}
+
+.province.karnali.active {
+  fill: #1E3A8A; 
+}
+
+.province.sudurpaschim.active {
+  fill: #0B1F33; 
+}

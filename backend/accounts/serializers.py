@@ -94,21 +94,13 @@ class LoginSerializer(serializers.Serializer):
     remember_me = serializers.BooleanField(required=False, default=False)
 
 
-class ChangePasswordSerializer(serializers.Serializer):
-    """
-    Serializer for password change endpoint
-    """
-    old_password = serializers.CharField(required=True, write_only=True)
-    new_password = serializers.CharField(required=True, write_only=True, validators=[validate_password])
+class ResetPasswordSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    otp = serializers.CharField(max_length=6)
+    new_password = serializers.CharField(min_length=8)
 
-    def validate_old_password(self, value):
-        user = self.context['request'].user
-        if not user.check_password(value):
-            raise serializers.ValidationError("Old password is incorrect")
-        return value
-    
-    def validate_new_password(self, value):
-        user = self.context['request'].user
-        if user.check_password(value):
-            raise serializers.ValidationError("New password cannot be the same as old password")
-        return value
+    def validate(self, data):
+        # Add OTP validation logic here
+        if not validate_otp(data['email'], data['otp']):
+            raise serializers.ValidationError({'otp': 'Invalid or expired OTP'})
+        return data

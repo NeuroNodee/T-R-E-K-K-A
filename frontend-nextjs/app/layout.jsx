@@ -11,6 +11,33 @@ import "./../styles/TravelKit.css";
 import "./../styles/community.css";
 import "./../styles/aboutus.css";
 import "./../styles/Loading.css";
+import "./../styles/ForgetPassword.css";
+import "./../styles/discoverNepal.css";
+import "./../styles/illam.css";
+import "./../styles/everestRegion.css";
+import "./../styles/koshiTappu.css";
+import "./../styles/janaki.css";
+import "./../styles/dharan.css";
+import "./../styles/lalitpur.css";
+import "./../styles/kathmandu.css";
+import "./../styles/bhaktapur.css";
+import "./../styles/langtangNationalPark.css";
+import "./../styles/gosaikunda.css";
+import "./../styles/gaurishankar.css";
+import "./../styles/annapurna.css";
+import "./../styles/pokhara.css";
+import "./../styles/dhaulagiri.css"
+import "./../styles/ghandruk.css"
+import "./../styles/ghorepani.css"
+import "./../styles/machhapuchhre.css"
+import "./../styles/bardia.css"
+import "./../styles/lumbini.css"
+import "./../styles/sheyLake.css"
+import "./../styles/shey.css"
+import "./../styles/rara.css"
+import "./../styles/khaptad.css"
+import "./../styles/api.css"
+
 import PageTransition from "@/components/PageTransition";
 
 const geistSans = Geist({
@@ -44,7 +71,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {/* Wrap children in client-side page transition */}
         {children}
       </body>
     </html>

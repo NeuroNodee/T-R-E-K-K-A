@@ -5,7 +5,7 @@ export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000
 // Helper function to get tokens from storage
 const getTokens = () => {
   if (typeof window === 'undefined') return null;
-  
+
   return {
     access: localStorage.getItem('access_token') || sessionStorage.getItem('access_token'),
     refresh: localStorage.getItem('refresh_token') || sessionStorage.getItem('refresh_token'),
@@ -15,7 +15,7 @@ const getTokens = () => {
 // Helper function to store tokens
 const storeTokens = (tokens, rememberMe) => {
   if (typeof window === 'undefined') return;
-  
+
   if (rememberMe) {
     localStorage.setItem('access_token', tokens.access);
     localStorage.setItem('refresh_token', tokens.refresh);
@@ -28,7 +28,7 @@ const storeTokens = (tokens, rememberMe) => {
 // Helper function to clear tokens
 const clearTokens = () => {
   if (typeof window === 'undefined') return;
-  
+
   localStorage.removeItem('access_token');
   localStorage.removeItem('refresh_token');
   sessionStorage.removeItem('access_token');
@@ -38,7 +38,7 @@ const clearTokens = () => {
 // Check if user is authenticated
 export function isAuthenticated() {
   if (typeof window === 'undefined') return false;
-  
+
   const accessToken = localStorage.getItem('access_token') || sessionStorage.getItem('access_token');
   return !!accessToken;
 }
@@ -101,16 +101,16 @@ export async function login(email, password, rememberMe = false) {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.error || 'Login failed');
+      return { success: false, error: data.error };
     }
 
     // Store tokens
     storeTokens(data.tokens, rememberMe);
 
-    return data;
+    return { success: true, data };
   } catch (error) {
     console.error('Login error:', error);
-    throw error;
+    return { success: false, error: error.message };
   }
 }
 
@@ -118,7 +118,7 @@ export async function login(email, password, rememberMe = false) {
 export async function logout() {
   try {
     const tokens = getTokens();
-    
+
     if (tokens.refresh) {
       await fetch(`${API_URL}/logout/`, {
         method: 'POST',
@@ -158,7 +158,7 @@ export async function getCurrentUser() {
 export async function refreshAccessToken() {
   try {
     const tokens = getTokens();
-    
+
     if (!tokens.refresh) {
       throw new Error('No refresh token');
     }
