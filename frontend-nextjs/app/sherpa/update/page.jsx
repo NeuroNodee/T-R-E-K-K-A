@@ -1,8 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 
-export default function SherpaUpdate({handleUpdate}) {
+export default function SherpaUpdate({ handleUpdate, onSuccess }) {
   const [form, setForm] = useState({
     experience_years: "",
     languages: "",
@@ -12,56 +11,41 @@ export default function SherpaUpdate({handleUpdate}) {
     is_available: false,
     photo: null,
     nid_document: null,
-    current_photo: null,
     current_nid: null,
   });
 
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
+  const [success, setSuccess] = useState(null);
   const [token, setToken] = useState(null);
-  const router = useRouter();
 
-  // Get token safely
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const t =
-        localStorage.getItem("access_token") ||
-        sessionStorage.getItem("access_token");
-      setToken(t);
+      setToken(localStorage.getItem("access_token") || sessionStorage.getItem("access_token"));
     }
   }, []);
 
-  // Fetch sherpa data
   useEffect(() => {
     if (!token) return;
 
-    const fetchData = async () => {
-      try {
-        const res = await fetch("http://127.0.0.1:8000/sherpa/me/", {
-          headers: { Authorization: `Bearer ${token}` },
+    fetch("http://127.0.0.1:8000/sherpa/me/", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then(res => res.ok ? res.json() : {})
+      .then(data => {
+        setForm({
+          experience_years: data.experience_years || "",
+          languages: data.languages || "",
+          region: data.region || "",
+          daily_rate: data.daily_rate || "",
+          phone: data.phone || "",
+          is_available: !!data.is_available,
+          photo: null,
+          nid_document: null,
+          current_nid: data.nid_document || null,
         });
-
-        if (res.ok) {
-          const data = await res.json();
-          setForm({
-            experience_years: data.experience_years ?? "",
-            languages: data.languages ?? "",
-            region: data.region ?? "",
-            daily_rate: data.daily_rate ?? "",
-            phone: data.phone ?? "",
-            is_available: !!data.is_available,
-            photo: null,
-            nid_document: null,
-            current_photo: data.photo ?? null,
-            current_nid: data.nid_document ?? null,
-          });
-        }
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    fetchData();
+      })
+      .catch(console.error);
   }, [token]);
 
   const handleChange = (key, value) => {
@@ -72,22 +56,23 @@ export default function SherpaUpdate({handleUpdate}) {
     e.preventDefault();
     setLoading(true);
     setErrors(null);
-    if (!token) return;
+    setSuccess(null);
+
+    if (!token) {
+      setErrors({ error: "Authentication required" });
+      setLoading(false);
+      return;
+    }
 
     const fd = new FormData();
-
-    // Files only if changed
     if (form.photo) fd.append("photo", form.photo);
     if (form.nid_document) fd.append("nid_document", form.nid_document);
 
-    // Normal fields
     fd.append("experience_years", form.experience_years);
     fd.append("languages", form.languages);
     fd.append("region", form.region);
     fd.append("daily_rate", form.daily_rate);
     fd.append("phone", form.phone);
-
-    // Boolean explicitly
     fd.append("is_available", form.is_available ? "true" : "false");
 
     try {
@@ -100,130 +85,68 @@ export default function SherpaUpdate({handleUpdate}) {
       const data = await res.json();
 
       if (res.ok) {
-        alert("Profile updated successfully");
-        router.push("/dashboard");
+        setSuccess("Profile successfully updated!");
+        onSuccess(data);
+        setTimeout(() => handleUpdate(), 1800);
       } else {
         setErrors(data);
       }
     } catch (err) {
-      console.error(err);
-      alert("Something went wrong");
+      setErrors({ error: "Connection error" });
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="update-tab-sherpa flex items-center justify-center bg-gray-100">
-      <div className="bg-white shadow-xl rounded-xl w-full max-w-xl p-8 relative">
-        <div className="close-btn" onClick={handleUpdate}>×</div>
-        <h1 className="text-2xl font-semibold mb-6 text-center">
-          Update Your Info
-        </h1>
+    <div className="upd-overlay">
+      <div className="upd-modal">
+        <button className="upd-close-btn" onClick={handleUpdate}>×</button>
 
+        <h1 className="upd-title">Update Guide Profile</h1>
+
+        {success && <div className="form-success">{success}</div>}
         {errors && (
-          <div className="bg-red-100 p-3 rounded mb-4">
-            {Object.entries(errors).map(([k, v]) => (
-              <div key={k}>
-                <strong>{k}:</strong>{" "}
-                {Array.isArray(v) ? v.join(", ") : String(v)}
+          <div className="form-errors">
+            {Object.entries(errors).map(([key, val]) => (
+              <div key={key}>
+                <strong>{key}:</strong> {Array.isArray(val) ? val.join(", ") : val}
               </div>
             ))}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="number"
-            placeholder="Experience (years)"
-            value={form.experience_years}
-            onChange={e => handleChange("experience_years", e.target.value)}
-            className="input"
-            required
-          />
+        <form onSubmit={handleSubmit} className="upd-form">
+          <input type="number" placeholder="Experience (years)" value={form.experience_years} onChange={e => handleChange("experience_years", e.target.value)} className="upd-input" required />
+          <input placeholder="Languages (comma separated)" value={form.languages} onChange={e => handleChange("languages", e.target.value)} className="upd-input" required />
+          <input placeholder="Preferred Region" value={form.region} onChange={e => handleChange("region", e.target.value)} className="upd-input" required />
+          <input type="number" placeholder="Daily Rate (NPR)" value={form.daily_rate} onChange={e => handleChange("daily_rate", e.target.value)} className="upd-input" required />
+          <input placeholder="Phone Number" value={form.phone} onChange={e => handleChange("phone", e.target.value)} className="upd-input" required />
 
-          <input
-            placeholder="Languages"
-            value={form.languages}
-            onChange={e => handleChange("languages", e.target.value)}
-            className="input"
-            required
-          />
-
-          <input
-            placeholder="Region"
-            value={form.region}
-            onChange={e => handleChange("region", e.target.value)}
-            className="input"
-            required
-          />
-
-          <input
-            type="number"
-            placeholder="Daily Rate"
-            value={form.daily_rate}
-            onChange={e => handleChange("daily_rate", e.target.value)}
-            className="input"
-            required
-          />
-
-          <input
-            placeholder="Phone"
-            value={form.phone}
-            onChange={e => handleChange("phone", e.target.value)}
-            className="input"
-            required
-          />
-
-          {form.current_photo && (
-            <div>
-              <p className="text-sm">Current Photo:</p>
-              <img
-                src={form.current_photo}
-                className="w-24 h-24 rounded-full"
-              />
-            </div>
-          )}
-
-          <input
-            type="file"
-            onChange={e => handleChange("photo", e.target.files[0])}
-            className="input"
-          />
+          <div className="file-upload-group">
+            <label htmlFor="upd-photo">Profile Photo (optional)</label>
+            <input id="upd-photo" type="file" accept="image/*" onChange={e => handleChange("photo", e.target.files[0])} className="file-input-styled" />
+          </div>
 
           {form.current_nid && (
-            <div>
-              <p className="text-sm">Current NID:</p>
-              <a
-                href={form.current_nid}
-                target="_blank"
-                className="text-blue-600 underline"
-              >
-                View NID
-              </a>
+            <div className="current-doc">
+              <span>Current NID:</span>
+              <a href={form.current_nid} target="_blank" rel="noopener noreferrer">View Document</a>
             </div>
           )}
 
-          <input
-            type="file"
-            onChange={e => handleChange("nid_document", e.target.files[0])}
-            className="input"
-          />
+          <div className="file-upload-group">
+            <label htmlFor="upd-nid">NID Document (optional)</label>
+            <input id="upd-nid" type="file" onChange={e => handleChange("nid_document", e.target.files[0])} className="file-input-styled" />
+          </div>
 
-          <label className="flex items-center gap-2">
-            <input
-              type="checkbox"
-              checked={form.is_available}
-              onChange={e => handleChange("is_available", e.target.checked)}
-            />
-            Available
+          <label className="upd-checkbox">
+            <input type="checkbox" checked={form.is_available} onChange={e => handleChange("is_available", e.target.checked)} />
+            Available for bookings
           </label>
 
-          <button
-            disabled={loading}
-            className="w-full py-2 bg-blue-600 text-white rounded-lg"
-          >
-            {loading ? "Updating..." : "Update"}
+          <button type="submit" disabled={loading} className={`upd-submit ${loading ? 'loading' : ''}`}>
+            {loading ? "Updating..." : "Save Changes"}
           </button>
         </form>
       </div>

@@ -1,12 +1,21 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
-export default function SherpaRegister({handleRegister}) {
-  const [form, setForm] = useState({});
+export default function SherpaRegister({ handleRegister, onSuccess }) {
+  const [form, setForm] = useState({
+    experience_years: "",
+    languages: "",
+    region: "",
+    daily_rate: "",
+    phone: "",
+    is_available: false,
+    photo: null,
+    nid_document: null,
+  });
+
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
-  const router = useRouter();
+  const [success, setSuccess] = useState(null);
 
   const handleChange = (key, value) => {
     setForm(prev => ({ ...prev, [key]: value }));
@@ -16,133 +25,85 @@ export default function SherpaRegister({handleRegister}) {
     e.preventDefault();
     setLoading(true);
     setErrors(null);
+    setSuccess(null);
 
-    const token =
-      localStorage.getItem("access_token") ||
-      sessionStorage.getItem("access_token");
-
+    const token = localStorage.getItem("access_token") || sessionStorage.getItem("access_token");
     if (!token) {
-      alert("Please login first");
+      setErrors({ error: "Please login first" });
       setLoading(false);
       return;
     }
-    console.log(token);
 
     const fd = new FormData();
-    Object.entries(form).forEach(([k, v]) => fd.append(k, v));
+    Object.entries(form).forEach(([k, v]) => {
+      if (v !== null && v !== undefined) fd.append(k, v);
+    });
 
     try {
       const res = await fetch("http://127.0.0.1:8000/sherpa/register/", {
         method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
         body: fd,
       });
 
       const data = await res.json();
 
       if (res.ok) {
-        alert("Registered successfully! Pending verification.");
-        router.push("/dashboard");
+        setSuccess("Registration submitted! Awaiting verification.");
+        onSuccess();
+        setTimeout(() => handleRegister(), 2200);
       } else {
         setErrors(data);
       }
     } catch (err) {
-      console.error(err);
-      alert("Something went wrong");
+      setErrors({ error: "Network error" });
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="register-tab-sherpa flex items-center justify-center bg-gray-100">
-      <div className="bg-white shadow-xl rounded-xl w-full max-w-xl p-8 relative">
-        <div className="close-btn" onClick={handleRegister}>×</div>
+    <div className="reg-overlay">
+      <div className="reg-modal">
+        <button className="reg-close-btn" onClick={handleRegister}>×</button>
 
-        <h1 className="text-2xl font-semibold mb-6 text-center">
-          Register as Guide
-        </h1>
+        <h1 className="reg-title">Become a Certified Guide</h1>
 
+        {success && <div className="form-success">{success}</div>}
         {errors && (
-          <div className="bg-red-50 border border-red-200 p-3 rounded mb-4">
-            {Object.entries(errors).map(([k, v]) => (
-              <p key={k} className="text-red-600 text-sm">
-                <strong>{k}:</strong>{" "}
-                {Array.isArray(v) ? v.join(", ") : String(v)}
-              </p>
+          <div className="form-errors">
+            {Object.entries(errors).map(([key, val]) => (
+              <div key={key}>
+                <strong>{key}:</strong> {Array.isArray(val) ? val.join(", ") : val}
+              </div>
             ))}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="number"
-            placeholder="Experience (years)"
-            className="input"
-            onChange={e => handleChange("experience_years", e.target.value)}
-            required
-          />
+        <form onSubmit={handleSubmit} className="reg-form">
+          <input type="number" placeholder="Experience (years)" onChange={e => handleChange("experience_years", e.target.value)} className="reg-input" required />
+          <input placeholder="Languages (comma separated)" onChange={e => handleChange("languages", e.target.value)} className="reg-input" required />
+          <input placeholder="Primary Region" onChange={e => handleChange("region", e.target.value)} className="reg-input" required />
+          <input type="number" placeholder="Daily Rate (NPR)" onChange={e => handleChange("daily_rate", e.target.value)} className="reg-input" required />
+          <input placeholder="Phone Number" onChange={e => handleChange("phone", e.target.value)} className="reg-input" required />
 
-          <input
-            placeholder="Languages"
-            className="input"
-            onChange={e => handleChange("languages", e.target.value)}
-            required
-          />
+          <div className="file-upload-group">
+            <label htmlFor="reg-photo">Profile Photo</label>
+            <input id="reg-photo" type="file" accept="image/*" onChange={e => handleChange("photo", e.target.files[0])} className="file-input-styled" required />
+          </div>
 
-          <input
-            placeholder="Region"
-            className="input"
-            onChange={e => handleChange("region", e.target.value)}
-            required
-          />
+          <div className="file-upload-group">
+            <label htmlFor="reg-nid">Government ID / NID</label>
+            <input id="reg-nid" type="file" onChange={e => handleChange("nid_document", e.target.files[0])} className="file-input-styled" required />
+          </div>
 
-          <input
-            type="number"
-            placeholder="Daily Rate"
-            className="input"
-            onChange={e => handleChange("daily_rate", e.target.value)}
-            required
-          />
-
-          <input
-            placeholder="Phone"
-            className="input"
-            onChange={e => handleChange("phone", e.target.value)}
-            required
-          />
-
-          <input
-            type="file"
-            className="input"
-            onChange={e => handleChange("photo", e.target.files[0])}
-            required
-          />
-
-          <input
-            type="file"
-            className="input"
-            onChange={e => handleChange("nid_document", e.target.files[0])}
-            required
-          />
-
-          {/* Availability Checkbox */}
-          <label className="flex items-center gap-2 mt-2">
-            <input
-              type="checkbox"
-              checked={form.is_available || false}
-              onChange={e => handleChange("is_available", e.target.checked)}
-            />
-            Available
+          <label className="reg-checkbox">
+            <input type="checkbox" checked={form.is_available} onChange={e => handleChange("is_available", e.target.checked)} />
+            Currently available for guiding
           </label>
 
-          <button
-            disabled={loading}
-            className="w-full py-2 rounded-lg bg-black text-white hover:bg-gray-800"
-          >
-            {loading ? "Submitting..." : "Submit"}
+          <button type="submit" disabled={loading} className={`reg-submit ${loading ? 'loading' : ''}`}>
+            {loading ? "Submitting..." : "Submit Application"}
           </button>
         </form>
       </div>

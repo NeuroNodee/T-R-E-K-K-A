@@ -1,99 +1,180 @@
 "use client";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import SherpaRegister from "./register/page";
 import SherpaUpdate from "./update/page";
+import ProfileBtn from "@/components/ProfileBtn";
+import Notify from "@/components/Notify";
 
 export default function SherpaDashboard() {
   const [sherpas, setSherpas] = useState([]);
   const [status, setStatus] = useState(null);
   const [register, setRegister] = useState(false);
   const [update, setUpdate] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    const token =
-      localStorage.getItem("access_token") ||
-      sessionStorage.getItem("access_token");
+    const token = localStorage.getItem("access_token") || sessionStorage.getItem("access_token");
 
-    // Fetch all sherpas (public)
     fetch("http://127.0.0.1:8000/sherpa/list/")
       .then(res => res.json())
       .then(data => Array.isArray(data) && setSherpas(data));
 
-    // Fetch logged-in user sherpa status
-    console.log(token);
     if (token) {
       fetch("http://127.0.0.1:8000/sherpa/me/", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       })
-        .then(res => (res.ok ? res.json() : null))
+        .then(res => res.ok ? res.json() : null)
         .then(setStatus);
     }
   }, []);
-  const handleRegister = () => {
+
+  const handleRegisterClose = () => setRegister(false);
+  const handleUpdateClose = () => setUpdate(false);
+
+  const handleRegisterSuccess = () => {
+    setStatus(prev => ({ ...prev, is_sherpa: true, is_verified: false }));
     setRegister(false);
   };
-  const handleUpdate = () => {
+
+  const handleUpdateSuccess = (updatedData) => {
+    setStatus(prev => ({ ...prev, ...updatedData }));
+
+    // Update or add own profile in the list
+    setSherpas(prev => {
+      const ownId = status?.id; // assuming /me/ returns 'id'
+      if (!ownId) return prev;
+
+      const exists = prev.some(s => s.id === ownId);
+      if (exists) {
+        return prev.map(s =>
+          s.id === ownId ? { ...s, ...updatedData } : s
+        );
+      } else if (updatedData.is_available) {
+        // If newly available, refetch full list (safest)
+        fetch("http://127.0.0.1:8000/sherpa/list/")
+          .then(res => res.json())
+          .then(data => Array.isArray(data) && setSherpas(data));
+        return prev;
+      }
+      return prev;
+    });
+
     setUpdate(false);
   };
 
+  const filteredSherpas = sherpas.filter(s =>
+    s.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    s.region?.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-
-    <div className="sherpa">
-      {register && <SherpaRegister handleRegister={handleRegister}/>}
-      {update && <SherpaUpdate handleUpdate={handleUpdate}/>}
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-semibold">Guide Profiles</h1>
-
-        <div className="flex items-center gap-4">
-          {/* Register button */}
-          {!status?.is_sherpa && (
-            <Link href="" onClick={() => setRegister(true)}>
-              <button className="px-4 py-2 bg-black text-white rounded-lg">
-                Register as Guide
-              </button>
-            </Link>
-          )}
-
-          {/* Pending verification badge */}
-          {status?.is_sherpa && !status?.is_verified && (
-            <span className="text-yellow-600 font-medium">
-              ⏳ Pending Verification
-            </span>
-          )}
-
-          {/* Update button if verified */}
-          {status?.is_sherpa && status?.is_verified && (
-            <Link href="" onClick={() => setUpdate(true)}>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg">
-                Update Info
-              </button>
-            </Link>
-          )}
+    <div className="sherpa-container">
+      <div className="dasNav">
+        <h1>GUIDE PROFILES</h1>
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Search by name or region..."
+            className="search-input"
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+          />
+        </div>
+        <div className="userInfo">
+          <Notify />
+          <ProfileBtn />
         </div>
       </div>
 
-      {/* Sherpa cards */}
-      <div className="grid md:grid-cols-3 gap-6">
-        {sherpas.map((s) => (
-          <div key={s.id} className="bg-white rounded-xl shadow p-4 flex flex-col items-center">
-            <img src={s.photo} className="w-20 h-20 rounded-full mx-auto" />
-            <h3 className="text-lg font-semibold text-center mt-3">{s.name}</h3>
-            <p className="text-sm text-center text-gray-500">{s.region}</p>
-            <p className="text-sm text-center text-gray-500">{s.phone}(phone)</p>
-            <p className="text-sm mt-2 text-center">
-              {s.experience_years} yrs • ₹{s.daily_rate}
-            </p>
-            <p className="text-sm mt-1 text-center">
-              {s.is_available ? " Available" : " Not Available"}
-            </p>
-            <p className="text-sm mt-1 text-center">
-              {s.is_verified ? " Verified" : " Not Verified"}
-            </p>
+      <div className="sherpa-dashboard">
+        {register && <SherpaRegister handleRegister={handleRegisterClose} onSuccess={handleRegisterSuccess} />}
+        {update && <SherpaUpdate handleUpdate={handleUpdateClose} onSuccess={handleUpdateSuccess} />}
+
+        <div className="sherpa-header">
+          <div className="sherpa-actions">
+            {!status?.is_sherpa && (
+              <button className="sherpa-btn sherpa-btn-register" onClick={() => setRegister(true)}>
+                Register as Guide
+              </button>
+            )}
+
+            {status?.is_sherpa && !status?.is_verified && (
+              <span className="sherpa-badge sherpa-badge-pending">
+                Pending Verification
+              </span>
+            )}
+
+            {status?.is_sherpa && status?.is_verified && (
+              <button className="sherpa-btn sherpa-btn-update" onClick={() => setUpdate(true)}>
+                Update Profile
+              </button>
+            )}
           </div>
-        ))}
+        </div>
+
+        {!status?.is_sherpa && (
+          <div className="sherpa-info-section info-not-registered">
+            <div className="info-content">
+              <h2>Join Our Professional Guide Community</h2>
+              <p>Become a certified guide and connect with travelers looking for authentic experiences across Nepal.</p>
+              <ul className="info-benefits">
+                <li>Showcase your expertise in trekking & cultural tours</li>
+                <li>Set your own daily rates and availability</li>
+                <li>Build reputation with verified status</li>
+                <li>Direct bookings from adventure seekers</li>
+              </ul>
+              <button className="sherpa-btn sherpa-btn-register" onClick={() => setRegister(true)}>
+                Register Now
+              </button>
+            </div>
+          </div>
+        )}
+
+        {status?.is_sherpa && !status?.is_verified && (
+          <div className="sherpa-info-section info-pending">
+            <div className="info-content">
+              <h2>Application Under Review</h2>
+              <p>Thank you for registering. Our team is currently verifying your documents.</p>
+              <p>Typical review time: 24–72 hours</p>
+              <div className="pending-tips">
+                <h3>What happens next:</h3>
+                <ul>
+                  <li>You'll receive a notification once approved</li>
+                  <li>You can update your profile anytime</li>
+                  <li>Verified guides appear in public listings</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="sherpa-grid">
+          {filteredSherpas.map(s => (
+            <div key={s.id} className="sherpa-card">
+              <div className="sherpa-card-photo-container">
+                <img src={s.photo} alt={s.name} className="sherpa-card-photo" />
+              </div>
+              <h3 className="sherpa-card-name">{s.name}</h3>
+              <p className="sherpa-card-region">{s.region}</p>
+              <p className="sherpa-card-contact">{s.phone}</p>
+              <p className="sherpa-card-rate">
+                {s.experience_years} years • NPR {s.daily_rate}/day
+              </p>
+              <div className="sherpa-card-status">
+                <span className={`status-badge ${s.is_available ? 'available' : 'unavailable'}`}>
+                  {s.is_available ? 'Available' : 'Unavailable'}
+                </span>
+                <span className={`status-badge ${s.is_verified ? 'verified' : 'pending'}`}>
+                  {s.is_verified ? 'Verified' : 'Pending'}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {filteredSherpas.length === 0 && status?.is_sherpa && status?.is_verified && (
+          <p className="no-results">No guides match your search.</p>
+        )}
       </div>
     </div>
   );
