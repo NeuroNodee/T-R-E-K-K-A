@@ -19,6 +19,9 @@
   background: transparent; 
   box-shadow: none;
 }
+.sherpa-container .dasNav h1{
+  color: var(--navy);
+}
 
 /* Container & Layout */
 .sherpa-container { 
@@ -66,7 +69,7 @@
 
 /* Info Sections (Register / Pending) */
 .sherpa-info-section {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 40px;
