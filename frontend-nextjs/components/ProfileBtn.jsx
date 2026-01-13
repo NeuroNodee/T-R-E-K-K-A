@@ -42,37 +42,45 @@ const ProfileBtn = () => {
   }, []);
 
   return (
-    <div className="relative profile-container" ref={menuRef}>
+    <div className="profile-container" ref={menuRef}>
       <button
-        className="profile flex items-center gap-3 p-2 rounded-xl hover:bg-gray-100 transition"
+        className="profile-btn"
         onClick={toggleMenu}
       >
-        <div className="userDiv text-right">
-          <span className="usersName block font-semibold text-sm">{user?.first_name + " " + user?.last_name}</span>
-          <span className="userRole block text-xs text-gray-500">{user?.is_from_nepal ? 'Explorer' : 'Traveler'}</span>
+        <div className="userDiv">
+          <span className="usersName">
+            {user?.first_name + " " + user?.last_name}
+          </span>
+          <span className="userRole">
+            {user?.is_from_nepal ? "Explorer" : "Traveler"}
+          </span>
         </div>
-        <div className="profileImg w-10 h-10 rounded-full overflow-hidden border border-gray-300">
-          <img src="/me.webp" alt="Profile" className="w-full h-full object-cover" />
+
+        <div className="profileImg">
+          <img src="/me.webp" alt="Profile" />
         </div>
       </button>
 
       {open && (
-        <div
-          className="profileBtns overlay-profile absolute right-0 mt-1 w-48 bg-white shadow-lg rounded-xl border border-gray-100 p-3 animate-fadeIn"
-        >
-          <button className="overlay-profile-btn w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100 text-black">
+        <div className="profile-dropdown animate-fadeIn">
+          <button className="profile-dropdown-btn">
             My Profile
           </button>
-          <button className="overlay-profile-btn w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100 text-black">
+
+          <button className="profile-dropdown-btn">
             Settings
           </button>
-          <button onClick={handleLogout} className="overlay-profile-btn w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100 text-red-500">
+
+          <button
+            onClick={handleLogout}
+            className="profile-dropdown-btn logout"
+          >
             Logout
           </button>
-
         </div>
       )}
     </div>
+
   );
 };
 
