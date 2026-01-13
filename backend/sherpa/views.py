@@ -86,7 +86,7 @@ class SherpaUpdateView(APIView):
 
         changed_profile = False
 
-        # ✅ Handle availability safely
+        # Handle availability safely
         if "is_available" in request.data:
             raw = request.data.get("is_available")
             new_is_available = str(raw).lower() in ["true", "1", "yes"]
@@ -94,7 +94,7 @@ class SherpaUpdateView(APIView):
             if sherpa.is_available != new_is_available:
                 sherpa.is_available = new_is_available
 
-        # ✅ Handle profile fields
+        # Handle profile fields
         for field in profile_fields:
             if field in request.data:
                 new_value = request.data[field]
@@ -104,7 +104,7 @@ class SherpaUpdateView(APIView):
                     setattr(sherpa, field, new_value)
                     changed_profile = True
 
-        # ✅ Only reset verification if profile actually changed
+        # Only reset verification if profile actually changed
         if changed_profile:
             sherpa.is_verified = False
 
