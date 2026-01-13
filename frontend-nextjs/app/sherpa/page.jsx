@@ -92,11 +92,11 @@ export default function SherpaDashboard() {
 
         <div className="sherpa-header">
           <div className="sherpa-actions">
-            {!status?.is_sherpa && (
+            {/* {!status?.is_sherpa && (
               <button className="sherpa-btn sherpa-btn-register" onClick={() => setRegister(true)}>
                 Register as Guide
               </button>
-            )}
+            )} */}
 
             {status?.is_sherpa && !status?.is_verified && (
               <span className="sherpa-badge sherpa-badge-pending">
