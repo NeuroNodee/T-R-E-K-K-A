@@ -17,7 +17,8 @@
     will-change: transform;
     animation: fadeIn 0.4s ease-out forwards;
 }
-.place-overlay-null{
+
+.place-overlay-null {
     position: fixed;
     top: 0;
     left: 0;
@@ -240,6 +241,7 @@
         growText 3.2s cubic-bezier(0.16, 1, 0.3, 1) forwards,
         gradientFlow 6s ease infinite;
 }
+
 .place-overlay .arrow {
     position: absolute;
     bottom: 50%;
@@ -249,6 +251,56 @@
     backdrop-filter: blur(5px);
     transition: all 0.3s ease;
     /* width: 50px; */
+}
+
+.overlay-layout {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mini-div {
+    /* position: absolute; */
+    width: 11vw;
+    height: 60vh;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 40px;
+    
+
+}
+.mini-div-header {
+    width: 4vw;
+    height: auto;
+}
+.mini-div-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.mini-div.left{
+    border-radius: 24px 0px 0px 24px;
+    
+}
+.mini-div.right{
+    border-radius: 0px 24px 24px 0px;
+    
+}
+.mini-div .text{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
 }
 
 
