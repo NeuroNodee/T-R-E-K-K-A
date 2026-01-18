@@ -6,33 +6,45 @@ const EverestRegion = ({ handleEverestRegionState }) => {
     placeName: "Everest",
     placeName2: "Region",
     images: [
-      "EverestRegion1.jpg", 
-      "EverestRegion2.jpg",
-      "EverestRegion3.jpg", 
+      "everest1.png",
+      "everest2.png",
+      "everest3.png",
     ],
     subtitles: [
-      "Gateway to Eastern Hills • Bhedetar Viewpoint",
-      "Cool Climate & Scenic Sunrise Spot",
-      "Oranges, Temples & Adventure Triangle",
+      "Home of the World's Highest Peak",
+      "Sherpa Culture • Himalayan Landscapes",
+      "Gateway to Everest Base Camp",
     ],
-    leftEmojiImages: ["mountain.png", "sunrise.png", "orange.png"],
-    rightEmojiImages: ["binoculars.png", "road.svg", "temple.png"],
+    leftEmojiImages: [
+      "mountain.svg",   // Everest & Himalayan peaks
+      "tour-guide.png",    // Sherpa villages & culture
+      "flag.png",    // Buddhism & monasteries
+    ],
+
+    rightEmojiImages: [
+      "trek.svg",        // Trekking activities
+      "hiking.png",        // Mountaineering
+      "base.png",       // Everest Base Camp
+    ],
+
     leftTexts: [
-      "Bhedetar hill station at 1,420 m",
-      "Famous for stunning sunrise & pine views",
-      "Orange orchards and fresh local produce",
-      "Cool breeze year-round escape from Terai heat",
-      "Panoramic views of eastern plains & Koshi",
-      "Charles Point – named after Prince Charles visit",
+      "Mount Everest (8,848.86 m) and surrounding Himalayan giants",
+      "Solukhumbu region with dramatic valleys and glaciers",
+      "Sherpa villages like Khumjung, Khunde, and Phortse",
+      "Ancient monasteries and colorful prayer flags",
+      "Sagarmatha National Park – UNESCO World Heritage Site",
+      "Glacial rivers, alpine forests, and high-altitude wildlife",
     ],
+
     rightTexts: [
-      "Gateway city to Dhankuta & eastern hills",
-      "Twisty scenic drives & adventure roads",
-      "Pindeshwor & Dantakali temples nearby",
-      "Budha Subba spiritual site & wishes",
-      "Close to Namaste Falls & Skywalk thrill",
-      "Cultural mix & vibrant local life",
+      "Everest Base Camp (EBC) trek – the ultimate Himalayan journey",
+      "High-altitude trekking routes like Gokyo Lakes & Three Passes",
+      "Mountaineering and peak climbing expeditions",
+      "Explore Namche Bazaar – the Sherpa capital",
+      "Scenic flight to Lukla – one of the world's most thrilling airports",
+      "Photography, glacier walks, and mountain viewpoints",
     ],
+
     onClose: handleEverestRegionState,
   };
 
