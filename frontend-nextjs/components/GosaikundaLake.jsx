@@ -6,9 +6,9 @@ const GosaikundaLake = ({ handleGosaikundaLakeState }) => {
     placeName: "Gosaikunda",
     placeName2: "Lake",
     images: [
-      "gosaikunda1.png",
-      "gosaikunda2.png",
-      "gosaikunda3.png",
+      "go3.png",
+      "go2.jpg",
+      "go1.jpg",
     ],
     subtitles: [
       "Sacred Alpine Lake • Hindu & Buddhist Pilgrimage",
@@ -16,12 +16,12 @@ const GosaikundaLake = ({ handleGosaikundaLakeState }) => {
       "Surrounded by 108 Lakes • Spiritual & Scenic",
     ],
     leftEmojiImages: [
-      "lake.png",
+      "lake.svg",
       "temple.svg",
-      "prayer-flag.png",
+      "pray.png",
     ],
     rightEmojiImages: [
-      "pilgrim.png",
+      "festival.png",
       "trek.svg",
       "mountain.svg",
     ],

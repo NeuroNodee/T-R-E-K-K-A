@@ -6,9 +6,9 @@ const Gaurishankar = ({ handleGaurishankarState }) => {
     placeName: "Gaurishankar  ",
     placeName2: "",
     images: [
-      "gaurishankar1.png",
-      "gaurishankar2.png",
-      "gaurishankar3.png",
+      "gau1.jpg",
+      "gau2.jpg",
+      "gau3.jpg",
     ],
     subtitles: [
       "Sacred Himalayan Peak • Shiva & Parvati Abode",
@@ -17,13 +17,13 @@ const Gaurishankar = ({ handleGaurishankarState }) => {
     ],
     leftEmojiImages: [
       "mountain.svg",
-      "snow-peak.png",
-      "forest.png",
+      "snow.png",
+      "village.svg",
     ],
     rightEmojiImages: [
       "trek.svg",
-      "wildlife.png",
-      "culture.png",
+      "tree.svg",
+      "festival.png",
     ],
     leftTexts: [
       "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
