@@ -1,45 +1,45 @@
-// src/components/places/Gaurishankar.jsx
+// src/components/places/Ghandruk.jsx
 import PlaceModal from "./PlaceModal";
 
 const Ghandruk = ({ handleGhandrukState }) => {
   const GhandrukConfig = {
-    placeName: "Ghandruk  ",
-    placeName2: "",
+    placeName: "Ghandruk",
+    placeName2: "Village",
     images: [
-      "gaurishankar1.png",
-      "gaurishankar2.png",
-      "gaurishankar3.png",
+      "village1.jpg",
+      "village2.jpg",
+      "village3.jpg",
     ],
     subtitles: [
-      "Sacred Himalayan Peak • Shiva & Parvati Abode",
-      "Rolwaling Valley • Remote Wilderness",
-      "Biodiversity Hotspot • Sherpa & Tamang Culture",
+      "Iconic Gurung Village • Stunning Annapurna Views",
+      "Traditional Stone Houses • Warm Hospitality",
+      "Gateway to Annapurna Treks • Cultural Gem",
     ],
     leftEmojiImages: [
       "mountain.svg",
-      "snow-peak.png",
-      "forest.png",
+      "village.svg",
+      "festival.png",
     ],
     rightEmojiImages: [
       "trek.svg",
-      "wildlife.png",
-      "culture.png",
+      "sunrise.png",
+      "house.png",
     ],
     leftTexts: [
-      "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
-      "Rolwaling Himal – one of Nepal's most pristine ranges",
-      "Part of Gaurishankar Conservation Area – rich biodiversity",
-      "Home to red panda, snow leopard & Himalayan tahr",
-      "Sherpa, Tamang & Thami villages with traditional lifestyle",
-      "Tsho Rolpa – largest glacial lake in Nepal",
+      "Breathtaking panoramic views of Annapurna South, Machhapuchhre& Gangapurna",
+      "Traditional Gurung settlement at ~1,940–2,012 m with stone-paved paths",
+      "Gurung Museum – showcase of local history, costumes, tools & Gurkha heritage",
+      "Rich Gurung culture – brave warriors, unique traditions & warm community life",
+      "Rhododendron forests, birdwatching in Annapurna Conservation Area",
+      "Easy access from Pokhara (~2 hrs drive + short trek)  perfect weekend escape",
     ],
     rightTexts: [
-      "Rolwaling Valley Trek – adventurous & less crowded route",
-      "Tsho Rolpa & Na Glacier exploration",
-      "Pikayo Ri & other high passes for epic views",
-      "Combine with Gosaikunda or Everest region treks",
-      "Remote monasteries and sacred sites",
-      "Excellent for mountaineering, photography & nature immersion",
+      "Iconic sunrise/sunset viewpoints – magical golden light on snow-capped peaks",
+      "Gateway to popular treks: Poon Hill, Annapurna Base Camp & Ghorepani-Ghandruk loop",
+      "Stay in authentic Gurung homestays – enjoy dal bhat, gundruk & heartfelt hospitality",
+      "Short day hikes to nearby viewpoints& hot springs (Jhinu Danda)",
+      "Shopping for handmade handicrafts, woolens & local souvenirs – support community",
+      "Peaceful, family-friendly vibe – ideal for photographers& culture lovers.",
     ],
     onClose: handleGhandrukState,
   };

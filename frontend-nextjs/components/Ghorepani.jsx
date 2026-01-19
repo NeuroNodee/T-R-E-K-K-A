@@ -1,45 +1,45 @@
-// src/components/places/Gaurishankar.jsx
+// src/components/places/Ghorepani.jsx
 import PlaceModal from "./PlaceModal";
 
 const Ghorepani = ({ handleGhorepaniState }) => {
   const GhorepaniConfig = {
-    placeName: "Gaurishankar  ",
-    placeName2: "",
+    placeName: "Ghorepani",
+    placeName2: "Village",
     images: [
-      "gaurishankar1.png",
-      "gaurishankar2.png",
-      "gaurishankar3.png",
+      "ghore1.jpg",
+      "ghore2.jpg",
+      "ghore3.jpg",
     ],
     subtitles: [
-      "Sacred Himalayan Peak • Shiva & Parvati Abode",
-      "Rolwaling Valley • Remote Wilderness",
-      "Biodiversity Hotspot • Sherpa & Tamang Culture",
+      "Magar & Gurung Gem • Rhododendron Haven",
+      "Gateway to Poon Hill Sunrise • Annapurna Views",
+      "Easy Trek Base • Warm Mountain Hospitality",
     ],
     leftEmojiImages: [
-      "mountain.svg",
-      "snow-peak.png",
-      "forest.png",
+      "village.svg",
+      "tree.svg",
+      "festival.png",
     ],
     rightEmojiImages: [
+      "sunrise.png",
       "trek.svg",
-      "wildlife.png",
-      "culture.png",
+      "mountain.svg",
     ],
     leftTexts: [
-      "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
-      "Rolwaling Himal – one of Nepal's most pristine ranges",
-      "Part of Gaurishankar Conservation Area – rich biodiversity",
-      "Home to red panda, snow leopard & Himalayan tahr",
-      "Sherpa, Tamang & Thami villages with traditional lifestyle",
-      "Tsho Rolpa – largest glacial lake in Nepal",
+      "Picturesque village at 2,874 m surrounded by lush rhododendron & oak forests",
+      "Traditional Magar & Gurung settlement with stone houses & terraced fields",
+      "Rich ethnic culture – generous locals, unique traditions & Gurkha heritage",
+      "Historic stop on old Tibetan salt trade route – authentic mountain life",
+      "Diverse flora & birdlife in Annapurna Conservation Area – spring blooms magical",
+      "Cozy teahouses & homestays offering hearty dal bhat & heartfelt welcomes",
     ],
     rightTexts: [
-      "Rolwaling Valley Trek – adventurous & less crowded route",
-      "Tsho Rolpa & Na Glacier exploration",
-      "Pikayo Ri & other high passes for epic views",
-      "Combine with Gosaikunda or Everest region treks",
-      "Remote monasteries and sacred sites",
-      "Excellent for mountaineering, photography & nature immersion",
+      "Poon Hill sunrise (3,210 m) – legendary 360° panorama of Annapurna, Dhaulagiri.",
+      "Short Ghorepani Poon Hill Trek – beginner-friendly, 4-5 days with epic views",
+      "Early morning hike from village – golden light on snow-capped peaks.",
+      "Combine with Ghandruk loop – add Gurung villages, terraced hills & more Himalayan vistas",
+      "Family & first-timer favorite – moderate trails, teahouse stays & stunning scenery",
+      "Photography paradise – capture mountain sunrises & village charm",
     ],
     onClose: handleGhorepaniState,
   };

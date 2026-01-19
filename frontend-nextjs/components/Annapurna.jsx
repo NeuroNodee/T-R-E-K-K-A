@@ -1,45 +1,45 @@
-// src/components/places/Gaurishankar.jsx
+// src/components/places/Annapurna.jsx
 import PlaceModal from "./PlaceModal";
 
 const Annapurna = ({ handleAnnapurnaState }) => {
   const AnnapurnaConfig = {
-    placeName: "Annapurna  ",
-    placeName2: "",
+    placeName: "Annapurna",
+    placeName2: "Region",
     images: [
-      "annapurna1.png",
-      "gaurishankar2.png",
-      "gaurishankar3.png",
+      "anna1.png",
+      "anna2.jpg",
+      "anna3.jpg",
     ],
     subtitles: [
-      "Sacred Himalayan Peak • Shiva & Parvati Abode",
-      "Rolwaling Valley • Remote Wilderness",
-      "Biodiversity Hotspot • Sherpa & Tamang Culture",
+      "World's Best Trekking Paradise • Himalayan Giants",
+      "Annapurna Base Camp • Classic Routes & Views",
+      "Diverse Trails • Poon Hill to Circuit Trek",
     ],
     leftEmojiImages: [
       "mountain.svg",
-      "snow-peak.png",
-      "forest.png",
+      "peak.png",
+      "unity.png",
     ],
     rightEmojiImages: [
       "trek.svg",
-      "wildlife.png",
-      "culture.png",
+      "base.png",
+      "sunrise.png",
     ],
     leftTexts: [
-      "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
-      "Rolwaling Himal – one of Nepal's most pristine ranges",
-      "Part of Gaurishankar Conservation Area – rich biodiversity",
-      "Home to red panda, snow leopard & Himalayan tahr",
-      "Sherpa, Tamang & Thami villages with traditional lifestyle",
-      "Tsho Rolpa – largest glacial lake in Nepal",
+      "Annapurna I (8,091 m) – 10th highest peak in the world",
+      "Annapurna Sanctuary – dramatic natural amphitheater surrounded by giants",
+      "Machhapuchhre (Fishtail), Annapurna South, Hiunchuli & Gangapurna dominate the skyline",
+      "Diverse landscapes: subtropical forests to alpine meadows & glaciers",
+      "Gurung, Magar & Thakali villages with warm hospitality along trails",
+      "Rich biodiversity in Annapurna Conservation Area – rhododendrons, wildlife & birds",
     ],
     rightTexts: [
-      "Rolwaling Valley Trek – adventurous & less crowded route",
-      "Tsho Rolpa & Na Glacier exploration",
-      "Pikayo Ri & other high passes for epic views",
-      "Combine with Gosaikunda or Everest region treks",
-      "Remote monasteries and sacred sites",
-      "Excellent for mountaineering, photography & nature immersion",
+      "Annapurna Base Camp (ABC) Trek – iconic journey to 4,130 m with 360° views",
+      "Poon Hill Trek (Ghorepani–Poon Hill)– short, stunning sunrise over Dhaulagiri & Annapurna",
+      "Annapurna Circuit Trek – one of the world's classic long-distance treks.",
+      "Mardi Himal Trek – quieter, beautiful ridge walk with close-up Annapurna & Fishtail views",
+      "Short treks from Pokhara: Australian Camp, Australian Base Camp & Landruk viewpoints",
+      "Combine options: ABC + Poon Hill, Circuit + Tilicho Lake.",
     ],
     onClose: handleAnnapurnaState,
   };

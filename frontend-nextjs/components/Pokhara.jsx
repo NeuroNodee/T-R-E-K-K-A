@@ -1,50 +1,50 @@
-// src/components/places/Gaurishankar.jsx
+// src/components/places/Pokhara.jsx
 import PlaceModal from "./PlaceModal";
 
 const Pokhara = ({ handlePokharaState }) => {
-  const pokharaConfig = {
-    placeName: "Pokhara  ",
+  const PokharaConfig = {
+    placeName: "Pokhara",
     placeName2: "",
     images: [
-      "pokhara1.png",
-      "pokhara2.png",
-      "pokhara3.png",
+      "pokhara1.jpg",
+      "pokhara2.jpg",
+      "pokhara3.jpg",
     ],
     subtitles: [
-      "Sacred Himalayan Peak • Shiva & Parvati Abode",
-      "Rolwaling Valley • Remote Wilderness",
-      "Biodiversity Hotspot • Sherpa & Tamang Culture",
+      "City of Lakes • Stunning Annapurna Reflections",
+      "Adventure Capital • Paragliding & Boating Heaven",
+      "Gateway to Himalayas • Relaxed Vibes & Culture",
     ],
     leftEmojiImages: [
+      "river.png",
       "mountain.svg",
-      "snow-peak.png",
-      "forest.png",
+      "temple.svg",
     ],
     rightEmojiImages: [
+      "para.png",
+      "boat.png",
       "trek.svg",
-      "wildlife.png",
-      "culture.png",
     ],
     leftTexts: [
-      "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
-      "Rolwaling Himal – one of Nepal's most pristine ranges",
-      "Part of Gaurishankar Conservation Area – rich biodiversity",
-      "Home to red panda, snow leopard & Himalayan tahr",
-      "Sherpa, Tamang & Thami villages with traditional lifestyle",
-      "Tsho Rolpa – largest glacial lake in Nepal",
+      "Phewa Lake – serene waters mirroring Machhapuchhre (Fishtail) & Annapurna peaks",
+      "World Peace Pagoda (Shanti Stupa) – hilltop views over lake & valley",
+      "Tal Barahi Temple – sacred island shrine in the middle of Phewa Lake",
+      "Lakeside (Baidam) – vibrant hub of cafes, shops & nightlife",
+      "Devi's Fall – dramatic waterfall disappearing underground",
+      "International Mountain Museum - climbing history",
     ],
     rightTexts: [
-      "Rolwaling Valley Trek – adventurous & less crowded route",
-      "Tsho Rolpa & Na Glacier exploration",
-      "Pikayo Ri & other high passes for epic views",
-      "Combine with Gosaikunda or Everest region treks",
-      "Remote monasteries and sacred sites",
-      "Excellent for mountaineering, photography & nature immersion",
+      "Paragliding over Phewa Lake – world-famous tandem flights with epic views",
+      "Boating & sunrise/sunset paddles on Phewa Lake – pure magic",
+      "Sarangkot viewpoint – legendary sunrise over Annapurna range",
+      "Gateway to Annapurna treks – Poon Hill, ABC & short day hikes",
+      "Adventure activities: ziplining, bungee, ultralight flights & more",
+      "Explore Begnas & Rupa Lakes, caves, Tibetan settlements & local markets",
     ],
     onClose: handlePokharaState,
   };
 
-  return <PlaceModal {...pokharaConfig} />;
+  return <PlaceModal {...PokharaConfig} />;
 };
 
 export default Pokhara;

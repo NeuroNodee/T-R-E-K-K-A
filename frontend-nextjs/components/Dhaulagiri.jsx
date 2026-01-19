@@ -1,45 +1,45 @@
-// src/components/places/Gaurishankar.jsx
+// src/components/places/Dhaulagiri.jsx
 import PlaceModal from "./PlaceModal";
 
 const Dhaulagiri = ({ handleDhaulagiriState }) => {
   const DhaulagiriConfig = {
-    placeName: "Dhaulagiri  ",
-    placeName2: "",
+    placeName: "Dhaulagiri",
+    placeName2: "Massif",
     images: [
-      "gaurishankar1.png",
-      "gaurishankar2.png",
-      "gaurishankar3.png",
+      "dhau3.jpg",
+      "dhau2.jpg",
+      "dhau1.jpg",
     ],
     subtitles: [
-      "Sacred Himalayan Peak • Shiva & Parvati Abode",
-      "Rolwaling Valley • Remote Wilderness",
-      "Biodiversity Hotspot • Sherpa & Tamang Culture",
+      "White Mountain • 7th Highest Peak on Earth",
+      "Remote Himalayan Giant • Epic Circuit Trek",
+      "High Passes & Glaciers • Untouched Wilderness",
     ],
     leftEmojiImages: [
       "mountain.svg",
-      "snow-peak.png",
-      "forest.png",
+      "peak.png",
+      "snow.png",
     ],
     rightEmojiImages: [
       "trek.svg",
-      "wildlife.png",
-      "culture.png",
+      "snow.png",
+      "base.png",
     ],
     leftTexts: [
-      "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
-      "Rolwaling Himal – one of Nepal's most pristine ranges",
-      "Part of Gaurishankar Conservation Area – rich biodiversity",
-      "Home to red panda, snow leopard & Himalayan tahr",
-      "Sherpa, Tamang & Thami villages with traditional lifestyle",
-      "Tsho Rolpa – largest glacial lake in Nepal",
+      "Dhaulagiri I (8,167 m) – seventh highest mountain in the world",
+      "Massif with multiple 7,000+ m peaks: Dhaulagiri II, III, IV, V & Tukche Peak",
+      "Dazzling white snow faces rising dramatically from deep valleys",
+      "Part of pristine Dhaulagiri region – remote & less crowded than Annapurna",
+      "Diverse terrain: dense forests, alpine meadows, glaciers & moraines",
+      "Rich biodiversity – snow leopards, blue sheep, yaks & rhododendron blooms",
     ],
     rightTexts: [
-      "Rolwaling Valley Trek – adventurous & less crowded route",
-      "Tsho Rolpa & Na Glacier exploration",
-      "Pikayo Ri & other high passes for epic views",
-      "Combine with Gosaikunda or Everest region treks",
-      "Remote monasteries and sacred sites",
-      "Excellent for mountaineering, photography & nature immersion",
+      "Dhaulagiri Circuit Trek – legendary high-altitude loop.",
+      "Explore three iconic base camps: Italian Base Camp, Glacier Camp & Dhaulagiri Base Camp (4,740 m)",
+      "Hidden Valley traverse – surreal, desolate high plateaus.",
+      "Panoramic vistas of 20+ peaks including Annapurna, Manaslu.",
+      "Camping adventure through Magar villages & wild glacial landscapes",
+      "Thrilling for experienced trekkers – combine with Poon Hill.",
     ],
     onClose: handleDhaulagiriState,
   };

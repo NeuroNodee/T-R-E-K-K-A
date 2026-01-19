@@ -1,45 +1,45 @@
-// src/components/places/Gaurishankar.jsx
+// src/components/places/Machhapuchhre.jsx
 import PlaceModal from "./PlaceModal";
 
 const Machhapuchhre = ({ handleMachhapuchhreState }) => {
   const MachhapuchhreConfig = {
-    placeName: "Machhapuchhre  ",
+    placeName: "Machhapuchhre",
     placeName2: "",
     images: [
-      "machhapuchhre1.png",
-      "machhapuchhre2.png",
-      "machhapuchhre3.png",
+      "machha2.jpg",
+      "machha1.jpg",
+      "machha3.jpg",
     ],
     subtitles: [
-      "Sacred Himalayan Peak • Shiva & Parvati Abode",
-      "Rolwaling Valley • Remote Wilderness",
-      "Biodiversity Hotspot • Sherpa & Tamang Culture",
+      "Sacred Virgin Peak • Iconic Fishtail Summit",
+      "Abode of Lord Shiva • Unclimbed Himalayan Beauty",
+      "Trekker's Dream Landmark",
     ],
     leftEmojiImages: [
       "mountain.svg",
-      "snow-peak.png",
-      "forest.png",
+      "temple.svg",
+      "snow.png",
     ],
     rightEmojiImages: [
       "trek.svg",
-      "wildlife.png",
-      "culture.png",
+      "sunrise.png",
+      "businessman.png",
     ],
     leftTexts: [
-      "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
-      "Rolwaling Himal – one of Nepal's most pristine ranges",
-      "Part of Gaurishankar Conservation Area – rich biodiversity",
-      "Home to red panda, snow leopard & Himalayan tahr",
-      "Sherpa, Tamang & Thami villages with traditional lifestyle",
-      "Tsho Rolpa – largest glacial lake in Nepal",
+      "6,993 m iconic peak with distinctive twin summits resembling a fish's tail",
+      "Sacred to Hindus & Gurung people – believed to be home of Lord Shiva",
+      "Unclimbed & protected – Nepal government bans summiting to preserve sanctity",
+      "Dramatic steep profile – nicknamed 'Matterhorn of Nepal'",
+      "Forms eastern boundary of Annapurna Sanctuary – pristine alpine basin",
+      "Stunning close-up views from Pokhara, Sarangkot & Ghandruk",
     ],
     rightTexts: [
-      "Rolwaling Valley Trek – adventurous & less crowded route",
-      "Tsho Rolpa & Na Glacier exploration",
-      "Pikayo Ri & other high passes for epic views",
-      "Combine with Gosaikunda or Everest region treks",
-      "Remote monasteries and sacred sites",
-      "Excellent for mountaineering, photography & nature immersion",
+      "Highlight of Annapurna Base Camp Trek – unforgettable close encounters",
+      "Machhapuchhre Base Camp (MBC) trek – moderate route with epic panoramas",
+      "Sunrise/sunset magic – golden glow on snow from viewpoints like Australian Camp",
+      "Perfect for photography – one of the world's most photogenic mountains",
+      "Combine with Poon Hill, Mardi Himal or short day hikes from Pokhara",
+      "Spiritual & scenic allure – ideal for nature lovers, trekkers & culture seekers",
     ],
     onClose: handleMachhapuchhreState,
   };
