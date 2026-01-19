@@ -1,14 +1,14 @@
-// src/components/places/Lalitpur.jsx
-import PlaceModal from "./PlaceModal"; // adjust path based on your folder structure
+
+import PlaceModal from "./PlaceModal";
 
 const Lalitpur = ({ handleLalitpurState }) => {
   const LalitpurConfig = {
     placeName: "Lalitpur",
     placeName2: "",
     images: [
-      "patan1.png",       // e.g., Patan Durbar Square with temples & palace
-      "patan2.png",       // e.g., Krishna Mandir stone-carved Shikhara style
-      "patan3.png",       // e.g., Golden Temple (Hiranya Varna Mahavihar) courtyard
+      "patan2.jpg",       
+      "patan1.jpg",       
+      "patan3.jpg",       
     ],
     subtitles: [
       "City of Artisans • Finest Newari Craftsmanship",
@@ -16,14 +16,14 @@ const Lalitpur = ({ handleLalitpurState }) => {
       "Metalwork & Museums • Living Heritage",
     ],
     leftEmojiImages: [
-      "museum.png",       // Patan Museum & art heritage
-      "temple.svg",       // Krishna Mandir & ancient shrines
-      "monastery.png",    // Golden Temple & Buddhist vihars
+      "museum.png",       
+      "temple.png",       
+      "monk.png",    
     ],
     rightEmojiImages: [
-      "craft.png",        // Traditional metalwork & handicrafts
-      "festival.svg",     // Rato Machhendranath Jatra & celebrations
-      "architecture.png", // Intricate Newari wood & stone carvings
+      "craft.png",     
+      "festival.png",     
+      "blueprint.png", 
     ],
     leftTexts: [
       "Patan Durbar Square – stunning Newari architecture & palace complex",

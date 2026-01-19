@@ -1,63 +1,50 @@
-import { useEffect } from "react";
+// src/components/places/Gaurishankar.jsx
+import PlaceModal from "./PlaceModal";
 
 const Machhapuchhre = ({ handleMachhapuchhreState }) => {
-    // Close on Escape key
-    useEffect(() => {
-        const handleEsc = (e) => {
-            if (e.key === "Escape") onClose();
-        };
-        window.addEventListener("keydown", handleEsc);
-        return () => window.removeEventListener("keydown", handleEsc);
-    }, [handleMachhapuchhreState]);
+  const MachhapuchhreConfig = {
+    placeName: "Machhapuchhre  ",
+    placeName2: "",
+    images: [
+      "machhapuchhre1.png",
+      "machhapuchhre2.png",
+      "machhapuchhre3.png",
+    ],
+    subtitles: [
+      "Sacred Himalayan Peak • Shiva & Parvati Abode",
+      "Rolwaling Valley • Remote Wilderness",
+      "Biodiversity Hotspot • Sherpa & Tamang Culture",
+    ],
+    leftEmojiImages: [
+      "mountain.svg",
+      "snow-peak.png",
+      "forest.png",
+    ],
+    rightEmojiImages: [
+      "trek.svg",
+      "wildlife.png",
+      "culture.png",
+    ],
+    leftTexts: [
+      "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
+      "Rolwaling Himal – one of Nepal's most pristine ranges",
+      "Part of Gaurishankar Conservation Area – rich biodiversity",
+      "Home to red panda, snow leopard & Himalayan tahr",
+      "Sherpa, Tamang & Thami villages with traditional lifestyle",
+      "Tsho Rolpa – largest glacial lake in Nepal",
+    ],
+    rightTexts: [
+      "Rolwaling Valley Trek – adventurous & less crowded route",
+      "Tsho Rolpa & Na Glacier exploration",
+      "Pikayo Ri & other high passes for epic views",
+      "Combine with Gosaikunda or Everest region treks",
+      "Remote monasteries and sacred sites",
+      "Excellent for mountaineering, photography & nature immersion",
+    ],
+    onClose: handleMachhapuchhreState,
+  };
 
-    return (
-        <div className="place-overlay" onClick={handleMachhapuchhreState}>
-            <div className="machhapuchhre-modal" onClick={(e) => e.stopPropagation()}>
-
-                <button className="machhapuchhre-close-btn" onClick={handleMachhapuchhreState} aria-label="Close">
-                    <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    >
-                        <path d="M18 6L6 18" />
-                        <path d="M6 6l12 12" />
-                    </svg>
-                </button>
-
-                {/* Content */}
-                <div className="machhapuchhre-header">
-                    <h1>Machhapuchhre</h1>
-                    <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-                </div>
-
-                <div className="machhapuchhre-body">
-
-                    <div className="machhapuchhre-info">
-                        <p>
-                            Ilām is renowned for its lush tea plantations, rolling green hills,
-                            and breathtaking views of Kanchenjunga, the third highest mountain
-                            in the world.
-                        </p>
-                        <ul className="highlights">
-                            <li>World-famous Ilām Tea (orthodox & CTC)</li>
-                            <li>Antu Danda Sunrise Viewpoint</li>
-                            <li>Kanyam & Fikkal Tea Estates</li>
-                            <li>Maipokhari Lake & Sandakpur Trek</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="machhapuchhre-footer">
-                </div>
-            </div>
-        </div>
-    );
+  return <PlaceModal {...MachhapuchhreConfig} />;
 };
 
-export default Machhapuchhre;   
+export default Machhapuchhre;

@@ -1,14 +1,14 @@
 // src/components/places/Bhaktapur.jsx
-import PlaceModal from "./PlaceModal"; // adjust path based on your folder structure
+import PlaceModal from "./PlaceModal"; 
 
 const Bhaktapur = ({ handleBhaktapurState }) => {
   const BhaktapurConfig = {
     placeName: "Bhaktapur",
     placeName2: "",
     images: [
-      "bhaktapur1.png",   // e.g., Nyatapola Temple – tallest in Nepal
-      "bhaktapur2.png",   // e.g., Bhaktapur Durbar Square with Golden Gate
-      "bhaktapur3.png",   // e.g., Pottery Square with traditional clay pots
+      "bhaktapur1.jpg",   
+      "bhaktapur2.jpg",   
+      "bhaktapur3.png",  
     ],
     subtitles: [
       "Medieval Charm • Preserved Newari City",
@@ -16,14 +16,14 @@ const Bhaktapur = ({ handleBhaktapurState }) => {
       "Pottery & Yogurt • Living Traditions",
     ],
     leftEmojiImages: [
-      "temple.svg",       // Nyatapola & major pagoda temples
-      "gate.png",         // Golden Gate & palace entrances
-      "pottery.png",      // Potters’ Square & clay craftsmanship
+      "temple.svg",      
+      "gate.png",        
+      "pottery.png",     
     ],
     rightEmojiImages: [
-      "palace.png",       // 55 Windows Palace & royal heritage
-      "festival.svg",     // Local festivals & Newari culture
-      "food.png",         // Famous Juju Dhau (king curd) & cuisine
+      "palace.png",       
+      "festival.png",     
+      "food.png",         
     ],
     leftTexts: [
       "Bhaktapur Durbar Square – medieval royal palace & temples",

@@ -6,9 +6,9 @@ const LangtangNationalPark = ({ handleLangtangNationalParkState }) => {
     placeName: "Langtang",
     placeName2: "",
     images: [
-      "langtang1.png",
-      "langtang2.png",
-      "langtang3.png",
+      "langtang1.jpg",
+      "langtang2.jpg",
+      "langtang3.jpg",
     ],
     subtitles: [
       "First National Park of Nepal • Himalayan Wilderness",
@@ -17,13 +17,13 @@ const LangtangNationalPark = ({ handleLangtangNationalParkState }) => {
     ],
     leftEmojiImages: [
       "mountain.svg",
-      "forest.png",
-      "wildlife.png",
+      "tree.svg",
+      "river.png",
     ],
     rightEmojiImages: [
       "trek.svg",
-      "village.png",
-      "glacier.png",
+      "village.svg",
+      "snow.png",
     ],
     leftTexts: [
       "Langtang Valley – stunning alpine scenery and glaciers",

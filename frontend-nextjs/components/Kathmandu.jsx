@@ -1,14 +1,14 @@
 // src/components/places/Kathmandu.jsx
-import PlaceModal from "./PlaceModal"; // adjust path based on your folder structure
+import PlaceModal from "./PlaceModal"; 
 
 const Kathmandu = ({ handleKathmanduState }) => {
   const KathmanduConfig = {
     placeName: "Kathmandu",
     placeName2: "",
     images: [
-      "kathmandu1.png",   // e.g., Swayambhunath Stupa (Monkey Temple) at sunrise
-      "kathmandu2.png",   // e.g., Boudhanath Stupa with prayer wheels & flags
-      "kathmandu3.png",   // e.g., Thamel bustling streets or Durbar Square temples
+      "kathmandu1.jpg",   
+      "aboutus-back.png",   
+      "kathmandu3.jpg",  
     ],
     subtitles: [
       "Gateway to Nepal • Blend of Ancient & Modern",
@@ -16,14 +16,14 @@ const Kathmandu = ({ handleKathmanduState }) => {
       "UNESCO Heritage • Thamel Adventure Hub",
     ],
     leftEmojiImages: [
-      "stupa.svg",        // Buddhist stupas like Swayambhunath & Boudhanath
-      "temple.png",       // Hindu sites like Pashupatinath
-      "palace.png",       // Durbar Squares & royal heritage
+      "stupa.png",        
+      "temple.svg",       
+      "palace.png",       
     ],
     rightEmojiImages: [
-      "market.svg",       // Thamel shopping & nightlife
-      "trek.png",         // Trekking gateway & mountain views
-      "culture.png",      // Festivals & diverse traditions
+      "market.png",       
+      "trek.svg",         
+      "festival.png",      
     ],
     leftTexts: [
       "Swayambhunath (Monkey Temple) – ancient stupa with valley panoramas",
