@@ -204,7 +204,7 @@
 }
 
 .grow-text {
-    font-size: 4.8rem;
+    font-size: 4.5rem;
     /* start already quite big */
     font-family: 'Nova Cut', sans-serif;
     font-weight: 800;
@@ -306,7 +306,7 @@
     }
 
     100% {
-        transform: scale(5);
+        transform: scale(3);
         /* ends bigger than final size */
         opacity: 1;
     }

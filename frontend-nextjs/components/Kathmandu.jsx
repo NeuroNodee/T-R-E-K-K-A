@@ -1,63 +1,50 @@
-import { useEffect } from "react";
+// src/components/places/Kathmandu.jsx
+import PlaceModal from "./PlaceModal"; // adjust path based on your folder structure
 
 const Kathmandu = ({ handleKathmanduState }) => {
-  // Close on Escape key
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [handleKathmanduState]);
+  const KathmanduConfig = {
+    placeName: "Kathmandu",
+    placeName2: "",
+    images: [
+      "kathmandu1.png",   // e.g., Swayambhunath Stupa (Monkey Temple) at sunrise
+      "kathmandu2.png",   // e.g., Boudhanath Stupa with prayer wheels & flags
+      "kathmandu3.png",   // e.g., Thamel bustling streets or Durbar Square temples
+    ],
+    subtitles: [
+      "Gateway to Nepal • Blend of Ancient & Modern",
+      "Sacred Stupas & Temples • Vibrant City Life",
+      "UNESCO Heritage • Thamel Adventure Hub",
+    ],
+    leftEmojiImages: [
+      "stupa.svg",        // Buddhist stupas like Swayambhunath & Boudhanath
+      "temple.png",       // Hindu sites like Pashupatinath
+      "palace.png",       // Durbar Squares & royal heritage
+    ],
+    rightEmojiImages: [
+      "market.svg",       // Thamel shopping & nightlife
+      "trek.png",         // Trekking gateway & mountain views
+      "culture.png",      // Festivals & diverse traditions
+    ],
+    leftTexts: [
+      "Swayambhunath (Monkey Temple) – ancient stupa with valley panoramas",
+      "Boudhanath Stupa – massive Buddhist site & Tibetan influence",
+      "Pashupatinath Temple – holiest Hindu shrine on Bagmati River",
+      "Kathmandu Durbar Square – historic royal palace & intricate temples",
+      "Garden of Dreams – peaceful escape amid urban chaos",
+      "Thamel district – vibrant hub for shops, cafes & trekking gear",
+    ],
+    rightTexts: [
+      "Gateway to Himalayan treks & adventure activities",
+      "Bustling markets, street food & live music in Thamel",
+      "Mix of Hindu & Buddhist festivals year-round",
+      "Explore ancient Newari architecture & hidden courtyards",
+      "Cultural museums & art galleries showcasing Nepali heritage",
+      "Scenic viewpoints & nearby day trips to Nagarkot",
+    ],
+    onClose: handleKathmanduState,
+  };
 
-  return (
-    <div className="place-overlay" onClick={handleKathmanduState}>
-      <div className="kathmandu-modal" onClick={(e) => e.stopPropagation()}>
-
-        <button className="kathmandu-close-btn" onClick={handleKathmanduState} aria-label="Close">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6L6 18" />
-            <path d="M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Content */}
-        <div className="kathmandu-header">
-          <h1>Kathmandu</h1>
-          <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-        </div>
-
-        <div className="kathmandu-body">
-
-          <div className="kathmandu-info">
-            <p>
-              Ilām is renowned for its lush tea plantations, rolling green hills,
-              and breathtaking views of Kanchenjunga, the third highest mountain
-              in the world.
-            </p>
-            <ul className="highlights">
-              <li>World-famous Ilām Tea (orthodox & CTC)</li>
-              <li>Antu Danda Sunrise Viewpoint</li>
-              <li>Kanyam & Fikkal Tea Estates</li>
-              <li>Maipokhari Lake & Sandakpur Trek</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="kathmandu-footer">
-        </div>  
-      </div>
-    </div>
-  );
+  return <PlaceModal {...KathmanduConfig} />;
 };
 
-export default Kathmandu;   
+export default Kathmandu;
