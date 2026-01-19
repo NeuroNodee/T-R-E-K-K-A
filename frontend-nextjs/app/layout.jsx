@@ -13,7 +13,6 @@ import "./../styles/aboutus.css";
 import "./../styles/Loading.css";
 import "./../styles/ForgetPassword.css";
 import "./../styles/discoverNepal.css";
-import "./../styles/janaki.css";
 import "./../styles/lalitpur.css";
 import "./../styles/kathmandu.css";
 import "./../styles/bhaktapur.css";
