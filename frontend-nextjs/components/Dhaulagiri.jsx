@@ -1,63 +1,50 @@
-import { useEffect } from "react";
+// src/components/places/Dhaulagiri.jsx
+import PlaceModal from "./PlaceModal";
 
 const Dhaulagiri = ({ handleDhaulagiriState }) => {
-  // Close on Escape key
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [handleDhaulagiriState]);
+  const DhaulagiriConfig = {
+    placeName: "Dhaulagiri",
+    placeName2: "Massif",
+    images: [
+      "dhau3.jpg",
+      "dhau2.jpg",
+      "dhau1.jpg",
+    ],
+    subtitles: [
+      "White Mountain • 7th Highest Peak on Earth",
+      "Remote Himalayan Giant • Epic Circuit Trek",
+      "High Passes & Glaciers • Untouched Wilderness",
+    ],
+    leftEmojiImages: [
+      "mountain.svg",
+      "peak.png",
+      "snow.png",
+    ],
+    rightEmojiImages: [
+      "trek.svg",
+      "snow.png",
+      "base.png",
+    ],
+    leftTexts: [
+      "Dhaulagiri I (8,167 m) seventh highest",
+      "Massif with multiple 7,000+ m peaks",
+      "Dazzling white snow faces rise dramatically",
+      "Remote region less crowded than Annapurna",
+      "Diverse forests, meadows and glaciers",
+      "Snow leopards, blue sheep, rhododendrons",
+    ],
+    rightTexts: [
+      "Dhaulagiri Circuit Trek legendary loop",
+      "Italian, Glacier & Dhaulagiri Base Camps",
+      "Hidden Valley surreal high plateau",
+      "Panoramas of 20+ Himalayan peaks",
+      "Camping through Magar villages & glaciers",
+      "Thrilling for experienced trekkers only",
+    ],
+    onClose: handleDhaulagiriState,
+  };
 
-  return (
-    <div className="dhaulagiri-overlay" onClick={handleDhaulagiriState}>
-      <div className="dhaulagiri-modal" onClick={(e) => e.stopPropagation()}>
-
-        <button className="dhaulagiri-close-btn" onClick={handleDhaulagiriState} aria-label="Close">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6L6 18" />
-            <path d="M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Content */}
-        <div className="dhaulagiri-header">
-          <h1>Dhaulagiri</h1>
-          <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-        </div>
-
-        <div className="dhaulagiri-body">
-
-          <div className="dhaulagiri-info">
-            <p>
-              Ilām is renowned for its lush tea plantations, rolling green hills,
-              and breathtaking views of Kanchenjunga, the third highest mountain
-              in the world.
-            </p>
-            <ul className="highlights">
-              <li>World-famous Ilām Tea (orthodox & CTC)</li>
-              <li>Antu Danda Sunrise Viewpoint</li>
-              <li>Kanyam & Fikkal Tea Estates</li>
-              <li>Maipokhari Lake & Sandakpur Trek</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="dhaulagiri-footer">
-        </div>  
-      </div>
-    </div>
-  );
+  return <PlaceModal {...DhaulagiriConfig} />;
 };
 
-export default Dhaulagiri;   
+export default Dhaulagiri;

@@ -1,63 +1,50 @@
-import { useEffect } from "react";
+// src/components/places/ApiHimal.jsx
+import PlaceModal from "./PlaceModal";
 
 const Api = ({ handleApiState }) => {
-  // Close on Escape key
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [handleApiState]);
+  const ApiConfig = {
+    placeName: "Api",
+    placeName2: "Himal",
+    images: [
+      "api1.jpg",
+      "api2.jpg",
+      "api3.jpg",
+    ],
+    subtitles: [
+      "Far-West Nepal's Highest Peak • Remote Giant",
+      "Api Nampa Conservation Area • Untouched Beauty",
+      "Challenging Trek • Epic Himalayan Views",
+    ],
+    leftEmojiImages: [
+      "mountain.svg",
+      "snow.png",
+      "tree.svg",
+    ],
+    rightEmojiImages: [
+      "trek.svg",
+      "base.png",
+      "wildlife.png",
+    ],
+    leftTexts: [
+      "Api (7,132 m) – highest in far-west",
+      "Remote Api Himal massif beauty",
+      "Api Nampa Conservation Area protected",
+      "Snow leopard and musk deer habitat",
+      "Dramatic snow-capped peaks surround",
+      "Pristine alpine meadows and forests",
+    ],
+    rightTexts: [
+      "Api Base Camp Trek adventure",
+      "Challenging high-altitude route views",
+      "Epic panoramas of Nampa Chiurani",
+      "Remote wilderness photography paradise",
+      "Combine with Saipal or Byas trek",
+      "Untouched nature for serious trekkers",
+    ],
+    onClose: handleApiState,
+  };
 
-  return (
-    <div className="api-overlay" onClick={handleApiState}>
-      <div className="api-modal" onClick={(e) => e.stopPropagation()}>
-
-        <button className="api-close-btn" onClick={handleApiState} aria-label="Close">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6L6 18" />
-            <path d="M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Content */}
-        <div className="api-header">
-          <h1>Khaptad</h1>
-          <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-        </div>
-
-        <div className="api-body">
-
-          <div className="api-info">
-            <p>
-              Ilām is renowned for its lush tea plantations, rolling green hills,
-              and breathtaking views of Kanchenjunga, the third highest mountain
-              in the world.
-            </p>
-            <ul className="highlights">
-              <li>World-famous Ilām Tea (orthodox & CTC)</li>
-              <li>Antu Danda Sunrise Viewpoint</li>
-              <li>Kanyam & Fikkal Tea Estates</li>
-              <li>Maipokhari Lake & Sandakpur Trek</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="api-footer">
-        </div>  
-      </div>
-    </div>
-  );
+  return <PlaceModal {...ApiConfig} />;
 };
 
-export default Api;   
+export default Api;

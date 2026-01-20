@@ -1,63 +1,50 @@
-import { useEffect } from "react";
+// src/components/places/Annapurna.jsx
+import PlaceModal from "./PlaceModal";
 
 const Annapurna = ({ handleAnnapurnaState }) => {
-  // Close on Escape key
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [handleAnnapurnaState]);
+  const AnnapurnaConfig = {
+    placeName: "Annapurna",
+    placeName2: "Region",
+    images: [
+      "anna1.png",
+      "anna2.jpg",
+      "anna3.jpg",
+    ],
+    subtitles: [
+      "World's Best Trekking Paradise • Himalayan Giants",
+      "Annapurna Base Camp • Classic Routes & Views",
+      "Diverse Trails • Poon Hill to Circuit Trek",
+    ],
+    leftEmojiImages: [
+      "mountain.svg",
+      "peak.png",
+      "unity.png",
+    ],
+    rightEmojiImages: [
+      "trek.svg",
+      "base.png",
+      "sunrise.png",
+    ],
+    leftTexts: [
+      "Annapurna I (8,091 m) tenth highest",
+      "Annapurna Sanctuary dramatic views",
+      "Machhapuchhre, South, Hiunchuli dominate skyline",
+      "Subtropical forests to alpine glaciers",
+      "Gurung, Magar, Thakali villages hospitality",
+      "Rhododendrons, wildlife in conservation area",
+    ],
+    rightTexts: [
+      "ABC Trek to 4,130 m views",
+      "Poon Hill short sunrise trek",
+      "Annapurna Circuit classic long trek",
+      "Mardi Himal quiet ridge walk",
+      "Short treks from Pokhara viewpoints",
+      "Combine ABC, Poon Hill, Tilicho",
+    ],
+    onClose: handleAnnapurnaState,
+  };
 
-  return (
-    <div className="annapurna-overlay" onClick={handleAnnapurnaState}>
-      <div className="annapurna-modal" onClick={(e) => e.stopPropagation()}>
-
-        <button className="annapurna-close-btn" onClick={handleAnnapurnaState} aria-label="Close">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6L6 18" />
-            <path d="M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Content */}
-        <div className="annapurna-header">
-          <h1>Annapurna</h1>
-          <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-        </div>
-
-        <div className="annapurna-body">
-
-          <div className="annapurna-info">
-            <p>
-              Ilām is renowned for its lush tea plantations, rolling green hills,
-              and breathtaking views of Kanchenjunga, the third highest mountain
-              in the world.
-            </p>
-            <ul className="highlights">
-              <li>World-famous Ilām Tea (orthodox & CTC)</li>
-              <li>Antu Danda Sunrise Viewpoint</li>
-              <li>Kanyam & Fikkal Tea Estates</li>
-              <li>Maipokhari Lake & Sandakpur Trek</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="annapurna-footer">
-        </div>  
-      </div>
-    </div>
-  );
+  return <PlaceModal {...AnnapurnaConfig} />;
 };
 
-export default Annapurna;   
+export default Annapurna;

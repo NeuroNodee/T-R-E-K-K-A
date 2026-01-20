@@ -1,63 +1,50 @@
-import { useEffect } from "react";
+// src/components/places/Lumbini.jsx
+import PlaceModal from "./PlaceModal";
 
 const Lumbini = ({ handleLumbiniState }) => {
-  // Close on Escape key
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [handleLumbiniState]);
+  const LumbiniConfig = {
+    placeName: "Lumbini",
+    placeName2: "Buddha",
+    images: [
+      "lumbini1.jpg",
+      "lumbini2.jpg",
+      "lumbini3.jpg",
+    ],
+    subtitles: [
+      "Sacred Birthplace of Lord Buddha • UNESCO World Heritage",
+      "Maya Devi Temple • Peaceful Pilgrimage Site",
+      "International Monasteries • Spiritual Harmony",
+    ],
+    leftEmojiImages: [
+      "buddha.png",
+      "temple.svg",
+      "gate.png",
+    ],
+    rightEmojiImages: [
+      "pray.png",
+      "gardening.png",
+      "stupa.png",
+    ],
+    leftTexts: [
+      "Birthplace of Lord Buddha 623 BCE",
+      "Maya Devi Temple marks birth spot",
+      "Ashoka Pillar confirms birthplace 249 BCE",
+      "Sacred Garden and Puskarni Pond",
+      "Over 40 international monasteries zone",
+      "Peaceful Terai plains for meditation",
+    ],
+    rightTexts: [
+      "Pilgrimage to Maya Devi Temple",
+      "Explore Thai, German, Chinese monasteries",
+      "World Peace Pagoda panoramic views",
+      "Sacred Bodhi tree and eternal flame",
+      "Quiet garden walks for mindfulness",
+      "Combine with Kapilvastu or Devdaha ruins",
+    ],
+    onClose: handleLumbiniState,
+  };
 
-  return (
-    <div className="lumbini-overlay" onClick={handleLumbiniState}>
-      <div className="lumbini-modal" onClick={(e) => e.stopPropagation()}>
-
-        <button className="lumbini-close-btn" onClick={handleLumbiniState} aria-label="Close">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6L6 18" />
-            <path d="M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Content */}
-        <div className="lumbini-header">
-          <h1>Lumbini</h1>
-          <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-        </div>
-
-        <div className="lumbini-body">
-
-          <div className="lumbini-info">
-            <p>
-              Ilām is renowned for its lush tea plantations, rolling green hills,
-              and breathtaking views of Kanchenjunga, the third highest mountain
-              in the world.
-            </p>
-            <ul className="highlights">
-              <li>World-famous Ilām Tea (orthodox & CTC)</li>
-              <li>Antu Danda Sunrise Viewpoint</li>
-              <li>Kanyam & Fikkal Tea Estates</li>
-              <li>Maipokhari Lake & Sandakpur Trek</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="lumbini-footer">
-        </div>  
-      </div>
-    </div>
-  );
+  return <PlaceModal {...LumbiniConfig} />;
 };
 
-export default Lumbini;   
+export default Lumbini;

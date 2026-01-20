@@ -1,63 +1,50 @@
-import { useEffect } from "react";
+// src/components/places/LangtangNationalPark.jsx
+import PlaceModal from "./PlaceModal";
 
 const LangtangNationalPark = ({ handleLangtangNationalParkState }) => {
-  // Close on Escape key
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [handleLangtangNationalParkState]);
+  const LangtangConfig = {
+    placeName: "Langtang",
+    placeName2: "",
+    images: [
+      "langtang1.jpg",
+      "langtang2.jpg",
+      "langtang3.jpg",
+    ],
+    subtitles: [
+      "First National Park of Nepal • Himalayan Wilderness",
+      "Tamang Culture • Langtang Valley Trek",
+      "Snow Leopards & Red Pandas • Alpine Beauty",
+    ],
+    leftEmojiImages: [
+      "mountain.svg",
+      "tree.svg",
+      "river.png",
+    ],
+    rightEmojiImages: [
+      "trek.svg",
+      "village.svg",
+      "snow.png",
+    ],
+    leftTexts: [
+      "Langtang Valley stunning glaciers scenery",
+      "Rare wildlife red panda snow leopard",
+      "Tamang Tibetan rich cultural heritage",
+      "Kyanjin Gompa high-altitude Buddhist monastery",
+      "Subtropical to alpine diverse ecosystems",
+      "Langtang Lirung (7,227 m) dominant peak",
+    ],
+    rightTexts: [
+      "Langtang Valley Trek scenic route",
+      "Gosaikunda extension Laurebina Pass",
+      "Bamboo rhododendron trails yak pastures",
+      "Sacred sites Tserko Ri viewpoint",
+      "Helambu circuit longer trek connection",
+      "Photography birdwatching high-altitude camping",
+    ],
+    onClose: handleLangtangNationalParkState,
+  };
 
-  return (
-    <div className="langtang-national-park-overlay" onClick={handleLangtangNationalParkState}>
-      <div className="langtang-national-park-modal" onClick={(e) => e.stopPropagation()}>
-
-        <button className="langtang-national-park-close-btn" onClick={handleLangtangNationalParkState} aria-label="Close">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6L6 18" />
-            <path d="M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Content */}
-        <div className="langtang-national-park-header">
-          <h1>Langtang National Park</h1>
-          <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-        </div>
-
-        <div className="langtang-national-park-body">
-
-          <div className="langtang-national-park-info">
-            <p>
-              Ilām is renowned for its lush tea plantations, rolling green hills,
-              and breathtaking views of Kanchenjunga, the third highest mountain
-              in the world.
-            </p>
-            <ul className="highlights">
-              <li>World-famous Ilām Tea (orthodox & CTC)</li>
-              <li>Antu Danda Sunrise Viewpoint</li>
-              <li>Kanyam & Fikkal Tea Estates</li>
-              <li>Maipokhari Lake & Sandakpur Trek</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="langtang-national-park-footer">
-        </div>  
-      </div>
-    </div>
-  );
+  return <PlaceModal {...LangtangConfig} />;
 };
 
-export default LangtangNationalPark;   
+export default LangtangNationalPark;

@@ -1,62 +1,53 @@
-import { useEffect } from "react";
+// src/components/places/EverestRegion.jsx
+import PlaceModal from "./PlaceModal";   // adjust path based on your folder structure
 
 const EverestRegion = ({ handleEverestRegionState }) => {
-  // Close on Escape key
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [handleEverestRegionState]);
+  const EverestRegionConfig = {
+    placeName: "Everest",
+    placeName2: "Region",
+    images: [
+      "everest1.png",
+      "everest2.png",
+      "everest3.png",
+    ],
+    subtitles: [
+      "Home of the World's Highest Peak",
+      "Sherpa Culture • Himalayan Landscapes",
+      "Gateway to Everest Base Camp",
+    ],
+    leftEmojiImages: [
+      "mountain.svg",   // Everest & Himalayan peaks
+      "tour-guide.png",    // Sherpa villages & culture
+      "flag.png",    // Buddhism & monasteries
+    ],
 
-  return (
-    <div className="everest-region-overlay" onClick={handleEverestRegionState}>
-      <div className="everest-region-modal" onClick={(e) => e.stopPropagation()}>
+    rightEmojiImages: [
+      "trek.svg",        // Trekking activities
+      "hiking.png",        // Mountaineering
+      "base.png",       // Everest Base Camp
+    ],
 
-        <button className="everest-region-close-btn" onClick={handleEverestRegionState} aria-label="Close">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6L6 18" />
-            <path d="M6 6l12 12" />
-          </svg>
-        </button>
+    leftTexts: [
+      "Mount Everest 8,848 m highest peak",
+      "Solukhumbu dramatic valleys glaciers",
+      "Sherpa villages Khumjung Khunde Phortse",
+      "Ancient monasteries colorful prayer flags",
+      "Sagarmatha National Park UNESCO site",
+      "Glacial rivers alpine forests wildlife",
+    ],
+    rightTexts: [
+      "Everest Base Camp ultimate trek",
+      "Gokyo Lakes Three Passes routes",
+      "Mountaineering peak climbing expeditions",
+      "Namche Bazaar Sherpa capital hub",
+      "Scenic thrilling Lukla flight",
+      "Photography glacier walks viewpoints",
+    ],
 
-        {/* Content */}
-        <div className="everest-region-header">
-          <h1>Everest Region</h1>
-          <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-        </div>
+    onClose: handleEverestRegionState,
+  };
 
-        <div className="everest-region-body">
-
-          <div className="everest-region-info">
-            <p>
-              The Everest Region is the most popular trekking destination in Nepal,
-              offering breathtaking views of the world's highest mountain, Mount Everest.
-            </p>
-            <ul className="highlights">
-              <li>World-famous Ilām Tea (orthodox & CTC)</li>
-              <li>Antu Danda Sunrise Viewpoint</li>
-              <li>Kanyam & Fikkal Tea Estates</li>
-              <li>Maipokhari Lake & Sandakpur Trek</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="everest-region-footer">
-        </div>  
-      </div>
-    </div>
-  );
+  return <PlaceModal {...EverestRegionConfig} />;
 };
 
-export default EverestRegion;   
+export default EverestRegion;

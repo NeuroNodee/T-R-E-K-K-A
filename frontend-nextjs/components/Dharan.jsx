@@ -1,63 +1,41 @@
-import { useEffect } from "react";
+// src/components/places/Dharan.jsx
+import PlaceModal from "./PlaceModal";   // adjust path based on your folder structure
 
 const Dharan = ({ handleDharanState }) => {
-  // Close on Escape key
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [handleDharanState]);
+  const dharanConfig = {
+    placeName: "Dharan",
+    images: [
+      "dharan1.png", 
+      "dharan2.png", 
+      "dharan3.png", 
+    ],
+    subtitles: [
+      "Gateway to Eastern Hills • Bhedetar Viewpoint",
+      "Cool Climate & Scenic Sunrise Spot",
+      "Oranges, Temples & Adventure Triangle",
+    ],
+    leftEmojiImages: ["sunrise.png", "tanning.png", "scene.png"],
+    rightEmojiImages: ["hill.svg", "temple.svg", "village.svg"],
+    leftTexts: [
+      "Bhedetar hill station at 1,420 m",
+      "Famous for stunning sunrise & pine views",
+      "Orange orchards and fresh local produce",
+      "Cool breeze year-round escape from Terai heat",
+      "Panoramic views of eastern plains & Koshi",
+      "Charles Point – named after Prince Charles visit",
+    ],
+    rightTexts: [
+      "Gateway city to Dhankuta & eastern hills",
+      "Twisty scenic drives & adventure roads",
+      "Pindeshwor & Dantakali temples nearby",
+      "Budha Subba spiritual site & wishes",
+      "Close to Namaste Falls & Skywalk thrill",
+      "Cultural mix & vibrant local life",
+    ],
+    onClose: handleDharanState,
+  };
 
-  return (
-    <div className="dharan-overlay" onClick={handleDharanState}>
-      <div className="dharan-modal" onClick={(e) => e.stopPropagation()}>
-
-        <button className="dharan-close-btn" onClick={handleDharanState} aria-label="Close">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6L6 18" />
-            <path d="M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Content */}
-        <div className="dharan-header">
-          <h1>Dharan</h1>
-          <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-        </div>
-
-        <div className="dharan-body">
-
-          <div className="dharan-info">
-            <p>
-              Ilām is renowned for its lush tea plantations, rolling green hills,
-              and breathtaking views of Kanchenjunga, the third highest mountain
-              in the world.
-            </p>
-            <ul className="highlights">
-              <li>World-famous Ilām Tea (orthodox & CTC)</li>
-              <li>Antu Danda Sunrise Viewpoint</li>
-              <li>Kanyam & Fikkal Tea Estates</li>
-              <li>Maipokhari Lake & Sandakpur Trek</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="dharan-footer">
-        </div>  
-      </div>
-    </div>
-  );
+  return <PlaceModal {...dharanConfig} />;
 };
 
-export default Dharan;   
+export default Dharan;

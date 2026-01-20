@@ -691,7 +691,7 @@ const DiscoverNepal = () => {
                 C909.137,787.262,905.688,782.781,906.309,777.259z"/>
                                 <g className={province === 'lumbini' ? "lumbini-place-group p1" : "hide"} onClick={() => setLumbini(true)}>
                                     <image
-                                        href="/village.svg"
+                                        href="/buddha.png"
                                         preserveAspectRatio="xMidYMid meet"
                                     />
                                     <text x="820" y="520" textAnchor="middle" className="place-text">

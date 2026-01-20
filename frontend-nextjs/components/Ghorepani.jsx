@@ -1,63 +1,50 @@
-import { useEffect } from "react";
+// src/components/places/Ghorepani.jsx
+import PlaceModal from "./PlaceModal";
 
 const Ghorepani = ({ handleGhorepaniState }) => {
-    // Close on Escape key
-    useEffect(() => {
-        const handleEsc = (e) => {
-            if (e.key === "Escape") onClose();
-        };
-        window.addEventListener("keydown", handleEsc);
-        return () => window.removeEventListener("keydown", handleEsc);
-    }, [handleGhorepaniState]);
+  const GhorepaniConfig = {
+    placeName: "Ghorepani",
+    placeName2: "Village",
+    images: [
+      "ghore1.jpg",
+      "ghore2.jpg",
+      "ghore3.jpg",
+    ],
+    subtitles: [
+      "Magar & Gurung Gem • Rhododendron Haven",
+      "Gateway to Poon Hill Sunrise • Annapurna Views",
+      "Easy Trek Base • Warm Mountain Hospitality",
+    ],
+    leftEmojiImages: [
+      "village.svg",
+      "tree.svg",
+      "festival.png",
+    ],
+    rightEmojiImages: [
+      "sunrise.png",
+      "trek.svg",
+      "mountain.svg",
+    ],
+    leftTexts: [
+      "Picturesque village at 2,874 meters",
+      "Surrounded by rhododendron and oak forests",
+      "Traditional Magar & Gurung stone houses",
+      "Rich Gurkha heritage and culture",
+      "Historic Tibetan salt trade route stop",
+      "Cozy teahouses with hearty dal bhat",
+    ],
+    rightTexts: [
+      "Poon Hill legendary 360° sunrise panorama",
+      "Short Ghorepani Poon Hill Trek 4-5 days",
+      "Early morning hike golden peak light",
+      "Combine with Ghandruk loop Gurung villages",
+      "Family-friendly moderate trails teahouse stays",
+      "Photography paradise mountain sunrises village charm",
+    ],
+    onClose: handleGhorepaniState,
+  };
 
-    return (
-        <div className="ghorepani-overlay" onClick={handleGhorepaniState}>
-            <div className="ghorepani-modal" onClick={(e) => e.stopPropagation()}>
-
-                <button className="ghorepani-close-btn" onClick={handleGhorepaniState} aria-label="Close">
-                    <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    >
-                        <path d="M18 6L6 18" />
-                        <path d="M6 6l12 12" />
-                    </svg>
-                </button>
-
-                {/* Content */}
-                <div className="ghorepani-header">
-                    <h1>Ghorepani</h1>
-                    <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-                </div>
-
-                <div className="ghorepani-body">
-
-                    <div className="ghorepani-info">
-                        <p>
-                            Ilām is renowned for its lush tea plantations, rolling green hills,
-                            and breathtaking views of Kanchenjunga, the third highest mountain
-                            in the world.
-                        </p>
-                        <ul className="highlights">
-                            <li>World-famous Ilām Tea (orthodox & CTC)</li>
-                            <li>Antu Danda Sunrise Viewpoint</li>
-                            <li>Kanyam & Fikkal Tea Estates</li>
-                            <li>Maipokhari Lake & Sandakpur Trek</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="ghorepani-footer">
-                </div>
-            </div>
-        </div>
-    );
+  return <PlaceModal {...GhorepaniConfig} />;
 };
 
-export default Ghorepani;   
+export default Ghorepani;

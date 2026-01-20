@@ -1,64 +1,50 @@
-
-import { useEffect } from "react";
+// src/components/places/GosaikundaLake.jsx
+import PlaceModal from "./PlaceModal";
 
 const GosaikundaLake = ({ handleGosaikundaLakeState }) => {
-  // Close on Escape key
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [handleGosaikundaLakeState]);
+  const GosaikundaConfig = {
+    placeName: "Gosaikunda",
+    placeName2: "Lake",
+    images: [
+      "go3.png",
+      "go2.jpg",
+      "go1.jpg",
+    ],
+    subtitles: [
+      "Sacred Alpine Lake • Hindu & Buddhist Pilgrimage",
+      "Janai Purnima Festival • High Himalayan Shrine",
+      "Surrounded by 108 Lakes • Spiritual & Scenic",
+    ],
+    leftEmojiImages: [
+      "lake.svg",
+      "temple.svg",
+      "pray.png",
+    ],
+    rightEmojiImages: [
+      "festival.png",
+      "trek.svg",
+      "mountain.svg",
+    ],
+    leftTexts: [
+      "Holy lake at 4,380 meters altitude",
+      "Abode of Lord Shiva revered site",
+      "Surrounded by dramatic Himalayan peaks",
+      "Laurebina Pass stunning panorama viewpoint",
+      "Ancient stone shrines around lake",
+      "Protected in Langtang National Park",
+    ],
+    rightTexts: [
+      "Popular Gosaikunda high-altitude pilgrimage trek",
+      "Janai Purnima thousands of pilgrims",
+      "Combine with Langtang or Helambu trek",
+      "High meadows yak herds alpine flora",
+      "Spiritual bathing in sacred freezing waters",
+      "Epic sunrise mountain reflection photography",
+    ],
+    onClose: handleGosaikundaLakeState,
+  };
 
-  return (
-    <div className="gosaikunda-overlay" onClick={handleGosaikundaLakeState}>
-      <div className="gosaikunda-modal" onClick={(e) => e.stopPropagation()}>
-
-        <button className="gosaikunda-close-btn" onClick={handleGosaikundaLakeState} aria-label="Close">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6L6 18" />
-            <path d="M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Content */}
-        <div className="gosaikunda-header">
-          <h1>Gosaikunda Lake</h1>
-          <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-        </div>
-
-        <div className="gosaikunda-body">
-
-          <div className="gosaikunda-info">
-            <p>
-              Ilām is renowned for its lush tea plantations, rolling green hills,
-              and breathtaking views of Kanchenjunga, the third highest mountain
-              in the world.
-            </p>
-            <ul className="highlights">
-              <li>World-famous Ilām Tea (orthodox & CTC)</li>
-              <li>Antu Danda Sunrise Viewpoint</li>
-              <li>Kanyam & Fikkal Tea Estates</li>
-              <li>Maipokhari Lake & Sandakpur Trek</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="gosaikunda-footer">
-        </div>  
-      </div>
-    </div>
-  );
+  return <PlaceModal {...GosaikundaConfig} />;
 };
 
-export default GosaikundaLake;   
+export default GosaikundaLake;

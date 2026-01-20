@@ -1,63 +1,50 @@
-import { useEffect } from "react";
+// src/components/places/Khaptad.jsx
+import PlaceModal from "./PlaceModal";
 
 const Khaptad = ({ handleKhaptadState }) => {
-  // Close on Escape key
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [handleKhaptadState]);
+  const KhaptadConfig = {
+    placeName: "Khaptad",
+    placeName2: "",
+    images: [
+      "khaptad1.jpg",
+      "khaptad2.jpg",
+      "khaptad3.jpg",
+    ],
+    subtitles: [
+      "Peaceful Highland Paradise • Rolling Meadows",
+      "Rhododendron Heaven • Spiritual Ashram",
+      "Far-West Nepal Gem • Serene Trekking",
+    ],
+    leftEmojiImages: [
+      "meadow.png",
+      "tree.svg",
+      "flower.png",
+    ],
+    rightEmojiImages: [
+      "trek.svg",
+      "sunrise.png",
+      "bird.png",
+    ],
+    leftTexts: [
+      "Khaptad National Park – serene highland plateau",
+      "Famous for vast green meadows and forests",
+      "Spring rhododendron blooms in vibrant colors",
+      "Swami Sachchidananda Ashram – spiritual retreat",
+      "Over 560 flowering plants and herbs",
+      "Rich birdlife with 287 recorded species",
+    ],
+    rightTexts: [
+      "Khaptad National Park Trek adventure",
+      "Sahastradhara sunrise viewpoint magic",
+      "Explore Triveni and Khaptad Lake",
+      "Peaceful birdwatching and nature walks",
+      "Combine with nearby Doti or Bajhang",
+      "Ideal for meditation and photography",
+    ],
+    onClose: handleKhaptadState,
+  };
 
-  return (
-    <div className="khaptad-overlay" onClick={handleKhaptadState}>
-      <div className="khaptad-modal" onClick={(e) => e.stopPropagation()}>
-
-        <button className="khaptad-close-btn" onClick={handleKhaptadState} aria-label="Close">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6L6 18" />
-            <path d="M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Content */}
-        <div className="khaptad-header">
-          <h1>Khaptad</h1>
-          <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-        </div>
-
-        <div className="khaptad-body">
-
-          <div className="khaptad-info">
-            <p>
-              Ilām is renowned for its lush tea plantations, rolling green hills,
-              and breathtaking views of Kanchenjunga, the third highest mountain
-              in the world.
-            </p>
-            <ul className="highlights">
-              <li>World-famous Ilām Tea (orthodox & CTC)</li>
-              <li>Antu Danda Sunrise Viewpoint</li>
-              <li>Kanyam & Fikkal Tea Estates</li>
-              <li>Maipokhari Lake & Sandakpur Trek</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="khaptad-footer">
-        </div>  
-      </div>
-    </div>
-  );
+  return <PlaceModal {...KhaptadConfig} />;
 };
 
-export default Khaptad;   
+export default Khaptad;

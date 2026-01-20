@@ -1,63 +1,38 @@
-import { useEffect } from "react";
+// KoshiTappu.jsx
+import PlaceModal from "./PlaceModal";
 
 const KoshiTappu = ({ handleKoshiTappuState }) => {
-  // Close on Escape key
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [handleKoshiTappuState]);
+  const config = {
+    placeName: "Koshi",
+    placeName2: "Tappu",
+    images: ["koshi1.webp", "koshi2.webp", "koshi3.png"],
+    subtitles: [
+      "Wildlife Paradise • Ramsar Site",
+      "Birdwatcher's Heaven in Eastern Nepal",
+      "Wetlands & wildlife living of wild water buffalo",
+    ],
+    leftEmojiImages: ["wetland.png", "buffalo.png", "bird.png"],
+    rightEmojiImages: ["jeep.png", "walk.png", "businessman.png"],
+    leftTexts: [
+      "One of Asia's most important wetlands",
+      "Designated Ramsar wetland of international importance",
+      "Last remaining population of wild water buffalo",
+      "Critical ecosystem supporting wetland biodiversity",
+      "Over 500 species of birds recorded",
+      "Key breeding and nesting ground for migratory birds",
+    ],
+    rightTexts: [
+      "(Guided birdwatching) with rare migratory species",
+      "Jeep safari through grasslands and floodplains",
+      "Peaceful jungle walks with local nature guides",
+      "(Wildlife photography) in open wetland landscapes",
+      "(Gentle rafting) along the Koshi River channels",
+      "Community-based eco-tourism and cultural visits",
+    ],
+    onClose: handleKoshiTappuState,
+  };
 
-  return (
-    <div className="koshiTappu-overlay" onClick={handleKoshiTappuState}>
-      <div className="koshiTappu-modal" onClick={(e) => e.stopPropagation()}>
-
-        <button className="koshiTappu-close-btn" onClick={handleKoshiTappuState} aria-label="Close">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6L6 18" />
-            <path d="M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Content */}
-        <div className="koshiTappu-header">
-          <h1>Koshi Tappu</h1>
-          <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-        </div>
-
-        <div className="koshiTappu-body">
-
-          <div className="koshiTappu-info">
-            <p>
-              Ilām is renowned for its lush tea plantations, rolling green hills,
-              and breathtaking views of Kanchenjunga, the third highest mountain
-              in the world.
-            </p>
-            <ul className="highlights">
-              <li>World-famous Ilām Tea (orthodox & CTC)</li>
-              <li>Antu Danda Sunrise Viewpoint</li>
-              <li>Kanyam & Fikkal Tea Estates</li>
-              <li>Maipokhari Lake & Sandakpur Trek</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="koshiTappu-footer">
-        </div>  
-      </div>
-    </div>
-  );
+  return <PlaceModal {...config} />;
 };
 
-export default KoshiTappu;   
+export default KoshiTappu;

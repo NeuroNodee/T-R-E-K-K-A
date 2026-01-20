@@ -1,63 +1,50 @@
-import { useEffect } from "react";
+// src/components/places/Pokhara.jsx
+import PlaceModal from "./PlaceModal";
 
 const Pokhara = ({ handlePokharaState }) => {
-    // Close on Escape key
-    useEffect(() => {
-        const handleEsc = (e) => {
-            if (e.key === "Escape") onClose();
-        };
-        window.addEventListener("keydown", handleEsc);
-        return () => window.removeEventListener("keydown", handleEsc);
-    }, [handlePokharaState]);
+  const PokharaConfig = {
+    placeName: "Pokhara",
+    placeName2: "",
+    images: [
+      "pokhara1.jpg",
+      "pokhara2.jpg",
+      "pokhara3.jpg",
+    ],
+    subtitles: [
+      "City of Lakes • Stunning Annapurna Reflections",
+      "Adventure Capital • Paragliding & Boating Heaven",
+      "Gateway to Himalayas • Relaxed Vibes & Culture",
+    ],
+    leftEmojiImages: [
+      "river.png",
+      "mountain.svg",
+      "temple.svg",
+    ],
+    rightEmojiImages: [
+      "para.png",
+      "boat.png",
+      "trek.svg",
+    ],
+    leftTexts: [
+      "Phewa Lake mirrors Machhapuchhre peaks",
+      "World Peace Pagoda hilltop views",
+      "Tal Barahi Temple island shrine",
+      "Lakeside vibrant cafes and shops",
+      "Devi's Fall dramatic underground waterfall",
+      "Mountain Museum climbing history exhibits",
+    ],
+    rightTexts: [
+      "Paragliding over Phewa Lake epic flights",
+      "Boating sunrise sunset on Phewa Lake",
+      "Sarangkot legendary Annapurna sunrise viewpoint",
+      "Gateway to Poon Hill ABC treks",
+      "Ziplining bungee ultralight adventure activities",
+      "Explore Begnas Rupa Lakes Tibetan settlements",
+    ],
+    onClose: handlePokharaState,
+  };
 
-    return (
-        <div className="pokhara-overlay" onClick={handlePokharaState}>
-            <div className="pokhara-modal" onClick={(e) => e.stopPropagation()}>
-
-                <button className="pokhara-close-btn" onClick={handlePokharaState} aria-label="Close">
-                    <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    >
-                        <path d="M18 6L6 18" />
-                        <path d="M6 6l12 12" />
-                    </svg>
-                </button>
-
-                {/* Content */}
-                <div className="pokhara-header">
-                    <h1>Pokhara</h1>
-                    <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-                </div>
-
-                <div className="pokhara-body">
-
-                    <div className="pokhara-info">
-                        <p>
-                            Ilām is renowned for its lush tea plantations, rolling green hills,
-                            and breathtaking views of Kanchenjunga, the third highest mountain
-                            in the world.
-                        </p>
-                        <ul className="highlights">
-                            <li>World-famous Ilām Tea (orthodox & CTC)</li>
-                            <li>Antu Danda Sunrise Viewpoint</li>
-                            <li>Kanyam & Fikkal Tea Estates</li>
-                            <li>Maipokhari Lake & Sandakpur Trek</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="pokhara-footer">
-                </div>
-            </div>
-        </div>
-    );
+  return <PlaceModal {...PokharaConfig} />;
 };
 
-export default Pokhara;   
+export default Pokhara;

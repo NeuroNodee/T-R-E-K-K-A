@@ -1,63 +1,50 @@
-import { useEffect } from "react";
+// src/components/places/Ghandruk.jsx
+import PlaceModal from "./PlaceModal";
 
 const Ghandruk = ({ handleGhandrukState }) => {
-    // Close on Escape key
-    useEffect(() => {
-        const handleEsc = (e) => {
-            if (e.key === "Escape") onClose();
-        };
-        window.addEventListener("keydown", handleEsc);
-        return () => window.removeEventListener("keydown", handleEsc);
-    }, [handleGhandrukState]);
+  const GhandrukConfig = {
+    placeName: "Ghandruk",
+    placeName2: "Village",
+    images: [
+      "village1.jpg",
+      "village2.jpg",
+      "village3.jpg",
+    ],
+    subtitles: [
+      "Iconic Gurung Village • Stunning Annapurna Views",
+      "Traditional Stone Houses • Warm Hospitality",
+      "Gateway to Annapurna Treks • Cultural Gem",
+    ],
+    leftEmojiImages: [
+      "mountain.svg",
+      "village.svg",
+      "festival.png",
+    ],
+    rightEmojiImages: [
+      "trek.svg",
+      "sunrise.png",
+      "house.png",
+    ],
+    leftTexts: [
+      "Panoramic views of Annapurna South",
+      "Traditional Gurung settlement at 1,940 m",
+      "Gurung Museum showcases Gurkha heritage",
+      "Rich Gurung culture and traditions",
+      "Rhododendron forests and birdwatching area",
+      "Easy access from Pokhara weekend escape",
+    ],
+    rightTexts: [
+      "Magical sunrise on snow-capped peaks",
+      "Gateway to Poon Hill and ABC treks",
+      "Authentic Gurung homestays with dal bhat",
+      "Short hikes to viewpoints and hot springs",
+      "Shop handmade handicrafts and woolens",
+      "Peaceful family-friendly photography spot",
+    ],
+    onClose: handleGhandrukState,
+  };
 
-    return (
-        <div className="ghandruk-overlay" onClick={handleGhandrukState}>
-            <div className="ghandruk-modal" onClick={(e) => e.stopPropagation()}>
-
-                <button className="ghandruk-close-btn" onClick={handleGhandrukState} aria-label="Close">
-                    <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    >
-                        <path d="M18 6L6 18" />
-                        <path d="M6 6l12 12" />
-                    </svg>
-                </button>
-
-                {/* Content */}
-                <div className="ghandruk-header">
-                    <h1>Ghandruk</h1>
-                    <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-                </div>
-
-                <div className="ghandruk-body">
-
-                    <div className="ghandruk-info">
-                        <p>
-                            Ilām is renowned for its lush tea plantations, rolling green hills,
-                            and breathtaking views of Kanchenjunga, the third highest mountain
-                            in the world.
-                        </p>
-                        <ul className="highlights">
-                            <li>World-famous Ilām Tea (orthodox & CTC)</li>
-                            <li>Antu Danda Sunrise Viewpoint</li>
-                            <li>Kanyam & Fikkal Tea Estates</li>
-                            <li>Maipokhari Lake & Sandakpur Trek</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="ghandruk-footer">
-                </div>
-            </div>
-        </div>
-    );
+  return <PlaceModal {...GhandrukConfig} />;
 };
 
-export default Ghandruk;   
+export default Ghandruk;

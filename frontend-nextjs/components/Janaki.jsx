@@ -1,63 +1,50 @@
-import { useEffect } from "react";
+// src/components/places/JanakiRegion.jsx  (or Janakpur.jsx — name it as you prefer)
+import PlaceModal from "./PlaceModal"; // adjust path based on your folder structure
 
 const Janaki = ({ handleJanakiState }) => {
-  // Close on Escape key
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [handleJanakiState]);
+  const JanakiConfig = {
+    placeName: "Janakpur",
+    placeName2: "Dham",
+    images: [
+      "janakpur1.png",   
+      "janakpur2.jpg",   
+      "janakpur3.jpg",   
+    ],
+    subtitles: [
+      "Birthplace of Goddess Sita • Heart of Mithila",
+      "Ram Janaki Temple • Ancient Kingdom Vibes",
+      "City of Ponds • Mithila Art & Culture",
+    ],
+    leftEmojiImages: [
+      "temple.svg",       
+      "art.png",  
+      "pond.png",         
+    ],
+    rightEmojiImages: [
+      "festival.png",     
+      "cultural.png",      
+      "pray.png",      
+    ],
+    leftTexts: [
+      "Janaki Mandir stunning marble temple",
+      "Birthplace of Goddess Sita Janaki",
+      "Ancient Mithila Kingdom Maithili culture",
+      "Vibrant Madhubani paintings everywhere",
+      "Over 100 sacred ponds city",
+      "Ram Laxman Hanuman temples nearby",
+    ],
+    rightTexts: [
+      "Vivah Panchami grand Ram-Sita wedding",
+      "Ram Navami Chhath Puja festivals",
+      "Vivah Mandap mythological marriage site",
+      "Colorful markets Maithili cuisine",
+      "Major Hindu pilgrimage destination",
+      "Mithila folk art music literature",
+    ],
+    onClose: handleJanakiState,
+  };
 
-  return (
-    <div className="janaki-overlay" onClick={handleJanakiState}>
-      <div className="janaki-modal" onClick={(e) => e.stopPropagation()}>
-
-        <button className="janaki-close-btn" onClick={handleJanakiState} aria-label="Close">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6L6 18" />
-            <path d="M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Content */}
-        <div className="janaki-header">
-          <h1>Janaki</h1>
-          <p className="subtitle">The Queen of Hills • Famous for Tea Gardens</p>
-        </div>
-
-        <div className="janaki-body">
-
-          <div className="janaki-info">
-            <p>
-              Ilām is renowned for its lush tea plantations, rolling green hills,
-              and breathtaking views of Kanchenjunga, the third highest mountain
-              in the world.
-            </p>
-            <ul className="highlights">
-              <li>World-famous Ilām Tea (orthodox & CTC)</li>
-              <li>Antu Danda Sunrise Viewpoint</li>
-              <li>Kanyam & Fikkal Tea Estates</li>
-              <li>Maipokhari Lake & Sandakpur Trek</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="janaki-footer">
-        </div>  
-      </div>
-    </div>
-  );
+  return <PlaceModal {...JanakiConfig} />;
 };
 
-export default Janaki;   
+export default Janaki;
