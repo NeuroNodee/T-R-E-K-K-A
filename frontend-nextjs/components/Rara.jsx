@@ -1,50 +1,50 @@
-// src/components/places/Gaurishankar.jsx
+// src/components/places/Rara.jsx
 import PlaceModal from "./PlaceModal";
 
 const Rara = ({ handleRaraState }) => {
-  const raraConfig = {
-    placeName: "Rara  ",
+  const RaraConfig = {
+    placeName: "Rara",
     placeName2: "",
     images: [
-      "gaurishankar1.png",
-      "gaurishankar2.png",
-      "gaurishankar3.png",
+      "rara1.jpg",
+      "rara2.jpg",
+      "rara3.jpg",
     ],
     subtitles: [
-      "Sacred Himalayan Peak • Shiva & Parvati Abode",
-      "Rolwaling Valley • Remote Wilderness",
-      "Biodiversity Hotspot • Sherpa & Tamang Culture",
+      "Nepal's Largest Alpine Lake • Pristine Himalayan Gem",
+      "Rara National Park • Untouched Wilderness",
+      "Color-Changing Waters • Remote Serenity & Views",
     ],
     leftEmojiImages: [
+      "lake.png",
       "mountain.svg",
-      "snow-peak.png",
-      "forest.png",
+      "tree.svg",
     ],
     rightEmojiImages: [
       "trek.svg",
-      "wildlife.png",
-      "culture.png",
+      "bird.png",
+      "boat.png",
     ],
     leftTexts: [
-      "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
-      "Rolwaling Himal – one of Nepal's most pristine ranges",
-      "Part of Gaurishankar Conservation Area – rich biodiversity",
-      "Home to red panda, snow leopard & Himalayan tahr",
-      "Sherpa, Tamang & Thami villages with traditional lifestyle",
-      "Tsho Rolpa – largest glacial lake in Nepal",
+      "Rara Lake (Mahendra Tal) – Nepal's largest freshwater lake.",
+      "Lake changes color up to 5 times a day.",
+      "Surrounded by coniferous forests & peaks.",
+      "Rara National Park (smallest in Nepal, 106 km²) ",
+      "Red panda, musk deer, Himalayan black bear...",
+      "Over 200 bird species & rare snow trout in the lake",
     ],
     rightTexts: [
-      "Rolwaling Valley Trek – adventurous & less crowded route",
-      "Tsho Rolpa & Na Glacier exploration",
-      "Pikayo Ri & other high passes for epic views",
-      "Combine with Gosaikunda or Everest region treks",
-      "Remote monasteries and sacred sites",
-      "Excellent for mountaineering, photography & nature immersion",
+      "Rara Lake Trek – remote, with epic Himalayan panoramas",
+      "Boating on Rara Lake water-level views & reflections",
+      "Birdwatching & wildlife spotting & elusive mammals",
+      "Short hikes, breathtaking 360° lake & mountain vistas",
+      "Camping/lodging near the lake.",
+      "Perfect for photographers& nature purists.",
     ],
     onClose: handleRaraState,
   };
 
-  return <PlaceModal {...raraConfig} />;
+  return <PlaceModal {...RaraConfig} />;
 };
 
 export default Rara;

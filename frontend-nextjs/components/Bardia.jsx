@@ -1,45 +1,45 @@
-// src/components/places/Gaurishankar.jsx
+
 import PlaceModal from "./PlaceModal";
 
 const Bardia = ({ handleBardiaState }) => {
   const BardiaConfig = {
-    placeName: "Gaurishankar  ",
-    placeName2: "",
+    placeName: "Bardia",
+    placeName2: "National Park",
     images: [
-      "gaurishankar1.png",
-      "gaurishankar2.png",
-      "gaurishankar3.png",
+      "bardia1.jpg",
+      "bardia2.jpg",
+      "bardia3.jpg",
     ],
     subtitles: [
-      "Sacred Himalayan Peak • Shiva & Parvati Abode",
-      "Rolwaling Valley • Remote Wilderness",
-      "Biodiversity Hotspot • Sherpa & Tamang Culture",
+      "Nepal's Largest & Wildest National Park • Tiger Haven",
+      "Untouched Terai Jungle • Rhino & Elephant Spotting",
+      "Authentic Safaris • Tharu Culture & Karnali River",
     ],
     leftEmojiImages: [
-      "mountain.svg",
-      "snow-peak.png",
-      "forest.png",
+      "tiger.png",
+      "rhino.png",
+      "elephant.png",
     ],
     rightEmojiImages: [
-      "trek.svg",
-      "wildlife.png",
-      "culture.png",
+      "jeep.png",
+      "walk.png",
+      "raft.png",
     ],
     leftTexts: [
-      "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
-      "Rolwaling Himal – one of Nepal's most pristine ranges",
-      "Part of Gaurishankar Conservation Area – rich biodiversity",
-      "Home to red panda, snow leopard & Himalayan tahr",
-      "Sherpa, Tamang & Thami villages with traditional lifestyle",
-      "Tsho Rolpa – largest glacial lake in Nepal",
+      "Largest national park in Nepal (968 km²) – pristine & least crowded Terai wilderness",
+      "Home to Royal Bengal Tigers – one of Asia's best chances for sightings",
+      "Greater one-horned rhinoceros, Asian elephants, swamp deer & wild boars",
+      "Over 400 bird species including Bengal florican, sarus crane & great hornbill",
+      "Karnali & Babai Rivers – home to gharial crocodiles & Gangetic dolphins",
+      "Diverse ecosystems: sal forests, grasslands, riverine habitats & biodiversity hotspot",
     ],
     rightTexts: [
-      "Rolwaling Valley Trek – adventurous & less crowded route",
-      "Tsho Rolpa & Na Glacier exploration",
-      "Pikayo Ri & other high passes for epic views",
-      "Combine with Gosaikunda or Everest region treks",
-      "Remote monasteries and sacred sites",
-      "Excellent for mountaineering, photography & nature immersion",
+      "Jeep Safari – thrilling drives deep into the jungle for tiger & wildlife spotting",
+      "Jungle Walk / Walking Safari – guided treks to watering holes & riverbanks",
+      "Canoe / Rafting on Karnali River – scenic floats spotting birds, crocs & dolphins",
+      "Elephant Safari & Tharu cultural experiences – traditional villages & dances",
+      "Birdwatching & full-day adventures – peaceful immersion in untouched nature",
+      "Combine with fishing, camping or Tharu homestays – authentic, off-beat Nepal escape",
     ],
     onClose: handleBardiaState,
   };

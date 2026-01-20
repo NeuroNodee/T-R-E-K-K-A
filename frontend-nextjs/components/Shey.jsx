@@ -1,50 +1,50 @@
-// src/components/places/Gaurishankar.jsx
+// src/components/places/SheyPhoksundo.jsx
 import PlaceModal from "./PlaceModal";
 
 const Shey = ({ handleSheyState }) => {
-  const sheyConfig = {
-    placeName: "Shey  ",
-    placeName2: "",
+  const SheyConfig = {
+    placeName: "Shey Phoksundo",
+    placeName2: "National Park",
     images: [
-      "shey1.png",
-      "gaurishankar2.png",
-      "gaurishankar3.png",
+      "park1.jpg",
+      "park2.jpg",
+      "park3.jpg",
     ],
     subtitles: [
-      "Sacred Himalayan Peak • Shiva & Parvati Abode",
-      "Rolwaling Valley • Remote Wilderness",
-      "Biodiversity Hotspot • Sherpa & Tamang Culture",
+      "Nepal's Largest National Park",
+      "Remote Dolpo Wilderness",
+      "High-Altitude Desert",
     ],
     leftEmojiImages: [
+      "lake.png",
+      "monastery.png",
       "mountain.svg",
-      "snow-peak.png",
-      "forest.png",
     ],
     rightEmojiImages: [
       "trek.svg",
-      "wildlife.png",
-      "culture.png",
+      "tour.png",
+      "river.png",
     ],
     leftTexts: [
-      "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
-      "Rolwaling Himal – one of Nepal's most pristine ranges",
-      "Part of Gaurishankar Conservation Area – rich biodiversity",
-      "Home to red panda, snow leopard & Himalayan tahr",
-      "Sherpa, Tamang & Thami villages with traditional lifestyle",
-      "Tsho Rolpa – largest glacial lake in Nepal",
+      "Phoksundo Lake – Nepal's deepest & most beautiful lake.",
+      "National Park – largest protected area in Nepal",
+      "Arid plateaus, deep gorges & dramatic peaks",
+      "Snow leopards, blue sheep, & Himalayan wolves",
+      "Ancient Shey Gompa (Crystal Monastery)",
+      "Unique Dolpo culture – Tibetan-influenced villages.",
     ],
     rightTexts: [
-      "Rolwaling Valley Trek – adventurous & less crowded route",
-      "Tsho Rolpa & Na Glacier exploration",
-      "Pikayo Ri & other high passes for epic views",
-      "Combine with Gosaikunda or Everest region treks",
-      "Remote monasteries and sacred sites",
-      "Excellent for mountaineering, photography & nature immersion",
+      "Phoksundo Lake Trek – with epic views",
+      "Lower Dolpo Circuit – trek through monasteries",
+      "Upper Dolpo Trek – remote high-altitude adventure",
+      "Shey Gompa & Tsakang Gompa, ancient rock-carved monasteries",
+      "Wildlife spotting & photography",
+      "Combine with Jomsom or Mustang",
     ],
     onClose: handleSheyState,
   };
 
-  return <PlaceModal {...sheyConfig} />;
+  return <PlaceModal {...SheyConfig} />;
 };
 
 export default Shey;

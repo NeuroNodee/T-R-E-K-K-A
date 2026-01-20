@@ -1,45 +1,45 @@
-// src/components/places/Gaurishankar.jsx
+// src/components/places/Lumbini.jsx
 import PlaceModal from "./PlaceModal";
 
 const Lumbini = ({ handleLumbiniState }) => {
   const LumbiniConfig = {
-    placeName: "Gaurishankar  ",
-    placeName2: "",
+    placeName: "Lumbini",
+    placeName2: "Buddha",
     images: [
-      "gaurishankar1.png",
-      "gaurishankar2.png",
-      "gaurishankar3.png",
+      "lumbini1.jpg",
+      "lumbini2.jpg",
+      "lumbini3.jpg",
     ],
     subtitles: [
-      "Sacred Himalayan Peak • Shiva & Parvati Abode",
-      "Rolwaling Valley • Remote Wilderness",
-      "Biodiversity Hotspot • Sherpa & Tamang Culture",
+      "Sacred Birthplace of Lord Buddha • UNESCO World Heritage",
+      "Maya Devi Temple • Peaceful Pilgrimage Site",
+      "International Monasteries • Spiritual Harmony",
     ],
     leftEmojiImages: [
-      "mountain.svg",
-      "snow-peak.png",
-      "forest.png",
+      "buddha.png",
+      "temple.svg",
+      "gate.png",
     ],
     rightEmojiImages: [
-      "trek.svg",
-      "wildlife.png",
-      "culture.png",
+      "pray.png",
+      "gardening.png",
+      "stupa.png",
     ],
     leftTexts: [
-      "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
-      "Rolwaling Himal – one of Nepal's most pristine ranges",
-      "Part of Gaurishankar Conservation Area – rich biodiversity",
-      "Home to red panda, snow leopard & Himalayan tahr",
-      "Sherpa, Tamang & Thami villages with traditional lifestyle",
-      "Tsho Rolpa – largest glacial lake in Nepal",
+      "Birthplace of Siddhartha Gautama (Lord Buddha) in 623 BCE – holiest Buddhist site",
+      "Maya Devi Temple – marks exact spot of Buddha's birth with ancient ruins & sacred pond",
+      "Ashoka Pillar – inscribed by Emperor Ashoka in 249 BCE confirming the birthplace",
+      "Sacred Garden & Puskarni Pond – peaceful setting where Queen Maya Devi bathed",
+      "Monastic Zone – over 40 international monasteries built by countries worldwide",
+      "Peaceful Terai plains atmosphere – ideal for meditation & reflection",
     ],
     rightTexts: [
-      "Rolwaling Valley Trek – adventurous & less crowded route",
-      "Tsho Rolpa & Na Glacier exploration",
-      "Pikayo Ri & other high passes for epic views",
-      "Combine with Gosaikunda or Everest region treks",
-      "Remote monasteries and sacred sites",
-      "Excellent for mountaineering, photography & nature immersion",
+      "Pilgrimage to Maya Devi Temple – walk the sacred path & see the marker stone",
+      "Explore diverse monasteries – Thai, German, Chinese, Vietnamese, Korean & more",
+      "World Peace Pagoda – serene stupa offering panoramic views & meditation",
+      "Sacred Bodhi tree & eternal flame – symbols of enlightenment & peace",
+      "Quiet walks in gardens & reflection pools – perfect for mindfulness & photography",
+      "Combine with nearby Kapilvastu ruins or Devdaha – deeper Buddhist heritage experience",
     ],
     onClose: handleLumbiniState,
   };
