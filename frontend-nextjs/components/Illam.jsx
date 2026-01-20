@@ -13,17 +13,17 @@ const Illam = ({ handleIllamState }) => {
     ],
     leftEmojiImages: ["leaf1.svg", "travel.png"],
     rightEmojiImages: ["hill.svg", "gardening.png"],
-    leftTexts: [
-      "Endless tea gardens rolling over emerald hills — Ilām’s signature charm.",
-      "Tea gardens everywhere, Peaceful eastern Nepal.",
-      "Winding hill roads leading to peaceful viewpoints.",
-      "Kanyam Tea Garden (MOST famous), Mai Pokhari (Sacred Lake)",
+leftTexts: [
+      "Endless rolling tea gardens emerald hills",
+      "Famous orthodox & CTC tea estates",
+      "Peaceful eastern Nepal hill station",
+      "Winding roads to scenic viewpoints",
     ],
     rightTexts: [
-      "Fresh air, green tea estates, and calm mornings in eastern Nepal.",
-      "Soft mountain air, winding roads, and serene hilltop landscapes.",
-      "Scenic routes with views that make you stop and breathe.",
-      "Ilām Bazaar, Fikkal Bazaar, Sandakpur Viewpoint",
+      "Fresh air calm tea mornings",
+      "Soft mountain breezes serene landscapes",
+      "Scenic drives breathtaking hill views",
+      "Ilām Bazaar Fikkal local markets",
     ],
     onClose: handleIllamState,
   };

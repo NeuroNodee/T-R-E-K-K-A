@@ -1,45 +1,45 @@
-// src/components/places/Gaurishankar.jsx
+// src/components/places/ApiHimal.jsx
 import PlaceModal from "./PlaceModal";
 
 const Api = ({ handleApiState }) => {
   const ApiConfig = {
-    placeName: "Gaurishankar  ",
-    placeName2: "",
+    placeName: "Api",
+    placeName2: "Himal",
     images: [
-      "gaurishankar1.png",
-      "gaurishankar2.png",
-      "gaurishankar3.png",
+      "api1.jpg",
+      "api2.jpg",
+      "api3.jpg",
     ],
     subtitles: [
-      "Sacred Himalayan Peak • Shiva & Parvati Abode",
-      "Rolwaling Valley • Remote Wilderness",
-      "Biodiversity Hotspot • Sherpa & Tamang Culture",
+      "Far-West Nepal's Highest Peak • Remote Giant",
+      "Api Nampa Conservation Area • Untouched Beauty",
+      "Challenging Trek • Epic Himalayan Views",
     ],
     leftEmojiImages: [
       "mountain.svg",
-      "snow-peak.png",
-      "forest.png",
+      "snow.png",
+      "tree.svg",
     ],
     rightEmojiImages: [
       "trek.svg",
+      "base.png",
       "wildlife.png",
-      "culture.png",
     ],
     leftTexts: [
-      "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
-      "Rolwaling Himal – one of Nepal's most pristine ranges",
-      "Part of Gaurishankar Conservation Area – rich biodiversity",
-      "Home to red panda, snow leopard & Himalayan tahr",
-      "Sherpa, Tamang & Thami villages with traditional lifestyle",
-      "Tsho Rolpa – largest glacial lake in Nepal",
+      "Api (7,132 m) – highest in far-west",
+      "Remote Api Himal massif beauty",
+      "Api Nampa Conservation Area protected",
+      "Snow leopard and musk deer habitat",
+      "Dramatic snow-capped peaks surround",
+      "Pristine alpine meadows and forests",
     ],
     rightTexts: [
-      "Rolwaling Valley Trek – adventurous & less crowded route",
-      "Tsho Rolpa & Na Glacier exploration",
-      "Pikayo Ri & other high passes for epic views",
-      "Combine with Gosaikunda or Everest region treks",
-      "Remote monasteries and sacred sites",
-      "Excellent for mountaineering, photography & nature immersion",
+      "Api Base Camp Trek adventure",
+      "Challenging high-altitude route views",
+      "Epic panoramas of Nampa Chiurani",
+      "Remote wilderness photography paradise",
+      "Combine with Saipal or Byas trek",
+      "Untouched nature for serious trekkers",
     ],
     onClose: handleApiState,
   };

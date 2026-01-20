@@ -1,45 +1,45 @@
-// src/components/places/Gaurishankar.jsx
+// src/components/places/Khaptad.jsx
 import PlaceModal from "./PlaceModal";
 
 const Khaptad = ({ handleKhaptadState }) => {
   const KhaptadConfig = {
-    placeName: "Gaurishankar  ",
+    placeName: "Khaptad",
     placeName2: "",
     images: [
-      "gaurishankar1.png",
-      "gaurishankar2.png",
-      "gaurishankar3.png",
+      "khaptad1.jpg",
+      "khaptad2.jpg",
+      "khaptad3.jpg",
     ],
     subtitles: [
-      "Sacred Himalayan Peak • Shiva & Parvati Abode",
-      "Rolwaling Valley • Remote Wilderness",
-      "Biodiversity Hotspot • Sherpa & Tamang Culture",
+      "Peaceful Highland Paradise • Rolling Meadows",
+      "Rhododendron Heaven • Spiritual Ashram",
+      "Far-West Nepal Gem • Serene Trekking",
     ],
     leftEmojiImages: [
-      "mountain.svg",
-      "snow-peak.png",
-      "forest.png",
+      "meadow.png",
+      "tree.svg",
+      "flower.png",
     ],
     rightEmojiImages: [
       "trek.svg",
-      "wildlife.png",
-      "culture.png",
+      "sunrise.png",
+      "bird.png",
     ],
     leftTexts: [
-      "Gaurishankar (7,134 m) – sacred twin peak of Shiva & Parvati",
-      "Rolwaling Himal – one of Nepal's most pristine ranges",
-      "Part of Gaurishankar Conservation Area – rich biodiversity",
-      "Home to red panda, snow leopard & Himalayan tahr",
-      "Sherpa, Tamang & Thami villages with traditional lifestyle",
-      "Tsho Rolpa – largest glacial lake in Nepal",
+      "Khaptad National Park – serene highland plateau",
+      "Famous for vast green meadows and forests",
+      "Spring rhododendron blooms in vibrant colors",
+      "Swami Sachchidananda Ashram – spiritual retreat",
+      "Over 560 flowering plants and herbs",
+      "Rich birdlife with 287 recorded species",
     ],
     rightTexts: [
-      "Rolwaling Valley Trek – adventurous & less crowded route",
-      "Tsho Rolpa & Na Glacier exploration",
-      "Pikayo Ri & other high passes for epic views",
-      "Combine with Gosaikunda or Everest region treks",
-      "Remote monasteries and sacred sites",
-      "Excellent for mountaineering, photography & nature immersion",
+      "Khaptad National Park Trek adventure",
+      "Sahastradhara sunrise viewpoint magic",
+      "Explore Triveni and Khaptad Lake",
+      "Peaceful birdwatching and nature walks",
+      "Combine with nearby Doti or Bajhang",
+      "Ideal for meditation and photography",
     ],
     onClose: handleKhaptadState,
   };

@@ -28,21 +28,20 @@ const EverestRegion = ({ handleEverestRegionState }) => {
     ],
 
     leftTexts: [
-      "Mount Everest (8,848.86 m) and surrounding Himalayan giants",
-      "Solukhumbu region with dramatic valleys and glaciers",
-      "Sherpa villages like Khumjung, Khunde, and Phortse",
-      "Ancient monasteries and colorful prayer flags",
-      "Sagarmatha National Park – UNESCO World Heritage Site",
-      "Glacial rivers, alpine forests, and high-altitude wildlife",
+      "Mount Everest 8,848 m highest peak",
+      "Solukhumbu dramatic valleys glaciers",
+      "Sherpa villages Khumjung Khunde Phortse",
+      "Ancient monasteries colorful prayer flags",
+      "Sagarmatha National Park UNESCO site",
+      "Glacial rivers alpine forests wildlife",
     ],
-
     rightTexts: [
-      "Everest Base Camp (EBC) trek – the ultimate Himalayan journey",
-      "High-altitude trekking routes like Gokyo Lakes & Three Passes",
-      "Mountaineering and peak climbing expeditions",
-      "Explore Namche Bazaar – the Sherpa capital",
-      "Scenic flight to Lukla – one of the world's most thrilling airports",
-      "Photography, glacier walks, and mountain viewpoints",
+      "Everest Base Camp ultimate trek",
+      "Gokyo Lakes Three Passes routes",
+      "Mountaineering peak climbing expeditions",
+      "Namche Bazaar Sherpa capital hub",
+      "Scenic thrilling Lukla flight",
+      "Photography glacier walks viewpoints",
     ],
 
     onClose: handleEverestRegionState,

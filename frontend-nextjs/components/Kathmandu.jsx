@@ -1,14 +1,14 @@
 // src/components/places/Kathmandu.jsx
-import PlaceModal from "./PlaceModal"; 
+import PlaceModal from "./PlaceModal";
 
 const Kathmandu = ({ handleKathmanduState }) => {
   const KathmanduConfig = {
     placeName: "Kathmandu",
     placeName2: "",
     images: [
-      "kathmandu1.jpg",   
-      "aboutus-back.png",   
-      "kathmandu3.jpg",  
+      "kathmandu1.jpg",
+      "aboutus-back.png",
+      "kathmandu3.jpg",
     ],
     subtitles: [
       "Gateway to Nepal • Blend of Ancient & Modern",
@@ -16,30 +16,30 @@ const Kathmandu = ({ handleKathmanduState }) => {
       "UNESCO Heritage • Thamel Adventure Hub",
     ],
     leftEmojiImages: [
-      "stupa.png",        
-      "temple.svg",       
-      "palace.png",       
+      "stupa.png",
+      "temple.svg",
+      "palace.png",
     ],
     rightEmojiImages: [
-      "market.png",       
-      "trek.svg",         
-      "festival.png",      
+      "market.png",
+      "trek.svg",
+      "festival.png",
     ],
     leftTexts: [
-      "Swayambhunath (Monkey Temple) – ancient stupa with valley panoramas",
-      "Boudhanath Stupa – massive Buddhist site & Tibetan influence",
-      "Pashupatinath Temple – holiest Hindu shrine on Bagmati River",
-      "Kathmandu Durbar Square – historic royal palace & intricate temples",
-      "Garden of Dreams – peaceful escape amid urban chaos",
-      "Thamel district – vibrant hub for shops, cafes & trekking gear",
+      "Swayambhunath Monkey Temple valley panoramas",
+      "Boudhanath massive Buddhist stupa site",
+      "Pashupatinath holiest Hindu shrine riverside",
+      "Kathmandu Durbar Square historic palace",
+      "Garden of Dreams peaceful oasis",
+      "Thamel vibrant shops cafes hub",
     ],
     rightTexts: [
-      "Gateway to Himalayan treks & adventure activities",
-      "Bustling markets, street food & live music in Thamel",
-      "Mix of Hindu & Buddhist festivals year-round",
-      "Explore ancient Newari architecture & hidden courtyards",
-      "Cultural museums & art galleries showcasing Nepali heritage",
-      "Scenic viewpoints & nearby day trips to Nagarkot",
+      "Gateway to Himalayan treks adventures",
+      "Thamel bustling markets street food",
+      "Hindu Buddhist festivals year-round",
+      "Ancient Newari architecture hidden courtyards",
+      "Museums galleries Nepali heritage showcase",
+      "Scenic viewpoints Nagarkot day trips",
     ],
     onClose: handleKathmanduState,
   };

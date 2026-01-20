@@ -6,9 +6,9 @@ const Janaki = ({ handleJanakiState }) => {
     placeName: "Janakpur",
     placeName2: "Dham",
     images: [
-      "janakpur1.png",   // e.g., Janaki Mandir white marble facade
-      "janakpur2.jpg",   // e.g., Vivah Mandap or Mithila art wall
-      "janakpur3.jpg",   // e.g., sacred pond or colorful festival scene
+      "janakpur1.png",   
+      "janakpur2.jpg",   
+      "janakpur3.jpg",   
     ],
     subtitles: [
       "Birthplace of Goddess Sita • Heart of Mithila",
@@ -16,30 +16,30 @@ const Janaki = ({ handleJanakiState }) => {
       "City of Ponds • Mithila Art & Culture",
     ],
     leftEmojiImages: [
-      "temple.svg",       // Janaki Mandir & sacred sites
-      "art.png",  // Mithila/Madhubani paintings
-      "pond.png",         // Sacred ponds & Ganga Sagar
+      "temple.svg",       
+      "art.png",  
+      "pond.png",         
     ],
     rightEmojiImages: [
-      "festival.png",     // Vivah Panchami, Ram Navami celebrations
-      "cultural.png",      // Maithili traditions & folk art
-      "pray.png",      // Pilgrimage & spiritual journeys
+      "festival.png",     
+      "cultural.png",      
+      "pray.png",      
     ],
     leftTexts: [
-      "Janaki Mandir – stunning Mughal-Rajput style marble temple",
-      "Birthplace of Sita (Janaki), consort of Lord Rama",
-      "Ancient Mithila Kingdom – center of Maithili culture & language",
-      "Vibrant Mithila art (Madhubani paintings) on walls & courtyards",
-      "Over 100 sacred ponds – city known as 'City of Ponds'",
-      "Ram Mandir, Laxman Temple, Hanuman Temple & more holy sites",
+      "Janaki Mandir stunning marble temple",
+      "Birthplace of Goddess Sita Janaki",
+      "Ancient Mithila Kingdom Maithili culture",
+      "Vibrant Madhubani paintings everywhere",
+      "Over 100 sacred ponds city",
+      "Ram Laxman Hanuman temples nearby",
     ],
     rightTexts: [
-      "Vivah Panchami – grand celebration of Ram-Sita wedding",
-      "Ram Navami, Chhath Puja, Holi & Deepawali festivities",
-      "Vivah Mandap – site of mythological Ram-Sita marriage",
-      "Explore colorful markets & traditional Maithili cuisine",
-      "Pilgrimage destination for Hindus from Nepal & India",
-      "Mithila cultural heritage – folk art, music & literature",
+      "Vivah Panchami grand Ram-Sita wedding",
+      "Ram Navami Chhath Puja festivals",
+      "Vivah Mandap mythological marriage site",
+      "Colorful markets Maithili cuisine",
+      "Major Hindu pilgrimage destination",
+      "Mithila folk art music literature",
     ],
     onClose: handleJanakiState,
   };
