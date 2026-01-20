@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import ProfileBtn from "@/components/ProfileBtn";
 import Notify from "@/components/Notify";
+import LoadingSmall from "@/components/LoadingSmall";
 
 const Overview = ({ user_id }) => {
   const [weather, setWeather] = useState(null);
@@ -9,7 +10,7 @@ const Overview = ({ user_id }) => {
   const [error, setError] = useState(null);
   const [searchCity, setSearchCity] = useState("");
 
-  // Get API key from environment variable
+
   const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
   console.log(apiKey)
 
@@ -157,69 +158,63 @@ const Overview = ({ user_id }) => {
           </div>
 
           <div className="Weather-card">
-            <h1>WEATHER UPDATE</h1>
-
-            {/* Weather Search Box */}
-            <div className="weather-search">
-              <input
-                type="text"
-                placeholder="Enter city name in Nepal"
-                value={searchCity}
-                onChange={(e) => setSearchCity(e.target.value)}
-                onKeyPress={handleKeyPress}
-                className="weather-search-input"
-              />
-              <button onClick={handleSearch} className="weather-search-btn">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149852.png" alt="Search" />
-              </button>
-            </div>
-
-            {/* Error Display */}
-            {error && !loading && (
-              <div className="weather-error">
-                <p>{error}</p>
-              </div>
-            )}
 
             {loading ? (
-              <div className="weather_default">
-                <img src="/weather_default.svg" alt="" />
-                <h2>Loading weather...</h2>
-              </div>
+              <LoadingSmall></LoadingSmall>
             ) : weather ? (
-              <div className="weather-content">
-                <img
-                  src={getWeatherIcon(weather.current.condition.text)}
-                  alt={weather.current.condition.text}
-                  className="weather-icon"
-                />
-                <h1 className="temp">{Math.round(weather.current.temp_c)}°C</h1>
-                <h2 className="city">{weather.location.name}</h2>
-                <p className="condition">{weather.current.condition.text}</p>
-                <div className="weather-details">
-                  <div className="detail-col">
-                    <img src="https://cdn-icons-png.flaticon.com/512/727/727790.png" alt="Humidity" />
-                    <div>
-                      <p className="humidity">{weather.current.humidity}%</p>
-                      <p>Humidity</p>
+              <div className="weather_live">
+                <h2>WEATHER UPDATE</h2>
+                <div className="weather-search">
+                  <input
+                    type="text"
+                    placeholder="Enter city name in Nepal"
+                    value={searchCity}
+                    onChange={(e) => setSearchCity(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    className="weather-search-input"
+                  />
+                  <button onClick={handleSearch} className="weather-search-btn">
+                    <img src="https://cdn-icons-png.flaticon.com/512/149/149852.png" alt="Search" />
+                  </button>
+                </div>
+                <div className="weather-content">
+                  <img
+                    src={getWeatherIcon(weather.current.condition.text)}
+                    alt={weather.current.condition.text}
+                    className="weather-icon"
+                  />
+                  <h1 className="temp">{Math.round(weather.current.temp_c)}°C</h1>
+                  <h2 className="city">{weather.location.name}</h2>
+                  <p className="condition">{weather.current.condition.text}</p>
+                  <div className="weather-details">
+                    <div className="detail-col">
+                      <img src="https://cdn-icons-png.flaticon.com/512/727/727790.png" alt="Humidity" />
+                      <div>
+                        <p className="humidity">{weather.current.humidity}%</p>
+                        <p>Humidity</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="detail-col">
-                    <img src="https://cdn-icons-png.flaticon.com/512/959/959711.png" alt="Wind" />
-                    <div>
-                      <p className="wind">{weather.current.wind_kph} km/h</p>
-                      <p>Wind Speed</p>
+                    <div className="detail-col">
+                      <img src="https://cdn-icons-png.flaticon.com/512/959/959711.png" alt="Wind" />
+                      <div>
+                        <p className="wind">{weather.current.wind_kph} km/h</p>
+                        <p>Wind Speed</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            ) : !error && (
+            ) : error && (
               <div className="weather_default">
-                <img src="/weather_default.svg" alt="" />
+                <h1>WEATHER UPDATE</h1>
+                <div className="weather_img">
+                  <img src="/weather_default.svg" alt="" />
+                </div>
                 <h2>No relevant data Currently</h2>
                 <p>Search for a city to view weather information</p>
               </div>
             )}
+            
           </div>
         </div>
 

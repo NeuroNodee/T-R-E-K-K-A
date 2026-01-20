@@ -108,14 +108,17 @@
 .favourite-destination-card,
 .photo-gallery-card,
 .Weather-card{
+    position: relative;
     width: 35vw;
     height: 100%;
+    max-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px;
     /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 10px;
 }
 .journey-card:hover,
 .travel-stat-card:hover,
@@ -164,7 +167,7 @@
     color: #000;
     margin: 0;
     padding: 0;
-    font-weight: 700;
+    font-weight: 400;
 }
 .favSection p{
     padding: 10px 100px;
@@ -172,11 +175,43 @@
     color: #939292;
 }
 .travel-stat-card p,
-.Weather-card p,
 .journey-card p{
     text-align: center;
     color: #939292;
     padding: 10px 70px;
+}
+.weather_default{
+    /* margin-bottom: 20px; */
+    /* position: relative; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather_default .weather_img{
+    width: 12vw;
+    height: 27vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.weather_default .weather_img img{
+    width: 100%;
+    height: 100%;
+}
+.weather_default p{
+    text-align: center;
+    color: #939292;
+    /* padding: 10px 20px; */
+    width: 100%;
+}
+.weather_default h2{
+    margin-bottom: 10px;
+    text-align: center;
 }
 .travel_default,
 .journey_default{
@@ -246,7 +281,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .weather-icon {
@@ -317,13 +352,5 @@
     .favSection h1{
         font-size: 25px;
 
-    }
-    .weather_default{
-        width: 12vw;
-        height: auto;
-    }
-    .weather_default img{
-        width: 100%;
-        height: auto;
     }
 }
