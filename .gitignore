@@ -1,4 +1,5 @@
 backend/venv
+backend/vemv
 backend/.env
 frontend-nextjs/.env
 backend/trekka
