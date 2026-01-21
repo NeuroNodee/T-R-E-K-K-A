@@ -2,14 +2,18 @@
 import { useState, useEffect } from "react";
 import ProfileBtn from "@/components/ProfileBtn";
 import Notify from "@/components/Notify";
+import LoadingSmall from "@/components/LoadingSmall";
 
 const Overview = ({ user_id }) => {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [weatherStatus, setWeatherStatus] = useState("");
   const [searchCity, setSearchCity] = useState("");
+  const [locationDenied, setLocationDenied] = useState(false);
 
-  // Get API key from environment variable
+
+
   const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
   console.log(apiKey)
 
@@ -45,7 +49,8 @@ const Overview = ({ user_id }) => {
 
     } catch (err) {
       if (err.code === 1) {
-        setError('Location access denied. Please enable location or search for a city.');
+        setError('Location is denied. Please enable location in your browser settings.');
+        setLocationDenied(true);
       } else if (err.message.includes('timeout')) {
         setError('Location request timed out. Please search for a city.');
       } else {
@@ -104,16 +109,22 @@ const Overview = ({ user_id }) => {
     const conditionLower = condition.toLowerCase();
 
     if (conditionLower.includes("cloud") || conditionLower.includes("overcast")) {
+      // setWeatherStatus("cloudy");
       return "https://cdn-icons-png.flaticon.com/512/414/414825.png";
     } else if (conditionLower.includes("rain") || conditionLower.includes("drizzle")) {
+      // setWeatherStatus("rainy");
       return "https://cdn-icons-png.flaticon.com/512/1163/1163661.png";
     } else if (conditionLower.includes("snow")) {
+      // setWeatherStatus("snowy");
       return "https://cdn-icons-png.flaticon.com/512/642/642102.png";
     } else if (conditionLower.includes("clear") || conditionLower.includes("sunny")) {
+      // setWeatherStatus("sunny");
       return "https://cdn-icons-png.flaticon.com/512/869/869869.png";
     } else if (conditionLower.includes("mist") || conditionLower.includes("fog")) {
+      // setWeatherStatus("misty");
       return "https://cdn-icons-png.flaticon.com/512/4005/4005817.png";
     } else {
+      // setWeatherStatus("unknown");
       return "https://cdn-icons-png.flaticon.com/512/1163/1163624.png";
     }
   };
@@ -157,70 +168,87 @@ const Overview = ({ user_id }) => {
           </div>
 
           <div className="Weather-card">
-            <h1>WEATHER UPDATE</h1>
-
-            {/* Weather Search Box */}
-            <div className="weather-search">
-              <input
-                type="text"
-                placeholder="Enter city name in Nepal"
-                value={searchCity}
-                onChange={(e) => setSearchCity(e.target.value)}
-                onKeyPress={handleKeyPress}
-                className="weather-search-input"
-              />
-              <button onClick={handleSearch} className="weather-search-btn">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149852.png" alt="Search" />
-              </button>
-            </div>
-
-            {/* Error Display */}
-            {error && !loading && (
-              <div className="weather-error">
-                <p>{error}</p>
-              </div>
-            )}
-
             {loading ? (
-              <div className="weather_default">
-                <img src="/weather_default.svg" alt="" />
-                <h2>Loading weather...</h2>
-              </div>
+              <LoadingSmall />
             ) : weather ? (
-              <div className="weather-content">
-                <img
-                  src={getWeatherIcon(weather.current.condition.text)}
-                  alt={weather.current.condition.text}
-                  className="weather-icon"
-                />
-                <h1 className="temp">{Math.round(weather.current.temp_c)}°C</h1>
-                <h2 className="city">{weather.location.name}</h2>
-                <p className="condition">{weather.current.condition.text}</p>
-                <div className="weather-details">
-                  <div className="detail-col">
-                    <img src="https://cdn-icons-png.flaticon.com/512/727/727790.png" alt="Humidity" />
-                    <div>
-                      <p className="humidity">{weather.current.humidity}%</p>
-                      <p>Humidity</p>
+              // Weather is available
+              <div className="weather_live">
+                <h2>WEATHER UPDATE</h2>
+                <div className="weather-search">
+                  <input
+                    type="text"
+                    placeholder="Enter city name in Nepal"
+                    value={searchCity}
+                    onChange={(e) => setSearchCity(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    className="weather-search-input"
+                  />
+                  <button onClick={handleSearch} className="weather-search-btn">
+                    <img src="https://cdn-icons-png.flaticon.com/512/149/149852.png" alt="Search" />
+                  </button>
+                </div>
+                <div className="weather-content">
+                  <img
+                    src={getWeatherIcon(weather.current.condition.text)}
+                    alt={weather.current.condition.text}
+                    className="weather-icon"
+                  />
+                  <h1 className="temp">{Math.round(weather.current.temp_c)}°C</h1>
+                  <h2 className="city">{weather.location.name}</h2>
+                  <p className="condition">{weather.current.condition.text}</p>
+                  <div className="weather-details">
+                    <div className="detail-col">
+                      <img src="https://cdn-icons-png.flaticon.com/512/727/727790.png" alt="Humidity" />
+                      <div>
+                        <p className="humidity">{weather.current.humidity}%</p>
+                        <p>Humidity</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="detail-col">
-                    <img src="https://cdn-icons-png.flaticon.com/512/959/959711.png" alt="Wind" />
-                    <div>
-                      <p className="wind">{weather.current.wind_kph} km/h</p>
-                      <p>Wind Speed</p>
+                    <div className="detail-col">
+                      <img src="https://cdn-icons-png.flaticon.com/512/959/959711.png" alt="Wind" />
+                      <div>
+                        <p className="wind">{weather.current.wind_kph} km/h</p>
+                        <p>Wind Speed</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            ) : !error && (
+            ) : (
+              // Weather is null -> show default card
               <div className="weather_default">
-                <img src="/weather_default.svg" alt="" />
-                <h2>No relevant data Currently</h2>
-                <p>Search for a city to view weather information</p>
+                <h1>WEATHER UPDATE</h1>
+                <div className="weather_img">
+                  <img src="/weather_default.svg" alt="" />
+                </div>
+                <h2>No relevant data currently</h2>
+                <p>{error || "Search for a city to view weather information"}</p>
+
+                {/* Always show dropdown / input here too */}
+                {locationDenied ? (
+                  <div className="weather-search">
+                  </div>
+                ) : (
+                  <div className="weather-search">
+                    <input
+                      type="text"
+                      placeholder="Enter city name in Nepal"
+                      value={searchCity}
+                      onChange={(e) => setSearchCity(e.target.value)}
+                      onKeyPress={handleKeyPress}
+                      className="weather-search-input"
+                    />
+                    <button onClick={handleSearch} className="weather-search-btn">
+                      <img src="https://cdn-icons-png.flaticon.com/512/149/149852.png" alt="Search" />
+                    </button>
+                  </div>
+                )}
               </div>
+
+
             )}
           </div>
+
         </div>
 
         <div className="part-content-area-center">
