@@ -71,6 +71,10 @@ const ProfileBtn = () => {
             Settings
           </button>
 
+          <button className="profile-dropdown-btn">
+            My Blogs
+          </button>
+
           <button
             onClick={handleLogout}
             className="profile-dropdown-btn logout"
