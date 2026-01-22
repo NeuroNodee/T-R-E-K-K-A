@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'chatbot',
     'sherpa',
+    'travelKit',
     
     # Third party apps
     'rest_framework',
