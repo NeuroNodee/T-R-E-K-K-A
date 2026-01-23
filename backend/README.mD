@@ -39,4 +39,4 @@ python manage.py loaddata initial_travelkit_data.json
 python manage.py runserver
 ```
 
-***There are many api kleys needed for this project which can be added in the .env file(Can get api keys from the respective websites /colaborators)***
+***There are many api keys needed for this project which can be added in the .env file(Can get api keys from the respective websites /collaborators)***
