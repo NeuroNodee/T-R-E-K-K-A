@@ -4,7 +4,7 @@ backend/.env
 frontend-nextjs/.env
 backend/trekka
 backend/db.sqlite3
-backend/media
+backend/media/sherpa
 
 # Python cache
 __pycache__/
