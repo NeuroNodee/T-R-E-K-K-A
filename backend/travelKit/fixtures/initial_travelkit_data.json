@@ -1,0 +1,946 @@
+[
+  {
+    "model": "travelKit.location",
+    "pk": 1,
+    "fields": {
+      "name": "Illam",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 2,
+    "fields": {
+      "name": "Dharan",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 3,
+    "fields": {
+      "name": "KoshiTappu",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 4,
+    "fields": {
+      "name": "Mt Everest Base Camp",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 5,
+    "fields": {
+      "name": "Makalu Trek (Everest Region)",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 6,
+    "fields": {
+      "name": "Mt everest (Summit attempt)",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 7,
+    "fields": {
+      "name": "Janaki Temple",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 8,
+    "fields": {
+      "name": "Gaurishankar Region Trek",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 9,
+    "fields": {
+      "name": "Kathmandu",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 10,
+    "fields": {
+      "name": "Bhaktapur",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 11,
+    "fields": {
+      "name": "Lalitpur",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 12,
+    "fields": {
+      "name": "Langtang Valley (Trek)",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 13,
+    "fields": {
+      "name": "Gosaikunda Lake",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 14,
+    "fields": {
+      "name": "Machapuchare (Fishtail)",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 15,
+    "fields": {
+      "name": "Ghandruk Village",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 16,
+    "fields": {
+      "name": "Pokhara",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 17,
+    "fields": {
+      "name": "Phewa Lake",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 18,
+    "fields": {
+      "name": "Ghorepani–Poon Hill",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 19,
+    "fields": {
+      "name": "Annapurna Circuit",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 20,
+    "fields": {
+      "name": "Annapurna Base Camp (ABC) Trek",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 21,
+    "fields": {
+      "name": "Dhaulagiri Circuit Trek",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 22,
+    "fields": {
+      "name": "Lumbini",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 23,
+    "fields": {
+      "name": "Bardia National Park",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 24,
+    "fields": {
+      "name": "Langtang National Park",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 25,
+    "fields": {
+      "name": "Sagarmatha National Park",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 26,
+    "fields": {
+      "name": "Rara Lake",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 27,
+    "fields": {
+      "name": "Rara National Park",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 28,
+    "fields": {
+      "name": "Shey Phoksundo Lake",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 29,
+    "fields": {
+      "name": "Shey Phoksundo National Park",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 30,
+    "fields": {
+      "name": "Api Mountain",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 31,
+    "fields": {
+      "name": "Khaptad National Park",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 32,
+    "fields": {
+      "name": "Mustang",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.location",
+    "pk": 33,
+    "fields": {
+      "name": "Manang",
+      "country": "Nepal"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 1,
+    "fields": {
+      "name": "sweaters",
+      "category": "clothing",
+      "description": "Light, warm, breathable wool for layering.",
+      "image": "travelkit_items/sweater.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-22T17:52:55.423Z",
+      "updated_at": "2026-01-23T04:42:41.007Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 2,
+    "fields": {
+      "name": "thermal underwear",
+      "category": "clothing",
+      "description": "for high-altitude treks like Everest, Annapurna, Dhaulagiri",
+      "image": "travelkit_items/thermal.png",
+      "price": "0.00",
+      "created_at": "2026-01-22T17:59:18.908Z",
+      "updated_at": "2026-01-23T04:46:37.630Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 3,
+    "fields": {
+      "name": "t-shirts",
+      "category": "clothing",
+      "description": "Moisture-wicking t-shirts for all treks",
+      "image": "travelkit_items/tshirts.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T03:58:12.562Z",
+      "updated_at": "2026-01-23T04:47:38.055Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 4,
+    "fields": {
+      "name": "Long-sleeve shirts",
+      "category": "clothing",
+      "description": "Sun protection and layering for moderate/high-altitude treks",
+      "image": "travelkit_items/longSleevesShirts.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T03:59:14.285Z",
+      "updated_at": "2026-01-23T04:48:31.324Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 5,
+    "fields": {
+      "name": "Jacket (Fleece)",
+      "category": "clothing",
+      "description": "Warm layer for cold mornings/evenings",
+      "image": "travelkit_items/jacketFleece.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T04:00:49.553Z",
+      "updated_at": "2026-01-23T05:29:12.506Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 6,
+    "fields": {
+      "name": "Waterproof jacket",
+      "category": "clothing",
+      "description": "Protection from rain and wind in all regions",
+      "image": "travelkit_items/waterproofJacket.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T04:01:56.248Z",
+      "updated_at": "2026-01-23T04:50:01.424Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 7,
+    "fields": {
+      "name": "Trekking pants",
+      "category": "clothing",
+      "description": "Quick-dry pants for hiking in all areas",
+      "image": "travelkit_items/trekpants.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T04:02:55.382Z",
+      "updated_at": "2026-01-23T05:21:06.580Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 8,
+    "fields": {
+      "name": "Shorts",
+      "category": "clothing",
+      "description": "For low-altitude trekking and warm regions",
+      "image": "travelkit_items/shorts.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T04:03:46.574Z",
+      "updated_at": "2026-01-23T05:21:45.253Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 9,
+    "fields": {
+      "name": "Warm hat / beanie",
+      "category": "clothing",
+      "description": "For cold regions like Everest and Dhaulagiri",
+      "image": "travelkit_items/hat.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T04:04:51.212Z",
+      "updated_at": "2026-01-23T05:22:36.849Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 10,
+    "fields": {
+      "name": "Sun hat / cap",
+      "category": "clothing",
+      "description": "Sun protection in Annapurna, Pokhara, Rara",
+      "image": "travelkit_items/sunhat.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T04:33:22.805Z",
+      "updated_at": "2026-01-23T05:23:10.727Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 11,
+    "fields": {
+      "name": "Gloves",
+      "category": "clothing",
+      "description": "Warm gloves for high-altitude trekking",
+      "image": "travelkit_items/gloves.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T04:35:38.565Z",
+      "updated_at": "2026-01-23T05:23:47.587Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 12,
+    "fields": {
+      "name": "Trekking socks",
+      "category": "clothing",
+      "description": "Wool or synthetic for comfort and blister prevention",
+      "image": "travelkit_items/socks.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T04:36:31.477Z",
+      "updated_at": "2026-01-23T05:26:10.657Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 13,
+    "fields": {
+      "name": "Casual city wear",
+      "category": "clothing",
+      "description": "Comfortable clothes for Kathmandu, Lalitpur, Bhaktapur, Dharan",
+      "image": "travelkit_items/casual.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T04:41:45.851Z",
+      "updated_at": "2026-01-23T05:29:07.826Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 14,
+    "fields": {
+      "name": "Trekking boots",
+      "category": "gear",
+      "description": "Waterproof boots for trekking in all mountains",
+      "image": "travelkit_items/bootstrek.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:30:57.674Z",
+      "updated_at": "2026-01-23T05:31:10.351Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 15,
+    "fields": {
+      "name": "Hiking sandals / sneakers",
+      "category": "gear",
+      "description": "For low-altitude areas and casual walks",
+      "image": "travelkit_items/shoe.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:31:54.629Z",
+      "updated_at": "2026-01-23T05:31:54.629Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 16,
+    "fields": {
+      "name": "Small backpack",
+      "category": "gear",
+      "description": "Small backpack for daily hikes",
+      "image": "travelkit_items/daypack.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:33:04.616Z",
+      "updated_at": "2026-01-23T05:33:20.500Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 17,
+    "fields": {
+      "name": "Backpack",
+      "category": "gear",
+      "description": "For multi-day treks carrying gear and clothes",
+      "image": "travelkit_items/backpack.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:34:15.499Z",
+      "updated_at": "2026-01-23T05:34:15.499Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 18,
+    "fields": {
+      "name": "Sleeping bag",
+      "category": "gear",
+      "description": "For cold nights in high-altitude treks",
+      "image": "travelkit_items/sleepingbag.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:35:18.132Z",
+      "updated_at": "2026-01-23T05:35:18.132Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 19,
+    "fields": {
+      "name": "Trekking poles",
+      "category": "gear",
+      "description": "Support on steep or rocky trails",
+      "image": "travelkit_items/poles.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:36:17.635Z",
+      "updated_at": "2026-01-23T05:36:17.635Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 20,
+    "fields": {
+      "name": "Headlamp / flashlight",
+      "category": "gear",
+      "description": "Essential for early starts and camps",
+      "image": "travelkit_items/headlamp.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:37:28.488Z",
+      "updated_at": "2026-01-23T05:37:28.488Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 21,
+    "fields": {
+      "name": "Water bottle",
+      "category": "gear",
+      "description": "Stay hydrated on treks",
+      "image": "travelkit_items/bottle.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:38:06.648Z",
+      "updated_at": "2026-01-23T05:38:06.648Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 22,
+    "fields": {
+      "name": "Water purification tablets",
+      "category": "gear",
+      "description": "Safe drinking water in remote areas",
+      "image": "travelkit_items/water.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:39:29.783Z",
+      "updated_at": "2026-01-23T05:39:29.783Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 23,
+    "fields": {
+      "name": "Sunglasses",
+      "category": "gear",
+      "description": "UV protection at high altitude",
+      "image": "travelkit_items/sunglass.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:40:03.009Z",
+      "updated_at": "2026-01-23T05:40:03.009Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 24,
+    "fields": {
+      "name": "Binoculars",
+      "category": "gear",
+      "description": "For wildlife and mountain viewing",
+      "image": "travelkit_items/lookingglass.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:41:28.601Z",
+      "updated_at": "2026-01-23T05:41:28.601Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 25,
+    "fields": {
+      "name": "First aid kit",
+      "category": "medical",
+      "description": "Bandages, antiseptic, blister care",
+      "image": "travelkit_items/firstaid.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:46:57.846Z",
+      "updated_at": "2026-01-23T05:51:24.340Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 26,
+    "fields": {
+      "name": "Painkillers",
+      "category": "medical",
+      "description": "For headaches, body pain",
+      "image": "travelkit_items/painkiller.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:51:20.657Z",
+      "updated_at": "2026-01-23T05:51:20.657Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 27,
+    "fields": {
+      "name": "Altitude sickness medicine",
+      "category": "medical",
+      "description": "For Everest, Annapurna, Dhaulagiri region",
+      "image": "travelkit_items/medicine.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:52:18.036Z",
+      "updated_at": "2026-01-23T05:52:18.036Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 28,
+    "fields": {
+      "name": "Sunscreen",
+      "category": "medical",
+      "description": "SPF 50+ for high-altitude sun exposure",
+      "image": "travelkit_items/sunscream.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:54:05.262Z",
+      "updated_at": "2026-01-23T05:54:05.262Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 29,
+    "fields": {
+      "name": "Lip balm",
+      "category": "medical",
+      "description": "Prevent chapped lips in cold weather",
+      "image": "travelkit_items/lipblam.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T05:55:51.557Z",
+      "updated_at": "2026-01-23T05:55:51.557Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 30,
+    "fields": {
+      "name": "Insect repellent",
+      "category": "medical",
+      "description": "For Chitwan, Bardia, KoshiTappu areas",
+      "image": "travelkit_items/insect.png",
+      "price": "0.00",
+      "created_at": "2026-01-23T06:01:22.080Z",
+      "updated_at": "2026-01-23T06:01:22.080Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 31,
+    "fields": {
+      "name": "Personal medication",
+      "category": "medical",
+      "description": "",
+      "image": "travelkit_items/medicationpersonal.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T06:02:09.375Z",
+      "updated_at": "2026-01-23T06:02:09.375Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 32,
+    "fields": {
+      "name": "Phone",
+      "category": "electronics",
+      "description": "Must for personal little needs",
+      "image": "travelkit_items/phone.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T06:03:01.498Z",
+      "updated_at": "2026-01-23T06:03:01.498Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 33,
+    "fields": {
+      "name": "Power bank",
+      "category": "electronics",
+      "description": "Backup battery for phones and gadgets",
+      "image": "travelkit_items/powerbank.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T06:04:14.496Z",
+      "updated_at": "2026-01-23T06:04:14.496Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 34,
+    "fields": {
+      "name": "Camera",
+      "category": "electronics",
+      "description": "For photography of mountains, lakes, and wildlife",
+      "image": "travelkit_items/camera.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T06:04:49.931Z",
+      "updated_at": "2026-01-23T06:04:49.931Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 35,
+    "fields": {
+      "name": "Chargers / cables",
+      "category": "electronics",
+      "description": "For all devices (Charging)",
+      "image": "travelkit_items/cabel.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T06:05:52.372Z",
+      "updated_at": "2026-01-23T06:05:52.372Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 36,
+    "fields": {
+      "name": "Headphones",
+      "category": "electronics",
+      "description": "Optional for travel or flights",
+      "image": "",
+      "price": "0.00",
+      "created_at": "2026-01-23T06:06:43.513Z",
+      "updated_at": "2026-01-23T06:06:43.513Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkititem",
+    "pk": 37,
+    "fields": {
+      "name": "Down Jacket",
+      "category": "clothing",
+      "description": "For critical cold weather travels",
+      "image": "travelkit_items/downjacket.jpg",
+      "price": "0.00",
+      "created_at": "2026-01-23T06:26:58.600Z",
+      "updated_at": "2026-01-23T06:26:58.600Z"
+    }
+  },
+  {
+    "model": "travelKit.travelkit",
+    "pk": 1,
+    "fields": {
+      "name": "Mountain Treks (High-Altitude)",
+      "description": "High Altitude Treks (Cold & Remote)",
+      "is_active": true,
+      "created_at": "2026-01-23T06:30:18.691Z",
+      "locations": [
+        4,
+        5,
+        6,
+        8,
+        12,
+        13,
+        14,
+        19,
+        20,
+        21,
+        32,
+        33
+      ],
+      "items": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12,
+        14,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        23,
+        25,
+        26,
+        27,
+        28,
+        29,
+        31,
+        32,
+        33,
+        34,
+        35,
+        37
+      ]
+    }
+  },
+  {
+    "model": "travelKit.travelkit",
+    "pk": 2,
+    "fields": {
+      "name": "Remote Nature Areas",
+      "description": "National Parks And nature Areas",
+      "is_active": true,
+      "created_at": "2026-01-23T06:34:23.530Z",
+      "locations": [
+        3,
+        23,
+        24,
+        25,
+        27,
+        29,
+        30,
+        31
+      ],
+      "items": [
+        3,
+        4,
+        6,
+        8,
+        9,
+        13,
+        15,
+        16,
+        21,
+        23,
+        24,
+        25,
+        26,
+        28,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ]
+    }
+  },
+  {
+    "model": "travelKit.travelkit",
+    "pk": 3,
+    "fields": {
+      "name": "Lakes  Areas",
+      "description": "Scenic Relaxation",
+      "is_active": true,
+      "created_at": "2026-01-23T06:36:20.910Z",
+      "locations": [
+        13,
+        17,
+        26,
+        28
+      ],
+      "items": [
+        3,
+        4,
+        8,
+        10,
+        13,
+        15,
+        16,
+        21,
+        23,
+        24,
+        25,
+        28,
+        31,
+        32,
+        33,
+        34
+      ]
+    }
+  },
+  {
+    "model": "travelKit.travelkit",
+    "pk": 4,
+    "fields": {
+      "name": "Short Treks",
+      "description": "Viewpoint Areas (Moderate Difficulty)",
+      "is_active": true,
+      "created_at": "2026-01-23T06:41:06.322Z",
+      "locations": [
+        12,
+        15,
+        18
+      ],
+      "items": [
+        3,
+        4,
+        5,
+        7,
+        12,
+        15,
+        16,
+        21,
+        23,
+        25,
+        28,
+        32,
+        33,
+        34
+      ]
+    }
+  },
+  {
+    "model": "travelKit.travelkit",
+    "pk": 5,
+    "fields": {
+      "name": "Cities Cultural Sites",
+      "description": "City areas and cultural visits.",
+      "is_active": true,
+      "created_at": "2026-01-23T06:43:38.783Z",
+      "locations": [
+        1,
+        2,
+        7,
+        9,
+        10,
+        11,
+        16,
+        22
+      ],
+      "items": [
+        3,
+        4,
+        5,
+        10,
+        13,
+        15,
+        16,
+        21,
+        23,
+        25,
+        28,
+        32,
+        33,
+        34,
+        35
+      ]
+    }
+  }
+]

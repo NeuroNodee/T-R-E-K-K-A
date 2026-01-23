@@ -1,14 +1,17 @@
 from django.db import models
 from django.conf import settings
 
-user = settings.AUTH_USER_MODEL
+User = settings.AUTH_USER_MODEL
+
+"""the Location, TravelKitItem and Travel kit information are to be set by admin like a predefined information"""
+
 
 class Location(models.Model):
     """
     Location model to store location information
     """
     name = models.CharField(max_length=100, db_index=True)
-    country = models.CharField(max_length=100, blank=True)
+    country = models.CharField(max_length=100, blank=True, default="Nepal")
 
     def __str__(self):
         return self.name
@@ -28,6 +31,7 @@ class TravelKitItem(models.Model):
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES) 
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='travelkit_items/', blank=True, null=True)
+    price = models.DecimalField(max_digits=8, decimal_places=2,default=0.00)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -41,7 +45,7 @@ class TravelKit(models.Model):
     """
     name = models.CharField(max_length=150, db_index=True)
     description = models.TextField()
-    price = models.DecimalField(max_digits=8, decimal_places=2)
+    
 
     locations = models.ManyToManyField(
         Location,
