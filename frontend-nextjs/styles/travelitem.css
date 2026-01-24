@@ -1,0 +1,77 @@
+.travel-item{
+    cursor: pointer;
+    width: 25vw;
+    height: 10vh;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+.travel-item.expanded {
+    height: 20vh;
+}
+.travel-item.expanded span{
+    display: block;
+}
+.travel-item .item-img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.travel-item .item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.travel-item .item-info{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+    /* backdrop-filter: blur(10px); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+.travel-item .item-info span{
+    display: none;
+}
+.travel-item.expanded .item-info span{
+    display: block;
+    text-align: center;
+}
+.travel-item.expanded .item-info h1{
+    display: none;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.pagination button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #333;
+    color: #fff;
+}
+
+
+    
+    
