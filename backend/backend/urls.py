@@ -13,4 +13,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('api/',include('chatbot.urls')),
     path('sherpa/',include('sherpa.urls')),
+    path('travelkit/',include('travelKit.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
