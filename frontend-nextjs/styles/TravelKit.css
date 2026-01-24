@@ -34,11 +34,11 @@
 }
 .travelKit-content-upper-left-top input{
     font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 10px;
-    width: 22%;
+    width: 25%;
 }
 .travelKit-content-upper-left-bottom{
     border-radius: 20px;
@@ -111,3 +111,36 @@
 .travelKit-content-middle:hover{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+.dropdown-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 20vw;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 6px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    padding: 0;
+    margin: 5px 0 0 0;
+    list-style: none;
+    border-radius: 15px;
+}
+
+.dropdown-item {
+    padding: 10px 14px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f2f2f2;
+}
+
