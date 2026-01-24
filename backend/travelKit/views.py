@@ -20,6 +20,14 @@ def getAllTravelKitItems(request):
     travel_kits = TravelKitItem.objects.all().values()
     return Response({ "message": "Success", "data": list(travel_kits) })
 
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def getAllTravelKitInfo(request):
+    """Get all travel kit info"""
+    travel_kits = TravelKit.objects.all().values()
+    return Response({ "message": "Success", "data": list(travel_kits) })
+
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def getTravelKitInfo(request):
@@ -29,3 +37,17 @@ def getTravelKitInfo(request):
         return Response({ "message": "Location is required" })
     travel_kit = TravelKit.objects.filter(locations__name=location).values()
     return Response({ "message": "Success", "data": list(travel_kit) })
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def getTravelKitItemsByLocation(request):
+    """Get specific travel kit items by location, returns list of item in nested dictionary"""
+    location = request.GET.get('location')
+    if not location:
+        return Response({ "message": "Location is required" })
+    travel_kit = TravelKit.objects.filter(locations__name=location).first()
+    if not travel_kit:
+        return Response({ "message": "Travel kit not found" })
+    travel_kit_items = travel_kit.items.values()
+    return Response({ "message": "Success", "data": list(travel_kit_items) })
+    
