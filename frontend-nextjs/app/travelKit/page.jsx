@@ -136,7 +136,7 @@ const TravelKit = ({ user_id }) => {
 
         setTimeout(() => {
             setIsLoadingItems(false);
-        }, 1000);
+        }, 500);
     };
 
     return (
@@ -206,7 +206,7 @@ const TravelKit = ({ user_id }) => {
                                                 {currentItems.map((item) => (
                                                     <TravelItem
                                                         key={item.id}
-                                                        // Image={`${API_BASE_URL}/media/${item.image}`}
+                                                        Image={`${API_BASE_URL}/media/${item.image}`}
                                                         Name={item.name}
                                                         Description={item.description}
                                                     />
