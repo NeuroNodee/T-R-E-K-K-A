@@ -141,13 +141,16 @@
 }
 .suggested-items {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     margin-top: 20px;
-    /* height: 400px;  */
     max-height: 500px;
     overflow: hidden;
+
+    justify-items: center; /* ⬅️ centers items horizontally */
+    align-items: center;   /* ⬅️ centers items vertically */
 }
+
 
 
 
