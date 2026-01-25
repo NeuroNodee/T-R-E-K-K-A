@@ -4,8 +4,10 @@ import ProfileBtn from "@/components/ProfileBtn";
 import { useEffect } from "react";
 import { useState } from "react";
 import TravelItem from "@/components/TravelItem";
+import LoadingSmall from "@/components/LoadingSmall";
 
 const TravelKit = ({ user_id }) => {
+    const [isLoadingItems, setIsLoadingItems] = useState(false);
     const [location, setLocation] = useState([]);
     const [travelKit, setTravelKit] = useState([]);
     const [travelKitItems, setTravelKitItems] = useState([]);
@@ -17,6 +19,10 @@ const TravelKit = ({ user_id }) => {
     const [travelKitItemsQuery, setTravelKitItemsQuery] = useState("");
     const [filteredTravelKitItems, setFilteredTravelKitItems] = useState([]);
     const [showTravelKitItemsDropdown, setShowTravelKitItemsDropdown] = useState(false);
+
+    // near other states
+    const [loadedImagesCount, setLoadedImagesCount] = useState(0);
+    const [expectedImages, setExpectedImages] = useState(0);
 
     const API_BASE_URL = "http://127.0.0.1:8000";
 
@@ -58,12 +64,21 @@ const TravelKit = ({ user_id }) => {
     const handleSuggestedItems = async (locationName) => {
         if (!locationName) return;
 
-        const response = await fetch(
-            `${API_BASE_URL}/travelkit/TravelKitItemsByLocation/?location=${locationName}`
-        );
-        const data = await response.json();
+        setIsLoadingItems(true);           // ← start loading
+        try {
+            const response = await fetch(
+                `${API_BASE_URL}/travelkit/TravelKitItemsByLocation/?location=${locationName}`
+            );
+            const data = await response.json();
 
-        setTravelKitItems(Array.isArray(data.data) ? data.data : []);
+            setTravelKitItems(Array.isArray(data.data) ? data.data : []);
+            setCurrentPage(1);                 // reset to page 1 when location changes
+        } catch (err) {
+            console.error("Failed to load items", err);
+            // optionally: set some error state
+        } finally {
+            setIsLoadingItems(false);          
+        }
     };
 
     const handleDestinationChange = (e) => {
@@ -115,7 +130,14 @@ const TravelKit = ({ user_id }) => {
         setTravelKitItemsQuery(item.name);
         setShowTravelKitItemsDropdown(false);
     };
+    const handlePageChange = (page) => {
+        setIsLoadingItems(true);
+        setCurrentPage(page);
 
+        setTimeout(() => {
+            setIsLoadingItems(false);
+        }, 1000);
+    };
 
     return (
         <div className='travelKit-content'>
@@ -164,7 +186,7 @@ const TravelKit = ({ user_id }) => {
                                     )}
                                 </div>
                             </div>
-                            {destinationQuery == "" || destinationQuery == null || showDropdown == true ? (/*all combinations to show item after selecting dropdown*/
+                            {destinationQuery === "" || destinationQuery == null || showDropdown ? (
                                 <div className="travelKit-content-upper-left-bottom">
                                     <h2>Suggested Items</h2>
                                     <div className="default-search-item">
@@ -175,29 +197,38 @@ const TravelKit = ({ user_id }) => {
                             ) : (
                                 <div className="travelKit-content-upper-left-bottom">
                                     <h2>Suggested Items</h2>
-                                    <div className="suggested-items">
-                                        {currentItems.map((item) => (
-                                            <TravelItem
-                                                key={item.id}
-                                                Image={`${API_BASE_URL}/media/${item.image}`}
-                                                Name={item.name}
-                                                Description={item.description}
-                                            />
-                                        ))}
-                                    </div>
 
-                                    <div className="pagination">
-                                        {Array.from({ length: totalPages }, (_, i) => (
-                                            <button
-                                                key={i}
-                                                onClick={() => setCurrentPage(i + 1)}
-                                                className={currentPage === i + 1 ? "active" : ""}
-                                            >
-                                                {i + 1}
-                                            </button>
-                                        ))}
-                                    </div>
+                                    {isLoadingItems ? (
+                                        <LoadingSmall />
+                                    ) : (
+                                        <>
+                                            <div className="suggested-items">
+                                                {currentItems.map((item) => (
+                                                    <TravelItem
+                                                        key={item.id}
+                                                        // Image={`${API_BASE_URL}/media/${item.image}`}
+                                                        Name={item.name}
+                                                        Description={item.description}
+                                                    />
+                                                ))}
+                                            </div>
 
+                                            {totalPages > 1 && (
+                                                <div className="pagination">
+                                                    {Array.from({ length: totalPages }, (_, i) => (
+                                                        <button
+                                                            key={i}
+                                                            onClick={() => handlePageChange(i + 1)}
+                                                            className={currentPage === i + 1 ? "active" : ""}
+                                                            disabled={isLoadingItems}
+                                                        >
+                                                            {i + 1}
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </>
+                                    )}
                                 </div>
                             )}
                         </div>

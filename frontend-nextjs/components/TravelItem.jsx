@@ -18,7 +18,7 @@ const TravelItem = memo(({ Image, Name, Description }) => {
       }}
     >
       <div className="item-img">
-        <img src={Image} alt="" loading="lazy" width={320} height={180} decoding="async"/>
+        {/* <img src={Image} alt="" loading="lazy" width={320} height={180} decoding="async"/> */}
       </div>
 
       <div className="item-info">

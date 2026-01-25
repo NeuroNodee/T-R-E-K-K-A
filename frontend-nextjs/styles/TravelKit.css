@@ -46,6 +46,7 @@
     width: 25%;
 }
 .travelKit-content-upper-left-bottom{
+    position: relative;
     border-radius: 20px;
     border-left: 1px solid #000000;
     min-height: 350px;
