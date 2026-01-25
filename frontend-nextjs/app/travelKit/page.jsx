@@ -3,8 +3,11 @@ import Notify from "@/components/Notify";
 import ProfileBtn from "@/components/ProfileBtn";
 import { useEffect } from "react";
 import { useState } from "react";
+import TravelItem from "@/components/TravelItem";
+import LoadingSmall from "@/components/LoadingSmall";
 
 const TravelKit = ({ user_id }) => {
+    const [isLoadingItems, setIsLoadingItems] = useState(false);
     const [location, setLocation] = useState([]);
     const [travelKit, setTravelKit] = useState([]);
     const [travelKitItems, setTravelKitItems] = useState([]);
@@ -17,24 +20,38 @@ const TravelKit = ({ user_id }) => {
     const [filteredTravelKitItems, setFilteredTravelKitItems] = useState([]);
     const [showTravelKitItemsDropdown, setShowTravelKitItemsDropdown] = useState(false);
 
+    // near other states
+    const [loadedImagesCount, setLoadedImagesCount] = useState(0);
+    const [expectedImages, setExpectedImages] = useState(0);
+
+    const API_BASE_URL = "http://127.0.0.1:8000";
+
+    const ITEMS_PER_PAGE = 6;
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const totalPages = Math.ceil(travelKitItems.length / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const currentItems = travelKitItems.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+
     useEffect(() => {
         const getAllLocation = async () => {
             //get all location
-            const response = await fetch("http://127.0.0.1:8000/travelkit/AllLocation/");
+            const response = await fetch(`${API_BASE_URL}/travelkit/AllLocation/`);
             const data = await response.json();
             setLocation(data.data);
             console.log("Location", data.data);
         }
         const getAllTravelKits = async () => {
             //get all travel kits(Set)
-            const response = await fetch("http://127.0.0.1:8000/travelkit/AllTravelKitInfo/");
+            const response = await fetch(`${API_BASE_URL}/travelkit/AllTravelKitInfo/`);
             const data = await response.json();
             setTravelKit(data.data);
             console.log("TravelKit", data.data);
         }
         const getAllTravelKitsItems = async () => {
             //get all travel kits items
-            const response = await fetch("http://127.0.0.1:8000/travelkit/AllTravelKitItems/");
+            const response = await fetch(`${API_BASE_URL}/travelkit/AllTravelKitItems/`);
             const data = await response.json();
             setTravelKitItems(data.data);
             console.log("TravelKitItems", data.data);
@@ -43,6 +60,26 @@ const TravelKit = ({ user_id }) => {
         getAllTravelKits();
         getAllTravelKitsItems();
     }, []);
+
+    const handleSuggestedItems = async (locationName) => {
+        if (!locationName) return;
+
+        setIsLoadingItems(true);           // ← start loading
+        try {
+            const response = await fetch(
+                `${API_BASE_URL}/travelkit/TravelKitItemsByLocation/?location=${locationName}`
+            );
+            const data = await response.json();
+
+            setTravelKitItems(Array.isArray(data.data) ? data.data : []);
+            setCurrentPage(1);                 // reset to page 1 when location changes
+        } catch (err) {
+            console.error("Failed to load items", err);
+            // optionally: set some error state
+        } finally {
+            setIsLoadingItems(false);          
+        }
+    };
 
     const handleDestinationChange = (e) => {
         //handle destination change
@@ -86,13 +123,21 @@ const TravelKit = ({ user_id }) => {
         //handle select location
         setDestinationQuery(loc.name);
         setShowDropdown(false);
+        handleSuggestedItems(loc.name);
     };
     const handleSelectTravelKitItems = (item) => {
         //handle select travel kit items
         setTravelKitItemsQuery(item.name);
         setShowTravelKitItemsDropdown(false);
     };
+    const handlePageChange = (page) => {
+        setIsLoadingItems(true);
+        setCurrentPage(page);
 
+        setTimeout(() => {
+            setIsLoadingItems(false);
+        }, 1000);
+    };
 
     return (
         <div className='travelKit-content'>
@@ -116,11 +161,6 @@ const TravelKit = ({ user_id }) => {
                         <div className="travelKit-content-upper-left">
                             <div className="travelKit-content-upper-left-top">
                                 <h2>Search Destinations</h2>
-                                {/* <input
-                                    type="text"
-                                    placeholder="Preferred Destination"
-                                    className="search-input"
-                                /> */}
                                 <div className="dropdown-wrapper">
                                     <input
                                         type="text"
@@ -146,13 +186,51 @@ const TravelKit = ({ user_id }) => {
                                     )}
                                 </div>
                             </div>
-                            <div className="travelKit-content-upper-left-bottom">
-                                <h2>Suggested Items</h2>
-                                <div className="default-search-item">
-                                    <img src="./default-Search.png" alt="Search result" />
-                                    <h3>Search for item recommendations</h3>
+                            {destinationQuery === "" || destinationQuery == null || showDropdown ? (
+                                <div className="travelKit-content-upper-left-bottom">
+                                    <h2>Suggested Items</h2>
+                                    <div className="default-search-item">
+                                        <img src="./default-Search.png" alt="Search result" />
+                                        <h3>Search for item recommendations</h3>
+                                    </div>
                                 </div>
-                            </div>
+                            ) : (
+                                <div className="travelKit-content-upper-left-bottom">
+                                    <h2>Suggested Items</h2>
+
+                                    {isLoadingItems ? (
+                                        <LoadingSmall />
+                                    ) : (
+                                        <>
+                                            <div className="suggested-items">
+                                                {currentItems.map((item) => (
+                                                    <TravelItem
+                                                        key={item.id}
+                                                        // Image={`${API_BASE_URL}/media/${item.image}`}
+                                                        Name={item.name}
+                                                        Description={item.description}
+                                                    />
+                                                ))}
+                                            </div>
+
+                                            {totalPages > 1 && (
+                                                <div className="pagination">
+                                                    {Array.from({ length: totalPages }, (_, i) => (
+                                                        <button
+                                                            key={i}
+                                                            onClick={() => handlePageChange(i + 1)}
+                                                            className={currentPage === i + 1 ? "active" : ""}
+                                                            disabled={isLoadingItems}
+                                                        >
+                                                            {i + 1}
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
+                            )}
                         </div>
                         <div className="travelKit-content-upper-right">
                             <div className="favSection">
@@ -167,11 +245,6 @@ const TravelKit = ({ user_id }) => {
                     </div>
                     <div className="travelKit-content-middle">
                         <h2>Extra Items</h2>
-                        {/* <input
-                            type="text"
-                            placeholder="Search......"
-                            className="search-input"
-                        /> */}
                         <div className="dropdown-wrapper">
                             <input
                                 type="text"

@@ -17,6 +17,7 @@ import "./../styles/sherpa.css"
 import "./../styles/chat.css"
 import "./../styles/place.css"
 import "./../styles/LoadingSmall.css"
+import "./../styles/travelitem.css"
 
 import PageTransition from "@/components/PageTransition";
 
