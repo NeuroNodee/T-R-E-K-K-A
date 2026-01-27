@@ -10,13 +10,16 @@ const TravelKit = ({ user_id }) => {
     const [isLoadingItems, setIsLoadingItems] = useState(false);
     const [location, setLocation] = useState([]);
     const [travelKit, setTravelKit] = useState([]);
-    const [travelKitItems, setTravelKitItems] = useState([]);
+    const [allTravelKitItems, setAllTravelKitItems] = useState([]);
+
+    const [travelKitItems, setTravelKitItems] = useState([]);// yo chai used for suggested kit items
+    const [extraTravelKitItems, setExtraTravelKitItems] = useState([]);// yo chai used for extra kit items
     //for location search base dropdown
     const [destinationQuery, setDestinationQuery] = useState("");
     const [filteredLocations, setFilteredLocations] = useState([]);
     const [showDropdown, setShowDropdown] = useState(false);
     //for travel kit items search base dropdown
-    const [travelKitItemsQuery, setTravelKitItemsQuery] = useState("");
+    const [extraTravelKitItemsQuery, setExtraTravelKitItemsQuery] = useState("");
     const [filteredTravelKitItems, setFilteredTravelKitItems] = useState([]);
     const [showTravelKitItemsDropdown, setShowTravelKitItemsDropdown] = useState(false);
 
@@ -47,6 +50,7 @@ const TravelKit = ({ user_id }) => {
             const response = await fetch(`${API_BASE_URL}/travelkit/AllTravelKitInfo/`);
             const data = await response.json();
             setTravelKit(data.data);
+
             console.log("TravelKit", data.data);
         }
         const getAllTravelKitsItems = async () => {
@@ -54,6 +58,7 @@ const TravelKit = ({ user_id }) => {
             const response = await fetch(`${API_BASE_URL}/travelkit/AllTravelKitItems/`);
             const data = await response.json();
             setTravelKitItems(data.data);
+            setAllTravelKitItems(data.data);
             console.log("TravelKitItems", data.data);
         }
         getAllLocation();
@@ -64,7 +69,7 @@ const TravelKit = ({ user_id }) => {
     const handleSuggestedItems = async (locationName) => {
         if (!locationName) return;
 
-        setIsLoadingItems(true);           // ← start loading
+        setIsLoadingItems(true);
         try {
             const response = await fetch(
                 `${API_BASE_URL}/travelkit/TravelKitItemsByLocation/?location=${locationName}`
@@ -72,13 +77,30 @@ const TravelKit = ({ user_id }) => {
             const data = await response.json();
 
             setTravelKitItems(Array.isArray(data.data) ? data.data : []);
-            setCurrentPage(1);                 // reset to page 1 when location changes
+            setCurrentPage(1);
         } catch (err) {
             console.error("Failed to load items", err);
-            // optionally: set some error state
         } finally {
-            setIsLoadingItems(false);          
+            setIsLoadingItems(false);
         }
+    };
+    const handleExtraItems = async (item) => {
+        //handle extra items
+        if (!item) return;
+        setIsLoadingItems(true);
+        try {
+            const response = await fetch(
+                `${API_BASE_URL}/travelkit/TravelKitItemsByName/?name=${item}`
+            );
+            const data = await response.json();
+
+            setExtraTravelKitItems(Array.isArray(data.data) ? data.data : []);
+        } catch (err) {
+            console.error("Failed to load items", err);
+        } finally {
+            setIsLoadingItems(false);
+        }
+
     };
 
     const handleDestinationChange = (e) => {
@@ -103,7 +125,7 @@ const TravelKit = ({ user_id }) => {
     const handleTravelKitItemsChange = (e) => {
         //handle travel kit items change
         const value = e.target.value;
-        setTravelKitItemsQuery(value);
+        setExtraTravelKitItemsQuery(value);
 
         if (value.trim() === "") {
             setFilteredTravelKitItems([]);
@@ -127,9 +149,11 @@ const TravelKit = ({ user_id }) => {
     };
     const handleSelectTravelKitItems = (item) => {
         //handle select travel kit items
-        setTravelKitItemsQuery(item.name);
+        setExtraTravelKitItemsQuery(item.name);
         setShowTravelKitItemsDropdown(false);
+        handleExtraItems(item.name);
     };
+
     const handlePageChange = (page) => {
         setIsLoadingItems(true);
         setCurrentPage(page);
@@ -250,9 +274,9 @@ const TravelKit = ({ user_id }) => {
                                 type="text"
                                 placeholder="Search......"
                                 className="search-input"
-                                value={travelKitItemsQuery}
+                                value={extraTravelKitItemsQuery}
                                 onChange={handleTravelKitItemsChange}
-                                onFocus={() => travelKitItemsQuery && setShowTravelKitItemsDropdown(true)}
+                                onFocus={() => extraTravelKitItemsQuery && setShowTravelKitItemsDropdown(true)}
                             />
 
                             {showTravelKitItemsDropdown && filteredTravelKitItems.length > 0 && (
@@ -269,10 +293,24 @@ const TravelKit = ({ user_id }) => {
                                 </ul>
                             )}
                         </div>
-                        <div className="default-search-item">
-                            <img src="./default-search-1.svg" alt="Search result" />
-                            <h3>Search for items</h3>
-                        </div>
+                        {extraTravelKitItemsQuery === "" || extraTravelKitItemsQuery == null || showTravelKitItemsDropdown ? (
+                            <div className="default-search-item">
+                                <img src="./default-search-1.svg" alt="Search result" />
+                                <h3>Search for items</h3>
+                            </div>
+                        ) : (
+                            <div className="suggested-items">
+                                {extraTravelKitItems.map((item) => (
+                                    <TravelItem
+                                        key={item.id}
+                                        Image={`${API_BASE_URL}/media/${item.image}`}
+                                        Name={item.name}
+                                        Description={item.description}
+                                    />
+                                ))}
+                            </div>
+                        )}
+
                     </div>
                     <div className="travelKit-content-lower">
                         <h2>Saved travel items set</h2>

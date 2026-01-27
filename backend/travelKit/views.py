@@ -50,4 +50,34 @@ def getTravelKitItemsByLocation(request):
         return Response({ "message": "Travel kit not found" })
     travel_kit_items = travel_kit.items.values()
     return Response({ "message": "Success", "data": list(travel_kit_items) })
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def getTravelKitItemsByName(request):
+    name = request.GET.get('name')
+
+    if not name:
+        return Response(
+            {"message": "Name is required"},
+            status=400
+        )
+
+    travel_kit_items = TravelKitItem.objects.filter(
+        name__icontains=name
+    )
+
+    if not travel_kit_items.exists():
+        return Response(
+            {"message": "Travel kit item not found"},
+            status=404
+        )
+
+    return Response(
+        {
+            "message": "Success",
+            "data": travel_kit_items.values()
+        },
+        status=200
+    )
+
     
