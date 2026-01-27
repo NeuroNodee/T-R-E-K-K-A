@@ -25,6 +25,13 @@ const ProfileBtn = () => {
     router.push("/login");    // redirect user
   };
 
+  const getInitials = () => {
+    if (!user) return "";
+    const firstNameInitial = user.first_name?.[0] || "";
+    const lastNameInitial = user.last_name?.[0] || "";
+    return (firstNameInitial + lastNameInitial).toUpperCase();
+  };
+
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
 
@@ -57,7 +64,13 @@ const ProfileBtn = () => {
         </div>
 
         <div className="profileImg">
-          <img src="/me.webp" alt="Profile" />
+          {user?.profile_picture ? (
+            <img src={user.profile_picture} alt="Profile" />
+          ) : (
+            <div className="profile-initials">
+              {getInitials()}
+            </div>
+          )}
         </div>
       </button>
 
