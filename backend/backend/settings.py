@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'chatbot',
     'sherpa',
     'travelKit',
+    'photo_gallery',
     
     # Third party apps
     'rest_framework',
