@@ -67,6 +67,7 @@
     color: #747373;
 }
 .travelKit-content-middle{
+    position: relative;
     margin-bottom: 50px;
     padding: 20px;
     border-left: 1px solid #000000;
