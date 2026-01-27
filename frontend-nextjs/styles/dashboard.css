@@ -421,7 +421,9 @@
     background-size: cover;
     background-position: center;
 }
-
+.weather_default input {
+    color: #000000!important;
+}
 @media (min-width: 1600px) {
     .journey-card,
     .travel-stat-card,
