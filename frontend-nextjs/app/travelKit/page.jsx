@@ -7,7 +7,9 @@ import TravelItem from "@/components/TravelItem";
 import LoadingSmall from "@/components/LoadingSmall";
 
 const TravelKit = ({ user_id }) => {
-    const [isLoadingItems, setIsLoadingItems] = useState(false);
+    const [isLoadingSuggested, setIsLoadingSuggested] = useState(false);
+    const [isLoadingExtra, setIsLoadingExtra] = useState(false);
+
     const [location, setLocation] = useState([]);
     const [travelKit, setTravelKit] = useState([]);
     const [allTravelKitItems, setAllTravelKitItems] = useState([]);
@@ -69,7 +71,7 @@ const TravelKit = ({ user_id }) => {
     const handleSuggestedItems = async (locationName) => {
         if (!locationName) return;
 
-        setIsLoadingItems(true);
+        setIsLoadingSuggested(true);
         try {
             const response = await fetch(
                 `${API_BASE_URL}/travelkit/TravelKitItemsByLocation/?location=${locationName}`
@@ -81,13 +83,13 @@ const TravelKit = ({ user_id }) => {
         } catch (err) {
             console.error("Failed to load items", err);
         } finally {
-            setIsLoadingItems(false);
+            setIsLoadingSuggested(false);
         }
     };
     const handleExtraItems = async (item) => {
         //handle extra items
         if (!item) return;
-        setIsLoadingItems(true);
+        setIsLoadingExtra(true);
         try {
             const response = await fetch(
                 `${API_BASE_URL}/travelkit/TravelKitItemsByName/?name=${item}`
@@ -98,7 +100,7 @@ const TravelKit = ({ user_id }) => {
         } catch (err) {
             console.error("Failed to load items", err);
         } finally {
-            setIsLoadingItems(false);
+            setIsLoadingExtra(false);
         }
 
     };
@@ -133,7 +135,7 @@ const TravelKit = ({ user_id }) => {
             return;
         }
 
-        const filtered = travelKitItems.filter((item) =>
+        const filtered = allTravelKitItems.filter((item) =>
             item.name.toLowerCase().includes(value.toLowerCase())
         );
 
@@ -155,11 +157,11 @@ const TravelKit = ({ user_id }) => {
     };
 
     const handlePageChange = (page) => {
-        setIsLoadingItems(true);
+        setIsLoadingSuggested(true);
         setCurrentPage(page);
 
         setTimeout(() => {
-            setIsLoadingItems(false);
+            setIsLoadingSuggested(false);
         }, 500);
     };
 
@@ -222,7 +224,7 @@ const TravelKit = ({ user_id }) => {
                                 <div className="travelKit-content-upper-left-bottom">
                                     <h2>Suggested Items</h2>
 
-                                    {isLoadingItems ? (
+                                    {isLoadingSuggested ? (
                                         <LoadingSmall />
                                     ) : (
                                         <>
@@ -244,7 +246,7 @@ const TravelKit = ({ user_id }) => {
                                                             key={i}
                                                             onClick={() => handlePageChange(i + 1)}
                                                             className={currentPage === i + 1 ? "active" : ""}
-                                                            disabled={isLoadingItems}
+                                                            disabled={isLoadingSuggested}
                                                         >
                                                             {i + 1}
                                                         </button>
@@ -298,6 +300,12 @@ const TravelKit = ({ user_id }) => {
                                 <img src="./default-search-1.svg" alt="Search result" />
                                 <h3>Search for items</h3>
                             </div>
+                        ) : isLoadingExtra ? (
+                            <LoadingSmall />
+                        ) : extraTravelKitItems.length === 0 ? (
+                            <div className="default-search-item">
+                                <h3>No items found</h3>
+                            </div>
                         ) : (
                             <div className="suggested-items">
                                 {extraTravelKitItems.map((item) => (
@@ -310,6 +318,7 @@ const TravelKit = ({ user_id }) => {
                                 ))}
                             </div>
                         )}
+
 
                     </div>
                     <div className="travelKit-content-lower">
