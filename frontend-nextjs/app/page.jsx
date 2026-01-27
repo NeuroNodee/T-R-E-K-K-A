@@ -8,8 +8,8 @@ import Link from "next/link";
 
 export default function Home() {
   const backgrounds = [
-    "/home1.png",
     "/home2.png",
+    "/home1.png",
   ];
   const texts = [
     "Nepal",

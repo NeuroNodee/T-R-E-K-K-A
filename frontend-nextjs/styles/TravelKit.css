@@ -85,6 +85,9 @@
     width: 20%;
     background-color: #e9e6e6;
 }
+.travelKit-content-middle .dropdown{
+    width: 20%;
+}
 .travelKit-content-middle h2{
     font-size: 20px;
     margin-bottom: 10px;
@@ -139,6 +142,12 @@
     margin: 5px 0 0 0;
     list-style: none;
     border-radius: 15px;
+}
+.travelKit-content-middle .suggested-items{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 .suggested-items {
     display: grid;
