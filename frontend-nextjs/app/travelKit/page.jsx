@@ -9,11 +9,12 @@ import LoadingSmall from "@/components/LoadingSmall";
 const TravelKit = ({ user_id }) => {
     const [isLoadingSuggested, setIsLoadingSuggested] = useState(false);
     const [isLoadingExtra, setIsLoadingExtra] = useState(false);
+    const [travelKit, setTravelKit] = useState([]);
 
     const [location, setLocation] = useState([]);
-    const [travelKit, setTravelKit] = useState([]);
     const [allTravelKitItems, setAllTravelKitItems] = useState([]);
 
+    const [kits, setKits] = useState([]);
     const [travelKitItems, setTravelKitItems] = useState([]);// yo chai used for suggested kit items
     const [extraTravelKitItems, setExtraTravelKitItems] = useState([]);// yo chai used for extra kit items
     //for location search base dropdown
@@ -26,8 +27,8 @@ const TravelKit = ({ user_id }) => {
     const [showTravelKitItemsDropdown, setShowTravelKitItemsDropdown] = useState(false);
 
     // near other states
-    const [loadedImagesCount, setLoadedImagesCount] = useState(0);
-    const [expectedImages, setExpectedImages] = useState(0);
+    const [selectedItems, setSelectedItems] = useState([]);
+
 
     const API_BASE_URL = "http://127.0.0.1:8000";
 
@@ -67,6 +68,19 @@ const TravelKit = ({ user_id }) => {
         getAllTravelKits();
         getAllTravelKitsItems();
     }, []);
+    const handleToggleItem = (item) => {
+        setSelectedItems((prev) => {
+            const exists = prev.find((i) => i.id === item.id);
+
+            if (exists) {
+                // remove
+                return prev.filter((i) => i.id !== item.id);
+            } else {
+                // add
+                return [...prev, item];
+            }
+        });
+    };
 
     const handleSuggestedItems = async (locationName) => {
         if (!locationName) return;
@@ -145,6 +159,7 @@ const TravelKit = ({ user_id }) => {
 
     const handleSelectLocation = (loc) => {
         //handle select location
+        setSelectedItems([]);
         setDestinationQuery(loc.name);
         setShowDropdown(false);
         handleSuggestedItems(loc.name);
@@ -164,6 +179,23 @@ const TravelKit = ({ user_id }) => {
             setIsLoadingSuggested(false);
         }, 500);
     };
+    const handleConfirmKit = () => {
+        if (!destinationQuery || selectedItems.length === 0) return;
+
+        const newKit = {
+            id: `${destinationQuery}-${Date.now()}`,
+            location: destinationQuery,
+            items: selectedItems,
+        };
+
+        setKits(prev => [...prev, newKit]);
+
+        // reset for next kit
+        setSelectedItems([]);
+        setDestinationQuery("");
+        setTravelKitItems([]);
+    };
+
 
     return (
         <div className='travelKit-content'>
@@ -187,32 +219,55 @@ const TravelKit = ({ user_id }) => {
                         <div className="travelKit-content-upper-left">
                             <div className="travelKit-content-upper-left-top">
                                 <h2>Search Destinations</h2>
-                                <div className="dropdown-wrapper">
-                                    <input
-                                        type="text"
-                                        placeholder="Preferred Destination"
-                                        className="search-input"
-                                        value={destinationQuery}
-                                        onChange={handleDestinationChange}
-                                        onFocus={() => destinationQuery && setShowDropdown(true)}
-                                    />
+                                <span>Can select from favorites too.</span>
+                                <div className="location-search">
+                                    <div className="content1-travelkit">
+                                        <div className="dropdown-wrapper">
+                                            <input
+                                                type="text"
+                                                placeholder="Search....."
+                                                className="search-input"
+                                                value={destinationQuery}
+                                                onChange={handleDestinationChange}
+                                                onFocus={() => destinationQuery && setShowDropdown(true)}
+                                            />
 
-                                    {showDropdown && filteredLocations.length > 0 && (
-                                        <ul className="dropdown">
-                                            {filteredLocations.map((loc) => (
-                                                <li
-                                                    key={loc.id}
-                                                    onClick={() => handleSelectLocation(loc)}
-                                                    className="dropdown-item"
-                                                >
-                                                    <button>{loc.name}</button>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
+                                            {showDropdown && filteredLocations.length > 0 && (
+                                                <ul className="dropdown">
+                                                    {filteredLocations.map((loc) => (
+                                                        <li
+                                                            key={loc.id}
+                                                            onClick={() => handleSelectLocation(loc)}
+                                                            className="dropdown-item"
+                                                        >
+                                                            <button>{loc.name}</button>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
+
+                                        </div>
+
+                                    </div>
+                                    <div className="content2-travelkit">
+                                        {selectedItems.length > 0 && destinationQuery && (
+                                            <div className="kit-actions">
+                                                <button className="learn-more" onClick={handleConfirmKit}>
+                                                    <span className="circle" aria-hidden="true">
+                                                        <span className="icon arrow"></span>
+                                                    </span>
+                                                    <span className="button-text">Save Kit ?</span>
+                                                </button>
+
+                                            </div>
+
+                                        )}
+                                    </div>
+
                                 </div>
                             </div>
-                            {destinationQuery === "" || destinationQuery == null || showDropdown ? (
+
+                            {destinationQuery === "" || destinationQuery == null ? (
                                 <div className="travelKit-content-upper-left-bottom">
                                     <h2>Suggested Items</h2>
                                     <div className="default-search-item">
@@ -232,9 +287,12 @@ const TravelKit = ({ user_id }) => {
                                                 {currentItems.map((item) => (
                                                     <TravelItem
                                                         key={item.id}
+                                                        item={item}
                                                         Image={`${API_BASE_URL}/media/${item.image}`}
                                                         Name={item.name}
                                                         Description={item.description}
+                                                        isSelected={selectedItems.some(i => i.id === item.id)}
+                                                        onToggle={handleToggleItem}
                                                     />
                                                 ))}
                                             </div>
@@ -295,11 +353,30 @@ const TravelKit = ({ user_id }) => {
                                 </ul>
                             )}
                         </div>
-                        {extraTravelKitItemsQuery === "" || extraTravelKitItemsQuery == null || showTravelKitItemsDropdown ? (
-                            <div className="default-search-item">
-                                <img src="./default-search-1.svg" alt="Search result" />
-                                <h3>Search for items</h3>
+                        {extraTravelKitItemsQuery === "" || extraTravelKitItemsQuery == null ? (
+                            <div className="default">
+                                {allTravelKitItems && allTravelKitItems.length === 0 ? (
+                                    <div className="default-search-item">
+                                        <img src="./default-search-1.svg" alt="Search result" />
+                                        <h3>Search for items</h3>
+                                    </div>
+                                ) : (
+                                    <div className="default-extra-item">
+                                        {allTravelKitItems.slice(0, 6).map((item) => (
+                                            <TravelItem
+                                                key={item.id}
+                                                item={item}
+                                                Image={`${API_BASE_URL}/media/${item.image}`}
+                                                Name={item.name}
+                                                Description={item.description}
+                                                isSelected={selectedItems.some(i => i.id === item.id)}
+                                                onToggle={handleToggleItem}
+                                            />
+                                        ))}
+                                    </div>
+                                )}
                             </div>
+
                         ) : isLoadingExtra ? (
                             <LoadingSmall />
                         ) : extraTravelKitItems.length === 0 ? (
@@ -311,9 +388,12 @@ const TravelKit = ({ user_id }) => {
                                 {extraTravelKitItems.map((item) => (
                                     <TravelItem
                                         key={item.id}
+                                        item={item}
                                         Image={`${API_BASE_URL}/media/${item.image}`}
                                         Name={item.name}
                                         Description={item.description}
+                                        isSelected={selectedItems.some(i => i.id === item.id)}
+                                        onToggle={handleToggleItem}
                                     />
                                 ))}
                             </div>
@@ -324,13 +404,10 @@ const TravelKit = ({ user_id }) => {
                     <div className="travelKit-content-lower">
                         <h2>Saved travel items set</h2>
                         <ul className="saved-items">
-                            <li>.</li>
-                            <li>.</li>
-                            <li>.</li>
-                            <li>.</li>
-                            <li>.</li>
+                            <li>No Travel Kit Created</li>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </div>

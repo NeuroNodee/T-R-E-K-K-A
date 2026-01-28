@@ -130,6 +130,7 @@
 }
 .notify1:hover,
 .notify2:hover{
+  cursor: pointer;
   border-left: #000 2px solid;
 
   padding-left: 5px;
