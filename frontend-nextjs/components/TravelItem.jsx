@@ -1,13 +1,14 @@
 "use client";
-import { useState, memo } from "react";
+import { memo, useState } from "react";
 
-const TravelItem = memo(({ Image, Name, Description }) => {
+const TravelItem = memo(({ Image, Name, Description, item, isSelected, onToggle }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isSelected, setIsSelected] = useState(false);
+
   const handleClick = () => {
     setIsExpanded(!isExpanded);
-    setIsSelected(!isSelected);
+    onToggle(item);
   };
+
   const handleKeyboard = (e) => {
     if (e.key === "Enter" || e.key === " ") {
       handleClick();
@@ -23,7 +24,7 @@ const TravelItem = memo(({ Image, Name, Description }) => {
       onKeyDown={handleKeyboard}
     >
       <div className="item-img">
-        <img src={Image} alt={Name} loading="lazy" width={320} height="180" />
+        <img src={Image} alt={Name} loading="lazy" />
       </div>
 
       <div className="item-info">

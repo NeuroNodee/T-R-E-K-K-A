@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'dj_rest_auth',
-    'django.contrib.sites',  # Required for allauth
+    'django.contrib.sites',  
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
